@@ -6,7 +6,7 @@
 2.	Save signups spreadsheet as tsv
 5.	Customize config file as per instructions in next section
 6.	Run generateexams.py (it looks for a command-line argument with the name of the config file, but if it doesn't find one will ask you for input). This creates .tex files.
-7.	Open generated .tex sources and compile into pdfs using your favourite LaTeX editor (or you could uncomment the pdf generation lines in the python script, but be aware that these don't handle compilation errors at all gracefully and you could end up with both latex and python processes hanging). Note that you have to use the XeTeX engine in order for IPA fonts to work correctly.
+7.	Open generated .tex sources and compile into pdfs using your favourite LaTeX editor (or you could uncomment the pdf generation lines in the python script, but be aware that these don't handle compilation errors at all gracefully and you could end up with both latex and python processes hanging). Note that you have to use the XeLaTeX engine in order for IPA fonts to work correctly.
 
 ### Config file formatting:
 * Can be named whatever you like.
@@ -53,7 +53,6 @@ random seed: whateveryoulike could have spaces
 ### Question subtypes:
 * There is a column in the questions spreadsheet called QuestionType. If a value is entered in this column (e.g. "UR" or "signlanguage"), then no student will get more than one of that question type.
 * *** Note! I have combined the signlanguage column with the subtype column. Hopefully that doesn't cause any problems.
-
 
 ### Image sizes:
 * If images are to be placed horizontally next to each other (as per ImageArrangement column in spreadsheet), they will be auto-scaled so that each takes up half the page.
