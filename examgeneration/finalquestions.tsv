@@ -1,0 +1,919 @@
+Topic	Difficulty	Source	QuestionType	Instructions_latex	Data1_latex	Data2_latex	Image1	Image1Caption	Image2	Image2Caption	ImageArrangement	Notes	Omit?	Instructor_comments															
+Acoustics	hard	"Quiz 6, Question 1"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_shoe.png							shoe: fricative noise at mid-frequency; no voice bar; vowel formants that suggest low F1 (high V) and low F2 (back V)															
+Acoustics	hard	"Quiz 6, Question 2"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_hippo.png							hippo: stop in middle indicated by silence / white space; vowels on either side; V1 has low F1 and high F2 (=high front V) and V2 has higher F1 and lower F2 (=mid to low backer vowel)															
+Acoustics	hard	"Day 8 Handout, Question 3"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_aaah.png							aaah: just a vowel; formants are very steady; F1 and F2 are pretty close to each other; F1 somewhat high and F2 somewhat low															
+Acoustics	hard	"Day 8 Handout, Question 3"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_you.png							"you: clear formants, but starts with something like a glide because fainter; diphthong or changing values; F1 pretty constantly low (=high V); F2 starts high and goes low (=front to back)"															
+Acoustics	hard	"Day 8 Handout, Question 3"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_I.png							"I: clear formants; all dark, so just a vowel; changes so a diphthong; F1 pretty high and then falls a bit (=starts as low V and goes higher); F2 starts pretty low and then goes up (=starts as back V and goes fronter)"															
+Acoustics	hard	"Day 8 Handout, Question 3"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_oh.png							"oh: just a vowel; clear formants; pretty steady with a slight downward trend of both; F1 is pretty close to F2, which means F2 is pretty low (=back V), and F1 isn't super low (=mid to low vowel)"															
+Acoustics	hard	"Day 8 Handout, Question 3"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_we.png							"we: starts paler, then darker, so glide plus vowel; F1 pretty constantly low (=high V); F2 starts very low and then swoops up (=starts back and goes front)"															
+Acoustics	hard	"Day 8 Handout, Question 6"		Explain what you see in the spectrogram that tells you about the properties of the sounds in the pictured word.			spectrogram_suit.png							suit: starts with fricative noise; then some kind of vowel; then a stop with a release burst; fricative is voiceless (no voice bar); fricative likely [s] because high-energy; vowel has low F1 (=high V) but then hard to see F2; stop is also voiceless															
+Acoustics	easy	"Day 8 Handout, Question 1"		Explain what (if anything) the letter below represents on this waveform.	A		sinusoid.png							wavelength or period															
+Acoustics	easy	"Day 8 Handout, Question 1"		Explain what (if anything) the letter below represents on this waveform.	B		sinusoid.png							nothing (twice amplitude)															
+Acoustics	easy	"Day 8 Handout, Question 1"		Explain what (if anything) the letter below represents on this waveform.	C		sinusoid.png							nothing (half wavelength or half period)															
+Acoustics	easy	"Day 8 Handout, Question 1"		Explain what (if anything) the letter below represents on this waveform.	D		sinusoid.png							amplitude															
+Acoustics	easy	"Day 8 Handout, Question 1"		Explain what (if anything) the letter below represents on this waveform.	E		sinusoid.png							nothing (half wavelength or half period)															
+Acoustics	hard	Day 8 Discussion		Briefly explain source-filter theory.										"The vocal folds vibrate, setting the air coming from the lungs into motion -- this is the ""source"" sound wave, which is a complex wave, with energy at multiple different frequencies – the fundamental and its harmonics, i.e., its multiples. Then the oral and nasal cavities act as a ""filter"" to dampen (remove energy from) some of the frequencies of the sound and enhance others (the resonant frequencies). Depending on the shape of the mouth, different frequencies will resonate and so we get different formant values and hence different vowel qualities."															
+Acoustics	medium	"Day 8 Handout, Question 4"		Explain how each component of the description below gives you information about the sound being described.	"This consonant is characterized by having the adjacent second and third formants “pinched” together; that is, F3 moves down and F2 moves up if you go from a vowel into this consonant. There is often a clear voice bar, but there’s no evidence of formants in the consonant itself. In fact, there’s not much energy during the consonant at all."									"[?]; check for voicing, place, and manner"															
+Acoustics	medium	"Day 8 Handout, Question 4"		Explain how each component of the description below gives you information about the sound being described.	"This consonant is characterized by having a clear voice bar and its own formants (at around 250 Hz, 2500 Hz, and 3250 Hz). These formants, however, are not as intense as they would be if they were vowel formants. The effect on the formants of the adjacent vowel is usually relatively small; the second formant of the vowel will probably be around 1750 Hz."									"[n]; check for voicing, place, and manner"															
+Acoustics	medium	"Day 8 Handout, Question 4"		Explain how each component of the description below gives you information about the sound being described.	"This consonant is characterized by having a lot of random noise in the spectrogram, with no clear formant structure at all. It tends to be longer and louder than other similar consonants. There is no voice bar, and the majority of the noise created by this consonant is at relatively high frequencies."									"[s]; check for voicing, place, and manner"															
+Acoustics	medium	"Day 8 Handout, Question 4"		Explain how each component of the description below gives you information about the sound being described.	This consonant typically starts off with nothing at all visible on the spectrogram. There is then a short period of noise between the silence and the following vowel. This consonant typically brings the second and third formants of the adjacent vowel down.									"[p?]; check for voicing, place, and manner"															
+Acoustics	medium	"Day 8 Handout, Question 7"		"Explain why each numbered, underlined statement is true or false. If it is false, explain one way that you could correct it."	"Sound is an invisible phenomenon. Sound can travel through any substance, $^1$\ul{such as a liquid, solid, or a gas.} $^2$\ul{It involves the transfer of the matter in that substance} from one place to another.\\\\Sound is a particular kind of wave known as $^3$\ul{a compression wave}. $^4$\ul{When the molecules are really close together, we say they are ``rarefied'' and when they are really far apart, we say they are ``compressed.''}"									"1 - true.\\2 - false (it involves the transfer of energy... or anything about the
+matter itself not moving but only vibrating, etc). \\3 - true.\\4 - false (when the molecules are really close together, we say they are compressed and when the molecules are really far apart, we say they are rarefied)."															
+Acoustics	medium	"Day 8 Handout, Question 7"		"Explain why each numbered, underlined statement is true or false. If it is false, explain one way that you could correct it."	"Sound is a particular kind of wave known as a compression wave.... $^6$\ul{When the molecules are really close together, they try to spread out as far as possible, and that’s why they move out as a wave.}\\\\There are several key components of a sound wave. The first is wavelength. $^7$\ul{Wavelength is the distance between the point of maximum rarefaction and the point of maximum compression in a wave.} Another component that is related to wavelength is $^8$\ul{frequency, or how many times a wave passes through a particular point in one second.} $^9$\ul{If the wavelength is really short, the frequency will be really high; if the wavelength is really long, the frequency will be really low.} "									"6 - false (the molecules always try to stay an equal distance from each other, so they move apart when they are compressed and together when they are rarefied).\\7 - false (wavelength is the distance between two points of
+maximum compression or rarefaction in a wave).\\8 - true.\\9 - true."															
+Acoustics	medium	"Day 8 Handout, Question 7"		"Explain why each numbered, underlined statement is true or false. If it is false, explain one way that you could correct it."	"$^{10}$\ul{Frequency is inversely related to pitch: high frequencies correspond to low pitches, and low frequencies correspond to high pitches.} Finally, there is the amplitude of the wave. $^{11}$\ul{The amplitude tells you how much pressure the molecules are under at any particular time.} $^{12}$\ul{The auditory correlate of amplitude is intensity}; this is a measure of perceived pressure.\\\\$^{13}$\ul{In speech, air is set in vibrating motion by the lungs, so the lungs} are the source of most speech sounds."									"10 - false (frequency is directly related to pitch: high frequencies
+correspond to high pitches, and low frequencies
+correspond to low pitches).\\11 - true.\\12 - false (the auditory correlate of amplitude and intensity is
+loudness/volume, or, a related acoustic measure to amplitude is intensity).\\13 - false (air is set in vibrating motion by the vocal folds)."															
+Acoustics	medium	"Day 8 Handout, Question 7"		"Explain why each numbered, underlined statement is true or false. If it is false, explain one way that you could correct it."	"In speech, air is set in vibrating motion by the lungs, so the lungs are the
+source of most speech sounds. $^{14}$\ul{The basic rate of vibration is called the fundamental frequency}; $^{15}$\ul{the fundamental frequency is also known as the timbre of the voice.} In addition to the source, we can also talk about a filter: $^{16}$\ul{the vocal folds act as a filter to shape the air from the lungs into the sounds we hear as different.} $^{17}$\ul{The mouth and nose act as resonance chambers}, and these also affect the qualities of the sounds."									"14 - true.\\15 - false (the fundamental frequency is also known as the pitch of the voice, or F0).\\16 - false (the mouth and nose act as a filter to shape the air from the vocal folds in the sounds we hear as different, or vocal tract, or articulatory and resonance chambers, etc).\\17 - true."															
+Acoustics	medium	"Day 8 Handout, Question 7"		"Explain why each numbered, underlined statement is true or false. If it is false, explain one way that you could correct it."	"We can visualize speech through the use of spectra and spectrograms. $^{18}$\ul{A spectrogram shows frequency on the horizontal axis and amplitude on the vertical axis.} $^{19}$\ul{A spectrum, on the other hand, shows frequency on the vertical axis and time along the horizontal axis}.\\\\$^{20}$\ul{On a spectrogram, the dark bars are called formants.} $^{21}$\ul{The formants correspond to the amplitude peaks on a spectrum.}"									"18 - false (A spectrum shows frequency on the horizontal axis and amplitude on the vertical axis, or, a spectrogram shows frequency on the vertical axis and time along the horizontal axis).\\19 - false (A spectrum shows frequency on the horizontal axis and amplitude on the vertical axis, or, a spectrogram shows
+frequency on the vertical axis and time along the horizontal axis).\\20 - true.\\21 - true."															
+Acoustics	medium	"Day 8 Handout, Question 7"		"Explain why each numbered, underlined statement is true or false. If it is false, explain one way that you could correct it."	"We can look at the vertical location of the formants to determine something about the characteristics of individual speech sounds. For example, in the two spectrograms below, we can see that $^{22}$\ul{the first formant is higher in the spectrogram for sound 1 than it is for sound 2.} Because $^{23}$\ul{F1 is directly correlated with vowel height}, we know that $^{24}$\ul{the vowel pictured in sound 1 is a higher vowel than the one in sound 2}. For example, $^{25}$\ul{sound 1 might be an [?] while sound 2 might be an [i].}"		sound1a_sound2i.png							"22 - true. \\23 - false (F1 is inversely correlated with vowel height). \\24 - false (the vowel pictured in sound 1 is a lower vowel than the one in sound 2, or, the vowel pictured in sound 2 is a higher vowel than the one in sound 1).\\25 - true."															
+Alternations	easy	"Quiz 7, Question 2"		Explain why these statements about assimilation either are or are not true.	"\begin{itemize} \item During assimilation, non-similar sounds become similar through changes in their articulatory properties. \item Assimilation must be total such that the non-similar sounds become identical. \end{itemize}"							not really about alternations	omit	(1) True (2) False															
+Alternations	easy	"Quiz 7, Question 2"		Explain why these statements about assimilation either are or are not true.	\begin{itemize} \item Only place of articulation and voicing can be affected by assimilation processes. \item Assimilation is widely attested cross-linguistically. \end{itemize}							not really about alternations	omit	(1) False (2) True															
+Alternations	easy	"Quiz 7, Question 2"		Explain why these statements about assimilation either are or are not true.	"\begin{itemize} \item The process is driven by articulatory factors, namely ease of articulation. \item Assimilation only applies to consonants. \end{itemize}"							not really about alternations	omit	(1) True (2) False															
+Alternations	easy	"Quiz 7, Question 2"		Explain why these statements about assimilation either are or are not true.	"\begin{itemize} \item The process is driven by language-specific, phonological factors. \item Assimilation may be partial in that the sounds become similar with respect to only one or two features. \end{itemize}"							not really about alternations	omit	(1) False (2) True															
+Alternations	medium	"Quiz 7, Question 8"		"Based on this data from Lamba, explain why the pair given below either does or does not show that the consonants preceding the morpheme for `with' are NOT responsible for the variation between [-il] and [-el]."	?it-a \& ?it-il-a		peng119_lamba.png							"doesn't show this -- only the [il] form is shown, so we can't judge whether [il] ~ [el] is based on consonants or not"															
+Alternations	medium	"Quiz 7, Question 8"		"Based on this data from Lamba, explain why the pair given below either does or does not show that the consonants preceding the morpheme for `with' are NOT responsible for the variation between [-il] and [-el]."	?et-el-a \& ?it-il-a		peng119_lamba.png							"does show this -- we see both [il] and [el], and they occur after the SAME preceding consonant, so the preceding consonant cannot be responsible"															
+Alternations	medium	"Quiz 7, Question 8"		"Based on this data from Lamba, explain why the pair given below either does or does not show that the consonants preceding the morpheme for `with' are NOT responsible for the variation between [-il] and [-el]."	tul-il-a \& so?k-el-a		peng119_lamba.png							"doesn't show this -- we do see [il] and [el], but they occur after different consonants, so it COULD be the consonant that is responsible"															
+Alternations	medium	"Quiz 7, Question 8"		"Based on this data from Lamba, explain why the pair given below either does or does not show that the consonants preceding the morpheme for `with' are NOT responsible for the variation between [-il] and [-el]."	pat-il-a \& tul-il-a		peng119_lamba.png							"doesn't show this -- we only see [il], so we don't know if [el] can also occur in these environments or not"															
+Alternations	easy	"Day 9 Handout, Question 1"		Explain why the concept of an alternation either is or is not useful for understanding this dataset.			korean.png							"is useful -- root morphemes alternate, so we can decide which sounds we need to analyze"															
+Alternations	easy	"Day 9 Handout, Question 2"		Explain why the concept of an alternation either is or is not useful for understanding this dataset.			osage.png							"is not useful -- there are no alternations in this dataset, so we can't use them to figure out what sounds are relevant to analyse"															
+Alternations	medium	"Day 9 Handout, Question 3"		Explain which morpheme(s) in this dataset alternate and how that helps you do a phonological analysis.			english_past.png							"the past tense morpheme alternates, so we know we need to analyze the predictable occurrence of [t] vs. [d]"															
+Alternations	medium	"Day 9 Handout, Question 4"		Explain which morpheme(s) in this dataset alternate and how that helps you do a phonological analysis.			japanese_verbs.png							"each verb root alternates, so we know the sounds we need to analyze are the predictable occurrence of [s] and [?]"															
+Alternations	medium	"Day 9 Handout, Question 5"		Explain which morpheme(s) in this dataset alternate and how that helps you do a phonological analysis.			english_t_flap.png							"some of the roots alternate (such as 'light'), so we know that we need to analyze the predictable occurrence of [t] vs. [flap]"															
+Alternations	hard	"Day 9 Handout, Question 6"		"What is the basic phonological analysis of this dataset, and what are the key pieces of evidence? [Note: you do not need to walk me through every step of the analysis; just state what the primary conclusion is for this dataset and why.]"			samoan.png					provided a sample analysis for this dataset	omit																
+Alternations	hard	"Day 9 Handout, Question 7"		"What is the basic phonological analysis of this dataset, and what are the key pieces of evidence? [Note: you do not need to walk me through every step of the analysis; just state what the primary conclusion is for this dataset and why.]"			russian.png					too hard (would be unfair if only some people get this)	omit																
+Phonological Features	hard	Day 10 Discussion		Explain why phonological features are used instead of phonetic characteristics in analyzing datasets.										"Phonological features help to capture phonological patterns, i.e., they group sounds together based on whether they do things like triggering a change or undergoing a change. Phonological features are sometimes language-specific. Phonetic characteristics are simply descriptions of the physical properties of the sounds; they are language-universal and independent of the patterns (though it turns out that many phonological patterns are based on phonetic characteristic groupings)."															
+Phonological Features	easy	"Quiz 8, Question 3"		Explain why this featural specification either does or does not match the given sound.	"[+consonantal], [-sonorant]"	[f]								matches															
+Phonological Features	easy	"Quiz 8, Question 3"		Explain why this featural specification either does or does not match the given sound.	"[+consonantal], [+sonorant]"	[m]								matches															
+Phonological Features	easy	"Quiz 8, Question 3"		Explain why this featural specification either does or does not match the given sound.	"[-consonantal], [-sonorant]"	[u]								"does not match: [u] is [-cons], but is [+son]"															
+Phonological Features	medium	"Quiz 8, Question 3"		Explain why this featural specification either does or does not match the given sound.	"[-consonantal], [+sonorant]"	[h]								"does not match: [h] is [-cons] but also [-son], because its constriction is in the larynx, not the vocal tract"															
+Phonological Features	easy	"Quiz 8, Question 6"		Explain why this is an incorrect statement.	"Nasal consonants are [+continuant], because you can continue to make the sound for a long period of time (until you run out of breath)."									"nasals are [-cont], because air cannot escape through the mouth"															
+Phonological Features	easy	"Quiz 8, Question 6"		Explain why this is an incorrect statement.	Nasal consonants are [+continuant] because they lack a central occlusion in the vocal tract.									"nasals are [-cont], because air cannot escape through the mouth (there is a central occlusion / blockage)"															
+Phonological Features	easy	"Quiz 8, Question 6"		Explain why this is an incorrect statement.	"Nasal consonants are [-continuant], because they cannot be produced for an extended period of time."									"nasals are indeed [-cont], but they can be held for a long time -- it's just that air isn't coming from the mouth"															
+Phonological Features	hard	"Quiz 8, Question 12"		Explain how you figure out which feature is involved in the process of umlaut.			dutch.png							"we look to see which vowels are affected, and compare them to see which feature is DIFFERENT (not e.g. what features they share); so since the vowels in the singular and plural are identical except that the singular forms are back and the plural are front, it's the feature [back] that is relevant / changing / involved (not e.g. the feature [round] just because all of the vowels are round)"															
+Phonological Features	medium	Day 10 Discussion		"Explain what the given feature’s value is for this class of sounds, and why."	[approximant]	nasals						nasals		"[-], because air can't escape through the mouth ([+approx] sounds have a narrowing in the vocal tract, but air escapes without friction)"															
+Phonological Features	easy	Day 10 Discussion		"Explain what the given feature’s value is for this class of sounds, and why."	[strident]	glides						glides		"0, because [strident] applies only to obstruents, and glides are sonorants"															
+Phonological Features	medium	Day 10 Discussion		"Explain what the given feature’s value is for this class of sounds, and why."	[continuant]	glottals						glottals		"0, because there is no constriction in the vocal tract for manner features to apply"															
+Phonological Features	medium	Day 10 Discussion		"Explain what the given feature’s value is for this class of sounds, and why."	[LABIAL]	interdentals						interdentals		"0, because interdentals aren't [LABIAL], but [LABIAL] is monovalent, so they're not [-labial]"															
+Phonological Features	medium	Day 10 Discussion		"Explain what the given feature’s value is for this class of sounds, and why."	[consonantal]	glides						glides		"[-], because the constriction isn't as narrow as it would be for a fricative"															
+Phonological Features	easy	Day 10 Discussion		Explain why the given feature's value varies across this set of sounds.	[voice]	glottalized obstruents						gltotalized obstruents		includes both voiced and voiceless glottalized obstruents -- obs. can themselves be voiced or voiceless															
+Phonological Features	medium	Day 10 Discussion		Explain why the given feature's value varies across this set of sounds.	[sonorant]	alveolars						alveolars		can have both sonorant and obstruent alveolars (e.g. [n] vs. [s])															
+Phonological Features	medium	Day 10 Discussion		Explain why the given feature's value varies across this set of sounds.	[anterior]	fricatives						fricatives		"can have both [+] and [-] anterior fricatives (e.g., [s] and [?] are [+ant], [?] is [-ant] -- extra good if they also notice you can have [0 ant] like [f], which isn't [CORONAL]"															
+Phonological Features	easy	"Day 10 Handout, Question 5"		Explain why you either should or should not use phonological features in the INPUT of the given rule.	"Vowel laxing: /i/ ? [?] / \{[?], [?]\} C$_0$\_\_"									"no; it's a single sound, so replacing it with features just makes it hard to read"															
+Phonological Features	medium	"Day 10 Handout, Question 5"		Explain why you either should or should not use phonological features in the OUTPUT of the given rule.	"Vowel laxing: /i/ ? [?] / \{[?], [?]\} C$_0$\_\_"									"yes; although it's a single sound, the sound is different from the input in exactly one way (it's lax instead of tense), so we want to capture that specific change (and only have to list one feature); it also helps us to see the naturalness of the rule, as the feature that is changing is related to the features that occur in the context"															
+Phonological Features	easy	"Day 10 Handout, Question 5"		Explain why you either should or should not use phonological features in the CONTEXT of the given rule.	"Vowel laxing: /i/ ? [?] / \{[?], [?]\} C$_0$\_\_"									"yes; you're trying to group multiple (in this case, two) sounds together, so it's good to use features to describe their commonality; it also helps us see the naturalness of the rule by pointing out the relevant part of the phonological context"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 7 Handout, Question 7)"		Explain how you should use phonological features to combine these rules.	/s/ ? [?] / \_\_ [i] \\/z/ ? [d?] / \_\_ [i]		japanese.png							"input should be alveolar fricatives, output should be just a change in place of articulation; context is still [i]; something like [CORONAL, +strid] --> [-ant, +dist] / \_\_ [i]; note that this won't directly account for why the voiced one becomes an affricate"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 7 Handout, Question 8)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and which features should be used?"	/?/ ? [?] / [unrounded vowel] C$_0$ \_\_		tamil.png							"input can be just a segment; output should be [-round], context should be [-round, +syllabic]"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 7 Handout, Question 10)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and what features might they be? You don't have to give an exact set of features, but what kinds of features would be involved?"	/ð/ ? [d] / \_\_ [a]		osage.png							input can be just a segment; output should be something like [-cont]; context can be a segment; this doesn't by itself account for the slight difference in place of articulation															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 7 Handout, Question 11)"		Explain how you should use phonological features to combine these rules.	/p?/ ? [p] / [s] \_\_\\/t?/ ? [t] / [s] \_\_\\/k?/ ? [k] / [s] \_\_		english_asp.png							"input should be aspirated voiceless stops; output should lose the aspiration; context can just be an [s]; something like [-voice, -cont] --> [-spread glottis] / [s] \_\_"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 7 Handout, Question 12)"		Explain how you should use phonological features to combine these rules.	"/i/ ? [?] / \_\_ \{[m], [n]\}\\/u/ ? [?] / \_\_ \{[m], [n]\}"		english_nasalization.png							"input, output, and context can all be features; something like [+syllabic] --> [+nasal] / \_\_ [+nasal]"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 9 Handout, Question 4)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and which features should be used?"	/s/ ? [?] / \_\_ [i]		japanese_verbs.png						omit	"output is only part that can be replaced with features; could be [-ant, +dist]"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 9 Handout, Question 5)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and what features might they be? You don't have to give an exact set of features, but what kinds of features would be involved?"	"/t/ ? [?] / \{[vowel],[syllabic consonant]\} \_\_ \{[vowel],[syllabic consonant]\}"		english_t_flap.png							"the output and the context should both be features; the input can stay as [t]: something like /t/ --> [+son, +voice] / [+syll] \_\_ [+syll]"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Day 9 Handout, Question 6)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and what features might they be? You don't have to give an exact set of features, but what kinds of features would be involved?"	C ? ? / \_\_ \#		samoan.png						omit	"the input could be replaced with a feature, i.e., [+cons]..."															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Homework 4, Question 2)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and what features might they be? You don't have to give an exact set of features, but what kinds of features would be involved?"	? ? [n] / [m] \_\_ V		english_stemalternations.png						omit	you could replace the context V with [+syllabic] maybe?															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Homework 4, Question 2)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and what features might they be? You don't have to give an exact set of features, but what kinds of features would be involved?"	/n/ ? ? / [m] \_\_ \#		english_stemalternations.png							"you really can't use features for any of this, because it's all individual segments"															
+Phonological Features	hard	"Day 10 Handout, Question 6 (Homework 3, Question 2)"		"Explain how you should use phonological features in this rule. Which parts of the rule should include features, and what features might they be? You don't have to give an exact set of features, but what kinds of features would be involved?"	"/æ/ ? [e?] / \_\_ \{[m],[n]\}"		english_aeraising.png							"output should show some kind of height difference; context should be [+nasal] -- e.g., /æ/ --> [+tense, -low, +diphthong] / \_\_ [+nasal]"															
+Syllables	easy	Day 11 Discussion		Explain why the sonority sequencing principle would block the syllabification of [n] and [t] of [n.ta] into one syllable in Ponapean.										"[n] is higher sonority than [t], and the SSP requires that segments increase in sonority as you get closer to the nucleus and decrease in sonority as you move away; [nte] would involve a dip and then a rise in sonority"															
+Syllables	hard	"Quiz 9, Question 12"		Explain the key differences between the templatic and the rule-based approaches to syllabification.										"in the rule-based approach, you ONLY have rules, so you don't know ahead of time what possible syllable types you might get; you also need to know which rules apply in a language and what the order of the rules is -- but in the templatic approach, you have a template that tells you ahead of time what the possible syllable types are, and you use the template in conjunction with rules; in the templatic approach, you also need to know the direction of syllabification (L to R or R to L), not the order of the rules [Note: should not mention anything about the units used in either approach)"															
+Syllables	medium	"Day 11 Handout, Question 1"		"Explain how these examples help support the overall syllable structure of a syllable consisting of an onset and rime, and the rime consisting of a nucleus and coda."			english_poetry.png							"alliteration gives evidence for onsets, assonance for nuclei (including an entire diphthong); slant rhymes for codas; full rhymes for nucleus plus coda together -- but we don't have anything for ""beginning of word through to and including the nculeus"""															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	CV		ponapean_syllabletemplate.png						omit	allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	C		ponapean_syllabletemplate.png							not allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	CCV		ponapean_syllabletemplate.png							not allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	CVV		ponapean_syllabletemplate.png							allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	CVVC		ponapean_syllabletemplate.png							not allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	CVC		ponapean_syllabletemplate.png							allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	VC		ponapean_syllabletemplate.png							allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	VV		ponapean_syllabletemplate.png							allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	V		ponapean_syllabletemplate.png							allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	VCC		ponapean_syllabletemplate.png							not allowed															
+Syllables	easy	"Day 11 Handout, Question 5"		Explain why this template either does or does not allow syllables of this type to occur.	VVC		ponapean_syllabletemplate.png							not allowed															
+Syllables	medium	"Day 11 Handout, Question 6"		"Explain why this structure either is or is not a correct application of the rule-based approach to syllabification, assuming that both the onset rule and the coda rule apply in this language, and the onset rule comes before the coda rule."			pengrules_kaprose_no.png		peng_rules.png		vertical			no -- the [p] should be in the onset because the onset rule precedes the coda rule															
+Syllables	medium	"Day 11 Handout, Question 6"		"Explain why this structure either is or is not a correct application of the rule-based approach to syllabification, assuming that both the onset rule and the coda rule apply in this language, and the onset rule comes before the coda rule."			pengrules_tumigo_no.png		peng_rules.png		vertical			no -- the [g] should be in the onset because it's a simple onset (step b)															
+Syllables	medium	"Day 11 Handout, Question 6"		"Explain why this structure either is or is not a correct application of the rule-based approach to syllabification, assuming that both the onset rule and the coda rule apply in this language, and the onset rule comes before the coda rule."			pengrules_fletoldu_no.png		peng_rules.png		vertical			"no -- the [l] should be in the onset because the onset rule precedes the coda rule; yes, this violates sonority sequencing but no reference is made to that below"															
+Syllables	medium	"Day 11 Handout, Question 6"		"Explain why this structure either is or is not a correct application of the rule-based approach to syllabification, assuming that both the onset rule and the coda rule apply in this language, and the onset rule comes before the coda rule."			pengrules_kaprosse_yes.png		peng_rules.png		vertical			yes; the long [s] is part of the onset here because the onset rule applies before the coda rule															
+Syllables	medium	"Day 11 Handout, Question 6"		"Explain why this structure either is or is not a correct application of the rule-based approach to syllabification, assuming that both the onset rule and the coda rule apply in this language, and the onset rule comes before the coda rule."			pengrules_uvkeman_yes.png		peng_rules.png		vertical			"yes; the onset rule precedes the coda rule, which puts [v] into the onset (even though that violates sonority), but then we do get the [n] in coda position because it can't go into an onset, and the coda rule does apply"															
+Syllables	medium	"Day 11 Handout, Question 6"		"Explain why this structure either is or is not a correct application of the rule-based approach to syllabification, assuming that both the onset rule and the coda rule apply in this language, and the onset rule comes before the coda rule."			pengrules_tuumigo_yes.png		peng_rules.png		vertical	this one was a poll question	omit	yes; the long vowel is projected to a single Rime slot															
+Syllables	medium	"Day 11 Handout, Question 8"		Explain how you could modify the rule-based approach to take into account the sonority sequencing principle.			peng_rules.png							"basically, you need to say something like: Modified onset rule: adjoin a consonant to the left of an onset to that onset, if the consonant has a LOWER sonority than the onset"															
+Syllables	easy	"Day 11 Handout, Question 10"		"Explain why this structure either is or is not a correct application of the templatic-based approach to syllabification, using the provided template and assuming that syllabification proceeds from left to right."			pengtemplate_tumigo_yes.png		peng_template_withdiagram.png		vertical			yes; this is just all CV syllables															
+Syllables	medium	"Day 11 Handout, Question 10"		"Explain why this structure either is or is not a correct application of the templatic-based approach to syllabification, using the provided template and assuming that syllabification proceeds from left to right."			pengtemplate_kaprose_yes.png		peng_template_withdiagram.png		vertical			"yes; all syllables allowed by template, and this is what you get going L to R"															
+Syllables	medium	"Day 11 Handout, Question 10"		"Explain why this structure either is or is not a correct application of the templatic-based approach to syllabification, using the provided template and assuming that syllabification proceeds from left to right."			pengtemplate_fletoldu_no.png		peng_template_withdiagram.png		vertical			no -- the initial consonant shouldn't be marked extrasyllabic accoridng to the notes provided															
+Syllables	medium	"Day 11 Handout, Question 10"		"Explain why this structure either is or is not a correct application of the templatic-based approach to syllabification, using the provided template and assuming that syllabification proceeds from left to right."			pengtemplate_tuumigo_no.png		peng_template_withdiagram.png		vertical			"no -- both moras of the long vowel should be associated with the first syllable, because the template allows long Vs"															
+Syllables	medium	"Day 11 Handout, Question 10"		"Explain why this structure either is or is not a correct application of the templatic-based approach to syllabification, using the provided template and assuming that syllabification proceeds from left to right."			pengtemplate_kaprosse_yes.png		peng_template_withdiagram.png		vertical			"yes; all syllables allowed by template, and this is what you get going L to R"															
+Syllables	medium	"Day 11 Handout, Question 10"		"Explain why this structure either is or is not a correct application of the templatic-based approach to syllabification, using the provided template and assuming that syllabification proceeds from left to right."			pengtemplate_uvkeman_no.png		peng_template_withdiagram.png		vertical			"no -- although all the syllables are allowed by the template, the final consonant should have been marked as extra-syllabic and not put into the coda"															
+Alternations	easy	"Day 11 Handout, Question 12"		Explain why what you’re analyzing in the following dataset either is or is not an alternation.			yawelmani.png							"it's not an alternation -- we don't have multiple *surface* forms of the same morpheme; the different forms are the UR and the SR, and so they are not predictable from phonological context (the SR is derived from the UR by rule)"															
+Syllables	easy	"Day 11 Handout, Question 12"		Explain how understanding syllable structure helps understand the motivation for the process(es) seen in this data.			yawelmani.png							"although syllabification must happen after insertion, the insertion is motivated by making things syllabifiable -- we insert a vowel into a sequence of CCC in order to prevent any complex onsets / codas or syllabic consonants from having to be used"															
+Syllables	easy	"Day 11 Handout, Question 13"		Explain how understanding syllable structure helps understand the motivation for the process(es) seen in this data.			atticgreek.png							"although syllabification must happen after deletion, the deletion is motivated by making things syllabifiable -- we delete a consonant from a sequence of CCC in order to prevent any complex onsets / codas or syllabic consonants from having to be used"															
+Syllables	hard	"Day 11 Handout, Question 14"		How does syllabification play a role in the analysis of the phonological relationship between tense and lax high vowels in Quebec French?			quebecfrench.png							"here, syllabification must precede the rest of the analysis; the tense vowels ([i] and [u]) occur in open syllables, while the lax vowels occur in closed syllables -- so e.g. we might have a rule of vowel laxing that says [+high, +syll] --> [-tense] / \_\_ C., with a period to specifically mark the syllable boundary in the context of the rule"															
+Syllables	medium	"Day 11 Handout, Question 15"	signlanguage	"Do these two signs have the same syllable structure or different, and why?"			asl_highschool.png	HIGH SCHOOL	asl_hard.png	HARD	vertical			"different in sonority: HIGH SCHOOL - monosyllabic, low-sonority / HARD - monosyllabic, high-sonority"															
+Syllables	medium	"Day 11 Handout, Question 15"	signlanguage	"Do these two signs have the same syllable structure or different, and why?"			asl_milk.png	MILK	asl_understand.png	UNDERSTAND	vertical			"different in number of syllables: MILK - disyllabic, low-sonority / UNDERSTAND - monosyllabic, low-sonority"															
+Syllables	medium	"Day 11 Handout, Question 15"	signlanguage	"Do these two signs have the same syllable structure or different, and why?"			asl_coffee.png	COFFEE	asl_frog.png	FROG	vertical			"different in sonority: COFFEE - disyllabic, high-sonority / FROG - disyllabic, low-sonority"															
+Syllables	medium	"Day 11 Handout, Question 15"	signlanguage	"Do these two signs have the same syllable structure or different, and why?"			asl_university.png	UNIVERSITY	asl_pencil.png	PENCIL	vertical			"different in number of syllables: UNIVERSITY - monosyllabic, high-sonority / PENCIL - disyllabic, high-sonority"															
+Syllables	hard	"Day 11 Handout, Question 16"		How does syllabification play a role in the analysis of Tibetan numerals?			tibetan.png							"morphemes that seem to have initial CC clusters (which are visible word-medially, where the CC sequence can be broken up across a syllable boundary) are simplified by deleting the initial consonant when the morpheme occurs word-initially, to avoid complex onsets (perhaps especially because these complex onsets would violate the sonority sequencing principle, which is what makes it hard for students to even imagine that the morphemes have these CC sequences initially!)"															
+Tone	easy	"Quiz 10, Question 1"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_house_a.png							URs don't have pre-linked tones; the association lines are generated by rules (tone-mapping procedures)															
+Tone	easy	"Quiz 10, Question 1"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_house_b.png							"There's no reason to violate the OCP in the UR of a single morpheme, but this one has two adjacent H tones"															
+Tone	easy	"Quiz 10, Question 1"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_house_d.png							URs don't have pre-linked tones; the association lines are generated by rules (tone-mapping procedures)															
+Tone	easy	"Quiz 10, Question 1"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_house_e.png							"URs don't have pre-linked tones; the association lines are generated by rules (tone-mapping procedures), AND there's no reason to violate the OCP in the UR of a single morpheme, but this one has two adjacent H tones"															
+Tone	easy	"Quiz 10, Question 3"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_junction_a.png							URs don't have pre-linked tones; the association lines are generated by rules (tone-mapping procedures)															
+Tone	easy	"Quiz 10, Question 3"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_junction_b.png							"There's no reason to violate the OCP in the UR of a single morpheme, but this one has two adjacent L tones"															
+Tone	easy	"Quiz 10, Question 3"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_junction_c.png							"URs don't have pre-linked tones; the association lines are generated by rules (tone-mapping procedures), AND there's no reason to violate the OCP in the UR of a single morpheme, but this one has two adjacent L tones"															
+Tone	easy	"Quiz 10, Question 3"		Section 4.2 of chapter 13 in the Peng textbook presented an autosegmental analysis of Mende tone distribution. Explain why the form shown below should NOT be the UR for any morpheme in Mende.			mende_junction_d.png							URs don't have pre-linked tones; the association lines are generated by rules (tone-mapping procedures)															
+Phonological Features	medium	"Homework 5, Question 1"		"Explain which sound should be removed to make this a natural class, and what the minimum set of features would be to describe the resulting natural class."	"[i], [?], [?], [u], [?]"									"[?] should be removed, so that we have the natural class of high vowels; this could be minimally represented with [+syll, +high]"															
+Phonological Features	medium	"Homework 5, Question 1"		"Explain which sound should be removed to make this a natural class, and what the minimum set of features would be to describe the resulting natural class."	"[i], [?], [e], [?], [æ], [?], [?], [o], [?], [u], [?], [k], [?], [?], [w]"									"[?] should be removed, so that we have the natural class of dorsal segments; this could be minimally represented with [DORSAL]"															
+Phonological Features	medium	"Homework 5, Question 1"		"Explain which sound should be removed to make this a natural class, and what the minimum set of features would be to describe the resulting natural class."	"[v], [z], [?], [?], [ð]"									"[?] should be removed, so that we have the natural class of voiced fricatives; this could be minimally represented with [+voice, +cont, -son]"															
+Phonological Features	medium	"Homework 5, Question 1"		"Explain which sound should be removed to make this a natural class, and what the minimum set of features would be to describe the resulting natural class."	"[b], [d], [z], [?], [n], [l], [?]"									"[b] should be removed, so that we have the natural class of voiced alveolars; this could be minimally represented with [+voice, -distributed]"															
+Syllables	medium	"Homework 5, Question 2"		Explain what the syllable template for Fula should look like and why.			fula.png					hard for them to actually draw a template on the exam (not all have web cameras)	omit	"the only syllable types we see in the dataset are CV and CVC, so onsets are required and codas are optional; whether the coda should be moraic or not is not determinable from this dataset"															
+Syllables	hard	"Homework 5, Question 2"		Explain why the insertion analysis is better than the deletion analysis for this dataset.			fula.png							"If you have /VC/ as the underlying form of these suffixes, there’s no reason to delete the vowel, because you'd have perfect CV syllables throughout the word. But if you have /C/ as the underlying form, it’s clear that we occasionally need an extra vowel in order to allow syllabification to happen; otherwise, we’d end up with non-syllabifiable CCC sequences. That is, there’s a phonological motivation for the insertion rule, but no motivation for the deletion rule."															
+Tone	medium	"Day 12 Handout, Question 5"		"Explain which of the three rules will apply to the form given below, and whether each of those rules would have an effect or not."	"Peng’s Tone-Mapping Procedure for Mende: \begin{enumerate} \item L-to-R association: Associate the first tone to the first TBU, the second tone to the second TBU, and so on, until all tones or all TBUS are exhausted. \item Last-TBU Linking: Associate any remaining unlinked tones to the last TBU. \item Last-Tone Linking: Associate the last tone to any TBU without a tone. \end{enumerate}"		mendetone_a.png							"L-to-R association is the only one that applies; it links up each of the three tones to a TBU, and then the other rules have nothing to do, because their context isn't met (there are no leftover tones or TBUs)"															
+Tone	medium	"Day 12 Handout, Question 5"		"Explain which of the three rules will apply to the form given below, and whether each of those rules would have an effect or not."	"Peng’s Tone-Mapping Procedure for Mende: \begin{enumerate} \item L-to-R association: Associate the first tone to the first TBU, the second tone to the second TBU, and so on, until all tones or all TBUS are exhausted. \item Last-TBU Linking: Associate any remaining unlinked tones to the last TBU. \item Last-Tone Linking: Associate the last tone to any TBU without a tone. \end{enumerate}"		mendetone_b.png							"L-to-R association applies and links the H tone to the first TBU [a]; last-TBU linking doesn't apply because there are no leftover tones; then last-tone linking does apply, and connects all of the leftover TBUs (in this case, [u] and [e]) to the final tone (in this case, H)"															
+Tone	medium	"Day 12 Handout, Question 5"		"Explain which of the three rules will apply to the form given below, and whether each of those rules would have an effect or not."	"Peng’s Tone-Mapping Procedure for Mende: \begin{enumerate} \item L-to-R association: Associate the first tone to the first TBU, the second tone to the second TBU, and so on, until all tones or all TBUS are exhausted. \item Last-TBU Linking: Associate any remaining unlinked tones to the last TBU. \item Last-Tone Linking: Associate the last tone to any TBU without a tone. \end{enumerate}"		mendetone_c.png							"L-to-R association applies and links the H tone to the first TBU [a] and the L tone to the second TBU [u]; last-TBU linking doesn't apply because there are no leftover tones; then last-tone linking does apply, and connects all of the leftover TBUs (in this case, [e]) to the final tone (in this case, L)"															
+Tone	medium	"Day 12 Handout, Question 5"		"Explain which of the three rules will apply to the form given below, and whether each of those rules would have an effect or not."	"Peng’s Tone-Mapping Procedure for Mende: \begin{enumerate} \item L-to-R association: Associate the first tone to the first TBU, the second tone to the second TBU, and so on, until all tones or all TBUS are exhausted. \item Last-TBU Linking: Associate any remaining unlinked tones to the last TBU. \item Last-Tone Linking: Associate the last tone to any TBU without a tone. \end{enumerate}"		mendetone_d.png							"L-to-R association applies, and links the first three tones (H L H) to the first three TBUs ([a], [u], [e]). Then last-TBU linking applies and links the leftover L tone to the last TBU ([e]). Last-tone linking will not apply because there are no leftover TBUs."															
+Tone	medium	"Day 12 Handout, Question 6"	UR	Explain how you would figure out the underlying representations of stems in this dataset.			kukuya.png							"We don't see any alternations in this dataset, so we're just looking at static patterns; we don't have completely contrastive examples, but we do have tonal contrasts -- a single-mora root, for example, can be L, H, LH, HL, or LHL (and some of these roots are even segmentally contrastive, too). We see that these are the five basic patterns of tone, and they can get stretched out or squished together, but there are all five, so we assume that these are the tonal invntory. For any actual word, we take its segments and combine it (without associaton lines) with the appropriate tonal category."															
+Tone	medium	"Day 12 Handout, Question 6"		Explain how you would figure out the tone-mapping procedures that apply in this dataset.			kukuya.png							"You probably start with procedures that you know work for some other language like Mende, and see whether they work here. In this case, we (1) look at cases of words that have one of the contour tones, because words with only H or only L will just always have a single tone associated with all of the TBUs, but contour tones can help you see e.g. “where” the contour happens; (2) look at cases of words with a mismatch in the number of tones and TBUs (e.g. HL tones and VVV, or LHL tones and VV), because these are cases where one-to-one mapping will fail. By seeing that the “tail” of contours is to the left, not the right (e.g., it’s LLH not LHH) and that in the triple-tone words with two TBUs, we have the contour to the left (LH, then L; not L, then HL), we see that the “leftover” stuff needs to be on the left edge instead of the right edge. Hence, the initial mapping procedure should proceed from right to left instead of left to right."															
+Tone	hard	"Day 12 Handout, Question 7"	UR	Explain how you would figure out the underlying representations of the root morphemes in this dataset.			shona.png							"the root morphemes do not alternate, so their URs should be the same as their SRs, but with autosegmental representations -- so [te??] and H for 'buy' and [ere??] and L for 'read' "															
+Tone	hard	"Day 12 Handout, Question 7"	UR	Explain how you would figure out the underlying representations of the suffix morphemes in this dataset.			shona.png							"the suffix morphemes alternate, so we need to pick either one or the other or something else for their URs; because their tone is always predictable from their context, we can assume that they get the tones just from the tone-mapping procedures and are underlyingly toneless (the segments never alternate, so they are the same as in their URs)"															
+Tone	hard	"Day 12 Handout, Question 7"		What would be a good description of the alternation in this dataset?			shona.png							"The suffixes that alternate appear with a H tone after a H-toned root, and wtih a L tone after a L-toned root. For example, the causative suffix appears with a H tone, as [és], in [-té??-és-á] ‘sell,’ but with a L tone, as [ès], in [-èrè??-ès-à] ‘make read.’"															
+Tone	hard	"Day 12 Handout, Question 7"		Explain how you would figure out the tone-mapping procedures that apply in this dataset.			shona.png							"You probably start with procedures that you know work for some other language like Mende, and see whether they work here; in this case, there's only one underlying tone in each word, and it gets linked to every TBU, so you probably just need something like initial linking and then Leftover-TBU linking (there will never be any leftover tones)"															
+Dataset	very hard	Final Exam Dataset		Explain how you would go about figuring out what to analyse in this dataset.			final_dataset.png							"The first thing to do is a morphological analysis. There should be morphemes that represent each of the four tenses / aspects (present, past, future, and progressive), and morphemes that represent each root. The morphemes representing the tenses appear as (relatively) consistent forms in the columns; the morphemes representing the roots appear as consistent forms in the rows. Doing this reveals that the final 3 segments in the present forms and the final two segments in the progressive forms are suffixes (there are no zero morphemes, and all components have a one-to-one correspondence). Then we check for alternations. The alternations here are in the suffixes; each of the four suffixes has two forms. There are therefore four alternations, with two allomorphs each. So, what we need to analyze are the alternations in the suffix forms, where we see vowels alternating. Two of the alternations involve [i] and [?], and the other two alternations involve [e] and [?]. In each case, there’s a front vowel and a back vowel, which are otherwise matched for height and rounding, so we can likely generalize across the alternations."															
+Dataset	very hard	Final Exam Dataset		Give a good phonological description of the patterns in the dataset that should be analysed.			final_dataset.png							"For each morpheme that alternates, there are two allomorphs, one with a front vowel and one with a back vowel. The allomorph with the back vowel occurs after another back vowel of the same height (e.g., [f?d] in [j???d-f?d] ‘swallow, present’ or [s?] in [mik?v-s?] ‘search, progressive’), regardless of any intervening consonants. The allomorph with the front vowel occurs elsewhere, including after a front vowel (e.g. [fid] in [sat-fid] ‘chew, present’ or [se] in [sat-se] ‘chew, progressive’) and after a back vowel of a different height (e.g. [fid] in [mik?v-fid] ‘search, present’ or [se] in [j???d-se] ‘swallow, progressive’). Again, these latter environments are regardless of any intervening consonants."															
+Dataset	very hard	Final Exam Dataset	UR	Explain what the underlying representation of these morphemes would be and why.	"`search', `present'"		final_dataset.png							"For any morpheme that doesn’t alternate, its UR should be the same as its SR.  For the morphemes that alternate, the back-vowel version occurs in the narrower set of contexts (after a back vowel of the same height), so should be the one that we write a rule for. The front-vowel version occurs in the wider / elsewhere set of contexts (after a front vowel and after a back vowel of a different height), so this should be the UR. So in this case, we have the non-alternating root morpheme ‘search’ /mik?v/ and the alternating suffix morpheme 'present' /fid/."															
+Dataset	very hard	Final Exam Dataset	UR	Explain what the underlying representation of these morphemes would be and why.	"`mix', `past'"		final_dataset.png							"For any morpheme that doesn’t alternate, its UR should be the same as its SR.  For the morphemes that alternate, the back-vowel version occurs in the narrower set of contexts (after a back vowel of the same height), so should be the one that we write a rule for. The front-vowel version occurs in the wider / elsewhere set of contexts (after a front vowel and after a back vowel of a different height), so this should be the UR. So in this case, we have the non-alternating root morpheme ‘mix’ /sir/ and the alternating suffix morpheme 'past' /mi/."															
+Dataset	very hard	Final Exam Dataset	UR	Explain what the underlying representation of these morphemes would be and why.	"`dig', `future'"		final_dataset.png							"For any morpheme that doesn’t alternate, its UR should be the same as its SR.  For the morphemes that alternate, the back-vowel version occurs in the narrower set of contexts (after a back vowel of the same height), so should be the one that we write a rule for. The front-vowel version occurs in the wider / elsewhere set of contexts (after a front vowel and after a back vowel of a different height), so this should be the UR. So in this case, we have the non-alternating root morpheme ‘dig’ /rek?l/ and the alternating suffix morpheme 'future' /er/."															
+Dataset	very hard	Final Exam Dataset	UR	Explain what the underlying representation of these morphemes would be and why.	"`invent', `progressive'"		final_dataset.png							"For any morpheme that doesn’t alternate, its UR should be the same as its SR.  For the morphemes that alternate, the back-vowel version occurs in the narrower set of contexts (after a back vowel of the same height), so should be the one that we write a rule for. The front-vowel version occurs in the wider / elsewhere set of contexts (after a front vowel and after a back vowel of a different height), so this should be the UR. So in this case, we have the non-alternating root morpheme ‘invent’ /pe?ed/ and the alternating suffix morpheme 'progressive' /se/."															
+Dataset	very hard	Final Exam Dataset		Explain what rule or rules would apply in this dataset and how you know.			final_dataset.png							"We need a rule of ""Vowel Backing"" as follows: [? high, +syllabic] --> [+back] / [? high, +back, +syllabic] C0 \_\_. This rule says that a vowel will become back if it follows another back vowel of the same height, regardless of any intervening consonants. We know this is the rule we need because we need to account for the suffix alternations; the suffixes appear either with a front vowel or a back vowel. The back versions occur only after a back vowel of the same height (so are the focus of the rule); the front vowels occur elsewhere (after a front vowel, or after a back vowel of a different height). We could have two separate rules, one for mid vowels and one for high vowels, but this misses the generalization that these rules are basically doing the same thing."															
+Dataset	very hard	Final Exam Dataset		"Explain what the basic phonological analysis of this dataset is, and what the key pieces of evidence are."			final_dataset.png							"The basic analysis here is that vowels of the same height need to agree in terms of backness. We see this in suffix alternations: there are four alternating suffixes, each with a back and front variant, and two of them have high vowels while two of them have mid vowels. Whenever the suffix comes after a root containing a back vowel at the same height as the suffix, the suffix also contains a back vowel, but when the root contains either a front vowel or a back vowel at a different height, the suffix contains the front vowel. Thus, we posit the front versions as the URs of the suffixes, because they occur in the wider set of contexts, and write a rule of vowel backing that only applies when the target vowel follows a back context vowel of the same height."															
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
+																													
