@@ -1,2 +1,5 @@
 
 examgeneration/__pycache__/Exam.cpython-37.pyc
+*.log
+*.gz
+*.aux
