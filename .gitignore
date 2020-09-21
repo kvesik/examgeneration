@@ -1,6 +1,8 @@
 
 examgeneration/__pycache__/Exam.cpython-37.pyc
 
-# ignore all subdirectories with generated exams
+# keep only the pdfs from subdirectories with generated exams
 examgeneration/final-exams_generated_[0-9]*-[0-9]*/
+examgeneration/final-exams_generated_[0-9]*-[0-9]*/*.pdf
 examgeneration/midterm-exams_generated_[0-9]*-[0-9]*/
+examgeneration/midterm-exams_generated_[0-9]*-[0-9]*/*.pdf
