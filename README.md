@@ -2,7 +2,7 @@
 
 ## Quick Start - how to run
 *** As of Sep 20 2020, all four tsvs in "examgeneration" directory are correctly formatted and functional.
-1.	Update/save questions spreadsheet as tsv (see comments below in [Updating question bank tsvs](###-Updating-question-bank-tsvs)
+1.	Update/save questions spreadsheet as tsv (see comments below in [Updating question bank tsvs](###Updating-question-bank-tsvs)
 2.	Save signups spreadsheet as tsv - TODO update this after talking to Kathleen 20200921
 5.	Customize config file as per instructions in next section
 6.	Run generateexams.py (it looks for a command-line argument with the name of the config file, but if it doesn't find one will ask you for input). This creates .tex files.
