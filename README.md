@@ -20,7 +20,7 @@
   * random seed (default = wugz)
 * Property keys and values must be typed as shown in this example:
 ```
-questions: pathtoquestionsfile_dontusespaces.tsv
+questions: pathtoquestionsfile_dontusespaces.
 signups: pathtosignupsfile/couldbenested.tsv
 exam type: midterm
 student groups: 1234,3456;8846,2345,1220
@@ -52,6 +52,7 @@ random seed: whateveryoulike could have spaces
   
 ### Updating question banks (tsvs):
 Please be careful about how you edit these (it was pretty easy in google drive, but now that they're in github it's a little less foolproof).
+* Don't leave empty lines anywhere (including the end).
 * I am using the [tablr package for atom editor](https://atom.io/packages/tablr), with the bug fix and settings as shown below:
   * There is an error that occurs with the standard tablr install. This can be fixed either [like this](https://github.com/abe33/atom-tablr/issues/100#issuecomment-515094622) like I did on my Windows machine, or [like this instead](https://github.com/abe33/atom-tablr/issues/100#issuecomment-406904774) which I haven't tried.
   * Settings for reading our exam questions from tsv in atom: 
