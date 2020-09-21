@@ -9,6 +9,7 @@ import sys
 import random
 import io
 import pandas as pd
+from datetime import datetime
 from Exam import Question, Exam
 
 
@@ -94,19 +95,20 @@ class ExamSession:
     
         
     # Generate LaTeX source for this entire exam session (could be multiple days); write to file
-    def generatelatexexams(self):
-                
-        # filename info for exam TeX sources to be generated
+    def generatelatexexams(self, foldername):
+        
+       # filename info for exam TeX sources to be generated
         texfileprefix = "LING200"+examtype+"-"
         texfilesuffix = ".tex"
 
         # generate an exam for each day, named after days in schedule
         for day in signups.keys():
             examtex = texfileprefix+day.replace(" ","_")+texfilesuffix
-            self.generatelatexexams_oneday(examtex, day)
+            fullpathtofile = foldername+"/"+examtex
+            self.generatelatexexams_oneday(fullpathtofile, day)
             
             # only use this if you are 100% confident the latex is compilable; otherwise python and xetex both hang
-            # generatepdf(examtex)
+            # generatepdf(fullpathtofile)
 
 
     # Returns a list of Questions with the given topic and difficulty level
@@ -341,11 +343,12 @@ class ExamSession:
         
      
     # Generate LaTeX source for all questions for this exam session, sorted by topic (and then difficulty); write to file
-    def generatelatexquestionbankbytopic(self):
+    def generatelatexquestionbankbytopic(self, foldername):
         
         questionbanktex="LING200"+examtype+"-questionbank.tex"
+        fullpathtofile = foldername+"/"+questionbanktex
         
-        with open(questionbanktex,"w",encoding="utf-8") as tf:
+        with open(fullpathtofile,"w",encoding="utf-8") as tf:
             writedochead(tf,"ALL QUESTIONS","BY TOPIC")
             
             for topic in self.allquestions.keys():
@@ -354,7 +357,7 @@ class ExamSession:
             writedocfoot(tf)
             
         # only use this if you are 100% confident the latex is compilable; otherwise python and xetex both hang
-        # generatepdf(questionbanktex)
+        # generatepdf(fullpathtofile)
         
     
     # Generate LaTeX markup for one section (topic/difficulty) of the question bank,
@@ -469,7 +472,7 @@ def makequestiontex(question,instructorversion=False):
      
         if question.image2 == "": # only image1 is necessary
             qtext += "\\begin{figure}[H]\n"
-            qtext += "\\includegraphics{images/"+question.image1+"}\n"
+            qtext += "\\includegraphics{../images/"+question.image1+"}\n"
             if question.image1caption != "":
                 qtext += "\\caption{"+question.image1caption+"}\n"
             qtext += "\\end{figure}\n"
@@ -478,13 +481,13 @@ def makequestiontex(question,instructorversion=False):
         
         elif question.imagearrangement != "horizontal": # default vertical
             qtext += "\\begin{figure}[H]\n"
-            qtext += "\\includegraphics{images/"+question.image1+"}\n"
+            qtext += "\\includegraphics{../images/"+question.image1+"}\n"
             if question.image1caption != "":
                 qtext += "\\caption{"+question.image1caption+"}\n"
             qtext += "\\end{figure}\n"
             
             qtext += "\\begin{figure}[H]\n"
-            qtext += "\\includegraphics{images/"+question.image2+"}\n"
+            qtext += "\\includegraphics{../images/"+question.image2+"}\n"
             if question.image2caption != "":
                 qtext += "\\caption{"+question.image2caption+"}\n"
             qtext += "\\end{figure}\n"
@@ -651,11 +654,18 @@ signups = readsignupsfromfile(signupspath)
 
 thisexamsession = ExamSession(examtype, allqs, signups, studentgroups)
 
+# create folder in which to store these generated exams + question bank
+timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+foldername = examtype+"-exams_generated_"+timestamp
+if not os.path.exists(foldername):
+    os.makedirs(foldername)
+
+
 # generate all exams for this session (one file for each day, containing all students' exams for that day)
-thisexamsession.generatelatexexams()
+thisexamsession.generatelatexexams(foldername)
 
 # generate a question bank of all (non-omitted) questions in the .tsv
-thisexamsession.generatelatexquestionbankbytopic()
+thisexamsession.generatelatexquestionbankbytopic(foldername)
 
 
  
