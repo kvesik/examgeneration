@@ -55,8 +55,7 @@ Please be careful about how you edit these (it was pretty easy in google drive, 
 * I am using the [tablr package for atom editor](https://atom.io/packages/tablr), with the bug fix and settings as shown below:
   * There is an error that occurs with the standard tablr install. This can be fixed either [like this](https://github.com/abe33/atom-tablr/issues/100#issuecomment-515094622) like I did on my Windows machine, or [like this instead](https://github.com/abe33/atom-tablr/issues/100#issuecomment-406904774) which I haven't tried.
   * Settings for reading our exam questions from tsv in atom: 
-    ![atom tsv settings](atom_tsv_settings.png)
-    Format: ![Alt Text](row delimiter = auto, column delimiter = \t, quotes = custom, escape = custom, comments = none, trim = no, encoding = UTF-8, header = checked)
+    ![atom tsv settings: row delimiter = auto, column delimiter = \t, quotes = custom, escape = custom, comments = none, trim = no, encoding = UTF-8, header = checked](atom_tsv_settings.png)
 * I have not successfully used Excel to import a tsv, edit it, and export back to tsv without various encoding errors.
 * There may well be other bare-bones tsv editors that arrange data nicely on the screen without messing with it, but I haven't looked any further than the atom package I mentioned above. Let me know if you find anything else (and/or just add info here).
 
