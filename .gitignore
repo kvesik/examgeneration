@@ -10,3 +10,5 @@ examgeneration/midterm-exams_generated_[0-9]*-[0-9]*/*.tex
 examgeneration/midterm-exams_generated_[0-9]*-[0-9]*/*.aux
 examgeneration/midterm-exams_generated_[0-9]*-[0-9]*/*.synctex.gz
 examgeneration/midterm-exams_generated_[0-9]*-[0-9]*/*.log
+examgeneration/midtermsignups_old.tsv
+examgeneration/SIDS_first_five_digits_and_names.txt
