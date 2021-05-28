@@ -15,24 +15,24 @@ def readquestionsfromfile(questionsfilepath):
         colnames = [cname.lower() for cname in df.columns.values.tolist()]
 
         # be somewhat flexible with column names, as long as they start with these strings
-        uniqueidcol = next(cname for cname in colnames if cname.startswith["uniqueid"])
-        topiccol = next(cname for cname in colnames if cname.startswith["topic"])
-        diffcol = next(cname for cname in colnames if cname.startswith["difficulty"])
+        uniqueidcol = next(cname for cname in colnames if cname.startswith("uniqueid"))
+        topiccol = next(cname for cname in colnames if cname.startswith("topic"))
+        diffcol = next(cname for cname in colnames if cname.startswith("difficulty"))
         # whichever source column is furthest right is the one we'll use
         sourcecol = [cname for cname in colnames if cname.startswith("source")][-1]  # eg "Source2020W"
-        datecompletedcol = next(cname for cname in colnames if cname.startswith["datecompleted"])
-        qtypescol = next(cname for cname in colnames if cname.startswith["questiontype"])
-        instrcol = next(cname for cname in colnames if cname.startswith["instructions"])
-        data1col = next(cname for cname in colnames if cname.startswith["data1"])
-        data2col = next(cname for cname in colnames if cname.startswith["data2"])
-        image1col = next(cname for cname in colnames if cname.startswith["image1"] and not cname.contains("caption"))
-        image2col = next(cname for cname in colnames if cname.startswith["image2"] and not cname.contains("caption"))
-        image1capcol = next(cname for cname in colnames if cname.startswith["image1"] and cname.contains("caption"))
-        image2capcol = next(cname for cname in colnames if cname.startswith["image2"] and cname.contains("caption"))
-        imgarrcol = next(cname for cname in colnames if cname.startswith["imagearrangement"])
-        notescol = next(cname for cname in colnames if cname.startswith["notes"])
-        omitcol = next(cname for cname in colnames if cname.startswith["omit"])
-        instructorcommentscol = next(cname for cname in colnames if cname.startswith["instructor"] and cname.contains("comments"))
+        datecompletedcol = next(cname for cname in colnames if cname.startswith("datecompleted"))
+        qtypescol = next(cname for cname in colnames if cname.startswith("questiontype"))
+        instrcol = next(cname for cname in colnames if cname.startswith("instructions"))
+        data1col = next(cname for cname in colnames if cname.startswith("data1"))
+        data2col = next(cname for cname in colnames if cname.startswith("data2"))
+        image1col = next(cname for cname in colnames if cname.startswith("image1") and not cname.contains("caption"))
+        image2col = next(cname for cname in colnames if cname.startswith("image2") and not cname.contains("caption"))
+        image1capcol = next(cname for cname in colnames if cname.startswith("image1") and cname.contains("caption"))
+        image2capcol = next(cname for cname in colnames if cname.startswith("image2") and cname.contains("caption"))
+        imgarrcol = next(cname for cname in colnames if cname.startswith("imagearrangement"))
+        notescol = next(cname for cname in colnames if cname.startswith("notes"))
+        omitcol = next(cname for cname in colnames if cname.startswith("omit"))
+        instructorcommentscol = next(cname for cname in colnames if cname.startswith("instructor") and cname.contains("comments"))
 
         for index, row in df.iterrows():
             # get data for each row (question)

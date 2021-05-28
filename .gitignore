@@ -31,3 +31,5 @@ examgeneration/exams/SAMPLESexistingexams_donotedit.dict20201022163250
 examgeneration/data/SIDS_first_five_digits_and_names.txt
 examgeneration/backup exam gen dicts and folders 20201014 1625 - before utils testing.zip
 examgeneration/__pycache__/examio.cpython-37.pyc
+examgeneration/src/__pycache__/examio_beta20210527.cpython-38.pyc
+examgeneration/src/__pycache__/Exam.cpython-38.pyc
