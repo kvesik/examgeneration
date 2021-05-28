@@ -8,14 +8,13 @@ written May-July 2020 by Kaili Vesik: kvesik@gmail.com
 class Exam:
 
     # Parameters:   studentid (string): the ID of the student whose exam this is
-    #               date (string): the date for which this student's exam is scheduled
+    #               date (date): the date for which this student's exam is scheduled
     #               time (string): the timeslot for which this student's exam is scheduled
     #               questions (list of Questions): the questions for this student's exam
-    def __init__(self, studentid="", date="", time="", questions=[]):
-       
+    def __init__(self, studentid="", examdate=None, time="", questions=[]):
 
         self.studentid = studentid
-        self.date = date
+        self.examdate = examdate
         self.time = time
         self.questions = questions
 
@@ -29,13 +28,14 @@ class Question:
     HARD = "hard"
     VHARD = "very hard"
 
-    def __init__(self, topic="", difficulty="", source="", questiontype="", instructions="",data1 = "", data2 = "", image1 = "", image1caption = "", image2 = "", image2caption = "", imagearrangement = "vertical", notes = "", omit = False, instrnotes = ""):
-       
+    def __init__(self, uniqueid="", topic="", difficulty="", source="", datecompleted=None, questiontypes=[], instructions="",data1 = "", data2 = "", image1 = "", image1caption = "", image2 = "", image2caption = "", imagearrangement = "vertical", notes = "", omit = False, instrnotes = ""):
 
+        self.uniqueid = uniqueid
         self.topic = topic
         self.difficulty = difficulty
         self.source = source
-        self.questiontype = questiontype
+        self.datecompleted = datecompleted # date object
+        self.questiontypes = questiontypes
         self.instructions = instructions
         self.data1 = data1
         self.data2 = data2
@@ -48,4 +48,7 @@ class Question:
         self.omit = omit
         self.instrnotes = instrnotes
 
+
+    def print(self):
+        print(self.uniqueid + " - " + self.source + " - " + self.instructions[0:30] + " ...")
     
