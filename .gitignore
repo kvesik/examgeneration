@@ -1,7 +1,7 @@
 
 examgeneration/__pycache__/Exam.cpython-37.pyc
 
-# keep only the pdfs from subdirectories with generated exams
+# keep only the pdfs and tsvs from subdirectories with generated exams
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.tex
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.aux
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.synctex.gz
