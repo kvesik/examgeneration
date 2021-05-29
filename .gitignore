@@ -1,5 +1,6 @@
+examgeneration/src/__pycache__/examio_beta20210527.cpython-38.pyc
+examgeneration/src/__pycache__/Exam.cpython-38.pyc
 
-examgeneration/__pycache__/Exam.cpython-37.pyc
 
 # keep only the pdfs and tsvs from subdirectories with generated exams
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.tex
@@ -14,7 +15,8 @@ examgeneration/exams/flash-exams_generated_[0-9]*-[0-9]*/*.tex
 examgeneration/exams/flash-exams_generated_[0-9]*-[0-9]*/*.aux
 examgeneration/exams/flash-exams_generated_[0-9]*-[0-9]*/*.synctex.gz
 examgeneration/exams/flash-exams_generated_[0-9]*-[0-9]*/*.log
-examgeneration/data/DEPRECATED_allquestions_noIDs.tsv
+
+
 examgeneration/exams/Eexistingexams_donotedit_20200930gavetoKathleen.dict
 examgeneration/exams/Eexistingexams_donotedit_20200930gavetoKathleen_UPDATED.dict
 examgeneration/exams/Eexistingexams_donotedit_20201005gavetoKathleen.dict
@@ -28,8 +30,6 @@ examgeneration/exams/existingexams_donotedit.dict20201020210602
 examgeneration/exams/existingexams_donotedit.dict20201118010550
 examgeneration/exams/existingexams_donotedit.dict20201118011519
 examgeneration/exams/SAMPLESexistingexams_donotedit.dict20201022163250
+
+
 examgeneration/data/SIDS_first_five_digits_and_names.txt
-examgeneration/backup exam gen dicts and folders 20201014 1625 - before utils testing.zip
-examgeneration/__pycache__/examio.cpython-37.pyc
-examgeneration/src/__pycache__/examio_beta20210527.cpython-38.pyc
-examgeneration/src/__pycache__/Exam.cpython-38.pyc

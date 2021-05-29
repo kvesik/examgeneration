@@ -13,6 +13,7 @@ def readquestionsfromfile(questionsfilepath):
     with io.open(questionsfilepath, "r", encoding="utf-8") as qfile:
         df = pd.read_csv(qfile, sep="\t", keep_default_na=False)  # TODO , header=0, names=["uniqueid", "topic", "difficulty", "source2020S", "source2020W", "source2021S", "datecompleted", "questiontypes", "instructions", "data1", "data2", "image1", "image1caption", "image2", "image2caption", "imagearrangement", "notes", "omit", "instructornotes"], keep_default_na=False)
         colnames = [cname.lower() for cname in df.columns.values.tolist()]
+        df.columns = colnames
 
         # be somewhat flexible with column names, as long as they start with these strings
         uniqueidcol = next(cname for cname in colnames if cname.startswith("uniqueid"))
@@ -25,14 +26,14 @@ def readquestionsfromfile(questionsfilepath):
         instrcol = next(cname for cname in colnames if cname.startswith("instructions"))
         data1col = next(cname for cname in colnames if cname.startswith("data1"))
         data2col = next(cname for cname in colnames if cname.startswith("data2"))
-        image1col = next(cname for cname in colnames if cname.startswith("image1") and not cname.contains("caption"))
-        image2col = next(cname for cname in colnames if cname.startswith("image2") and not cname.contains("caption"))
-        image1capcol = next(cname for cname in colnames if cname.startswith("image1") and cname.contains("caption"))
-        image2capcol = next(cname for cname in colnames if cname.startswith("image2") and cname.contains("caption"))
+        image1col = next(cname for cname in colnames if cname.startswith("image1") and "caption" not in cname)
+        image2col = next(cname for cname in colnames if cname.startswith("image2") and "caption" not in cname)
+        image1capcol = next(cname for cname in colnames if cname.startswith("image1") and "caption" in cname)
+        image2capcol = next(cname for cname in colnames if cname.startswith("image2") and "caption" in cname)
         imgarrcol = next(cname for cname in colnames if cname.startswith("imagearrangement"))
         notescol = next(cname for cname in colnames if cname.startswith("notes"))
         omitcol = next(cname for cname in colnames if cname.startswith("omit"))
-        instructorcommentscol = next(cname for cname in colnames if cname.startswith("instructor") and cname.contains("comments"))
+        instructorcommentscol = next(cname for cname in colnames if cname.startswith("instructor") and "comments" in cname)
 
         for index, row in df.iterrows():
             # get data for each row (question)
