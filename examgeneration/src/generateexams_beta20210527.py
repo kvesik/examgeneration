@@ -249,6 +249,7 @@ class ExamSession:
     #               tsvfilepath (string): path to the .tsv file that will be used to pipe questions into Canvas quizzes
     #               examdate (date): the date whose exam source to generate
     def generatelatexexams_oneday(self, texfilepath, tsvfilepath, examdate):
+        print("generating one day's exams / date",examdate) # TODO
 
         sched = self.signups[examdate]
 
@@ -325,6 +326,8 @@ class ExamSession:
         texfileprefix = "LING200" + self.examtype + "-"
         texfilesuffix = ".tex"
         tsvfilesuffix = ".tsv"
+
+        print("generating latex exams up to date", generateuptodate) # TODO
 
         # generate an exam for each day, named after days in schedule
         for thedate in self.signups.keys():  # should be a date object
@@ -482,6 +485,7 @@ class ExamSession:
     # Parameters:   sid (string): student id for this exam
     def collectquestionsforoneexam(self, sid="", examdate=None):
         if self.examtype == FLASH:
+            print("collecting flash questions for sid ",sid," on date ",examdate) # TODO
             return self.collectflashquestions(sid, examdate)
         else:  # midterm or final
             return self.collectmidtermorfinalquestions(self.examtype, sid, examdate)
@@ -547,7 +551,12 @@ class ExamSession:
 
         questionsforthisexam = []
 
+        print(examdate) # TODO
         questionspool = self.getquestionsbeforestartdate(examdate)
+        if len(questionspool.keys()) <= 0:
+            print("There are no questions in the database whose date is early enough to include in an exam dated "+examdate.strftime("%Y-%m-%d"))
+            print("Exiting...")
+            exit(1)
         wildcardtopics = [t for t in questionspool.keys() if t != DATASET]
         wildcardtopics = list(set(wildcardtopics))
 
@@ -728,7 +737,6 @@ class ExamSession:
 #               diffsneeded (list of strings): difficulties to arrange
 #               wildtopicslist (list of strings): possible wildcard topics to use
 def maketopicdiffcombo(topicsneeded, diffsneeded, wildtopicslist):
-
     wildcardtopicsused = []
     # randomly combine topics (including assigning a wildcard topic if necessary) with difficulties
     # and make sure that these combinations exist in the eligible questions
@@ -966,16 +974,16 @@ def getconfig():
         if os.path.isfile(sys.argv[1]):
             configpath = sys.argv[1]
     while configpath == "":
-        userinput = input("Enter the path to the config file for this exam (see README for help): "+N)
-        if os.path.isfile(userinput):
-            configpath = userinput
+        userinput = input("Enter the name of the config file for this exam (see README for help): "+N)
+        if os.path.isfile("../config/"+userinput):
+            configpath = "../config/"+userinput
         else:
-            print(N+"Not a valid file path. Please try again.")
+            print(N+"File not found in config directory. Please try again.")
 
     # default values, in case any info is missing from the config file (some are functional / some not)
     randomseed = "wugz"
-    questionspath = ""
-    signupspath = ""
+    questionsfile = ""
+    signupsfile = ""
     hasschedule = True
     examtype = ""
     examdate = None
@@ -984,7 +992,7 @@ def getconfig():
     qenddate = None # TODO
     topics = [] # TODO
     diffs = [] # TODO
-    generateexamsuptodate = None
+    generateexamsuptodate = getfriofthisweek(examio.date.today()) # TODO None
 
     # info tags that identify each line in the config file
     questionstag = "questions:"
@@ -1003,7 +1011,7 @@ def getconfig():
 
         while cline != "":
             if cline.startswith(questionstag):
-                questionspath = cline[len(questionstag):].strip()
+                questionsfile = cline[len(questionstag):].strip()
             elif cline.startswith(signupstag):
                 txt = cline[len(signupstag):].strip()
                 items = [item.strip() for item in txt.split(" ")]
@@ -1011,10 +1019,10 @@ def getconfig():
                     # if there are no signups for this exam, we assume that everyone writes on the same day
                     # and that we're just looking for a list of student IDs
                     hasschedule = False
-                    signupspath = items[1]
+                    signupsfile = items[1]
                 else:
                     # otherwise we should have detailed signups with student ID, day, time
-                    signupspath = items[0]
+                    signupsfile = items[0]
             elif cline.startswith(examtypetag):
                 txt = cline[len(examtypetag):].strip()
                 items = [item.strip() for item in txt.split(" ")]
@@ -1036,8 +1044,8 @@ def getconfig():
                 txt = cline[len(genuptodatetag):].strip()
                 if len(txt) > 0:
                     generateexamsuptodate = examio.makedate(txt)
-                else:
-                    generateexamsuptodate = None
+                # else:
+                #     generateexamsuptodate = getfriofthisweek(examio.date.today())
             # TODO include / not?
             # elif cline.startswith(qstarttag):
             #     txt = cline[len(qstarttag):].strip()
@@ -1081,7 +1089,7 @@ def getconfig():
     if filestructure == "s":
         onefileperstudent = True
 
-    return questionspath, signupspath, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate # qstartdate, qenddate  #, topics, difficulties
+    return questionsfile, signupsfile, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate # qstartdate, qenddate  #, topics, difficulties
 
 
 # Returns all day/time/student info in file as a dictionary of date --> list of (time,studentid)
@@ -1094,7 +1102,8 @@ def getconfig():
 #               examtype (string): see constants FINAL MIDTERM and FLASH
 #               examdate (datetime.date): the date that the exam is written (if all students are writing at the same time;
 #                   ie, it's not an oral exam, with signup slots)
-def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate):
+# TODO
+def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate, generateuptodate):
     signups = {}  # dictionary of date --> list of (time,studentid)
 
     with io.open(signupsfilepath, "r", encoding="utf-8") as sfile:
@@ -1110,7 +1119,7 @@ def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate):
                 time = str(row["Time"])
                 stid = str(row["SID-5"])
 
-                dontuse = examtype == FLASH and examio.makedate(day) > getfriofthisweek(date.today())
+                dontuse = examtype == FLASH and examio.makedate(day) > generateuptodate # TODO getfriofthisweek(date.today())
                 if not dontuse:
                     if day not in signups.keys():
                         signups[day] = []
@@ -1132,14 +1141,14 @@ def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate):
 ###########################################
 
 # read metadata from config file
-questionspath, signupspath, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate = getconfig()
+questionsfile, signupsfile, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate = getconfig()
 # collect questions from file
-allqs = examio.readquestionsfromfile(questionspath)
+allqs = examio.readquestionsfromfile("../data/"+questionsfile)
 # collect info from file re which exams have been made for which students already
-existingexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH)
+existingexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH, "../exams")
 
 # collect scheduling info from file
-signups = readsignupsfromfile(signupspath, hasschedule, examtype, examdate)
+signups = readsignupsfromfile("../data/"+signupsfile, hasschedule, examtype, examdate, generateexamsuptodate)
 signupdates = [examio.makedate(d) for d in signups.keys()]
 signupdates = [d for d in signupdates if d is not None]
 startdate = date.today()
@@ -1162,4 +1171,4 @@ thisexamsession.generatelatexexams(foldername, generateexamsuptodate)
 thisexamsession.generatelatexquestionbankbytopic(foldername)
 
 # save a record of which students have seen which questions (on which exams)
-examio.recordexistingexamstofile(thisexamsession.existingexams, EXISTINGEXAMSPICKLEPATH)
+examio.recordexistingexamstofile(thisexamsession.existingexams, EXISTINGEXAMSPICKLEPATH, "../exams")

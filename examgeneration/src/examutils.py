@@ -23,7 +23,7 @@ def getfilepath(filetype):
 
 
 # returns a dictionary of examtype --> [list of Questions] for this given stid,
-# or None if the stid doesn't have any exams yet
+# or None if the stid doesn't have any exams_old yet
 def getexamsforonestudent(exams, stid):
     if stid in exams.keys():
         return exams[stid]
@@ -96,7 +96,7 @@ def questionreplacements20201004():
                 q.print()
 
 # reads most recent dict file
-# removes the exam of type examtype for student sid from all existing exams
+# removes the exam of type examtype for student sid from all existing exams_old
 # writes the updated dict file
 def removeexamfromexisting(sid, examtype):
     allexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH)
@@ -213,7 +213,7 @@ def removeexam_gatherinfo():
 
 # haven't implemented this yet because I think it's reasonably efficient just to manually delete the dict
 # generated folder for the (most recent) batch you don't want
-# TODO however if we want to remove a batch of exams that's *not* the most recent then this might come in handy...
+# TODO however if we want to remove a batch of exams_old that's *not* the most recent then this might come in handy...
 # def removebatch_gatherinfo():
 
 

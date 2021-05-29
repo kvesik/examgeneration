@@ -67,27 +67,27 @@ def makedate(thedate):
         return returndate
 
 
-# Writes to binary file the current state of info re which students have had which questions on which exams
+# Writes to binary file the current state of info re which students have had which questions on which exams_old
 # Parameters:   existingexams (dictionary of studentID --> examtype --> [list of Questions]):
 #                   questions that have been used for which students on which exam(s)
 #               existingexamsfilepath (string): path to the file where this data will be recorded for next generation
 def recordexistingexamstofile(existingexams, existingexamsfilepath):
     timestampedfilepath = existingexamsfilepath+datetime.now().strftime("%Y%m%d%H%M%S")
-    print("recording existing exams to "+timestampedfilepath)
+    print("recording existing exams_old to "+timestampedfilepath)
     with open(timestampedfilepath, "wb") as xfile:
         pickle.dump(existingexams, xfile)
 
 
-# Returns the current state of info re which students have had which questions on which exams,
+# Returns the current state of info re which students have had which questions on which exams_old,
 #   as a dictionary of studentID --> examtype --> [list of Questions]
 # Parameters:   existingexamsfilepath (string): path to the file where this data was stored at last generation
 def readexistingexamsfromfile(existingexamsfilepath):
     existing = {}
 
     existingexamsfiles = [f for f in os.listdir('..') if f.startswith(existingexamsfilepath)]
-    if len(existingexamsfiles) > 0:  # ie, if some exams do exist already and we're not starting from scratch
+    if len(existingexamsfiles) > 0:  # ie, if some exams_old do exist already and we're not starting from scratch
         mostrecentfilepath = sorted(existingexamsfiles)[-1]
-        print("reading existing exams from "+mostrecentfilepath)
+        print("reading existing exams_old from "+mostrecentfilepath)
         if os.path.isfile(mostrecentfilepath):
             with open(mostrecentfilepath, "rb") as xfile:
                 existing = pickle.load(xfile)

@@ -179,7 +179,7 @@ def isqtypeduplicate(potentialqtypes, existingqtypes):
     return questiontypeisduplicate
 
 
-# this class represents one session of exams
+# this class represents one session of exams_old
 # (for example, a midterm exam for n students taking place over m days)
 class ExamSession:
 
@@ -187,12 +187,12 @@ class ExamSession:
     #               allquestions ([list of Questions]): the set of Questions to be drawn from for this exam session
     #               signups (dictionary of date --> [list of (time,studentid)]): timeslots and corresponding
     #                   student ids, grouped by date
-    #               studentgroups ([list of [lists of strings]]): groups of students whose exams should not overlap
+    #               studentgroups ([list of [lists of strings]]): groups of students whose exams_old should not overlap
     #               existingexams (dictionary of studentif --> examtype --> [list of Questions]):
-    #                   questions already seen by various students on previous exams
+    #                   questions already seen by various students on previous exams_old
     #               startdate (date object): date that this ExamSession begins (if not provided, defaults to today)
     #               onefileperstudent (boolean): whether we want one pdf per sid
-    #                   (as opposed to the default, each day's exams getting batched together into one tex/pdf file)
+    #                   (as opposed to the default, each day's exams_old getting batched together into one tex/pdf file)
     # Each of these parameters is likely supplied by getconfig(), readquestionsfromfile(), and/or readsignupsfromfile()
     def __init__(self, examtype=FINAL, allquestions={}, signups={}, studentgroups=[], existingexams={},
                  startdate=date.today(), onefileperstudent=False):
@@ -215,7 +215,7 @@ class ExamSession:
                 return True
         return False
 
-    # Returns a list of Questions that this student has seen before on previous exams
+    # Returns a list of Questions that this student has seen before on previous exams_old
     # Parameters:   sid (string): student id whose exam questions to collect
     #                   (default "": return questions for all students)
     #               examptype (string): examtype whose questions to collect
@@ -234,12 +234,12 @@ class ExamSession:
                     if extype in examtypes:
                         qsseen.extend(self.existingexams[stdt][extype])
         elif sid in self.existingexams.keys():
-            # if this student has had some exams generated so far, collect this student's questions seen so far,
+            # if this student has had some exams_old generated so far, collect this student's questions seen so far,
             #   for specified examtype(s)
             for extype in self.existingexams[sid].keys():
                 if extype in examtypes:
                     qsseen.extend(self.existingexams[sid][extype])
-        # else we are looking for a specific student but they haven't had any exams generated yet; leave the list empty
+        # else we are looking for a specific student but they haven't had any exams_old generated yet; leave the list empty
         return qsseen
 
     # Generate LaTeX source for one entire exam day's document; write to file
@@ -267,7 +267,7 @@ class ExamSession:
                     "Image2Caption" + N
                 )
 
-                if not self.onefileperstudent:  # entire day's exams batched into one file
+                if not self.onefileperstudent:  # entire day's exams_old batched into one file
                     with open(texfilepath, "w", encoding="utf-8") as texf:
                         writedochead(texf, examdate.strftime("%Y%m%d %A"), "ALL EXAMS")
 
@@ -375,7 +375,7 @@ class ExamSession:
     #               difficulty (string): the difficulty from which to collect questions;
     #                   if empty, the question could be from any difficulty level
     #               otherstudents (list of student ids): the selected question must not already be
-    #                   in any of these students' exams
+    #                   in any of these students' exams_old
     #               alreadyused (list of Questions): the selected question must not be in this list
     #                   (of questions this student has already seen on a previous exam)
     #               qspool (dictionary of topic --> difficulty --> [list of Questions]): questions to draw from -
@@ -390,7 +390,7 @@ class ExamSession:
         eligibleqs = self.getquestions(topic, difficulty, qspool)
         question = random.sample(eligibleqs, 1)[0]
 
-        # gather a list of questions that are on exams of students who this student works with
+        # gather a list of questions that are on exams_old of students who this student works with
         otherstudentquestions = []
         for sid in otherstudents:
             if sid in self.exams.keys():
@@ -687,7 +687,7 @@ class ExamSession:
 
         return questionsforthisexam
 
-    # Adds this sid, exam type, and questions list combination to the collection of existing exams/questions
+    # Adds this sid, exam type, and questions list combination to the collection of existing exams_old/questions
     # Parameters:   sid (string): the student number whose exam questions we're recording
     #               extype (string): the exam type that the questions are associated with
     #               questions ([list of Questions]): the questions on this student's exam
@@ -770,7 +770,7 @@ def writequestionbank(texfile, topic, difficulty, questionslist):
 #               title1 (string): first line of title page text
 #               title2 (string): second line of title page text
 #               onefileperstudent (boolean): whether to write a separate tex/pdf for each student
-#                   (as opposed to the default, which is to batch all of one day's exams into one file)
+#                   (as opposed to the default, which is to batch all of one day's exams_old into one file)
 def writedochead(texfile, title1, title2, onefileperstudent=False):
     texfile.write("% Ensure that you compile using XeLaTeX !!! PDFTex has problems with some of the packages used" + N)
     texfile.write("\\documentclass[12pt]{article}" + N)
@@ -948,7 +948,7 @@ def dealwithescapes(datatext):
 #           signupspath (string): path to .tsv file containing timeslot signup info
 #           examtype (string): final or midterm
 #           studentgroups (list of list of strings): each sublist indicates students
-#               who typically work together and whose exams therefore should not overlap
+#               who typically work together and whose exams_old therefore should not overlap
 #               (currently not in use)
 def getconfig():
     configpath = ""
@@ -1016,7 +1016,7 @@ def getconfig():
     filestructure = ""
     while filestructure == "":
         userinput = input(
-            "Do you want all of one day's exams in a single pdf (enter 'b' for batch) " + N +
+            "Do you want all of one day's exams_old in a single pdf (enter 'b' for batch) " + N +
             "or would you prefer each student's exam in its own file (enter 's' for separate)?" + N
         )
         if userinput == "b" or userinput == "s":
@@ -1035,7 +1035,7 @@ def getconfig():
 #   (a) not yet had an exam generated and
 #   (b) are signed up for up to and including the current week
 # Parameters:   signupsfilepath (string): path to the .tsv file containing exam scheduling data
-#               hasschedule (boolean): True if this exam has scheduled signups (eg 2020W1 flash exams),
+#               hasschedule (boolean): True if this exam has scheduled signups (eg 2020W1 flash exams_old),
 #                   False if not (eg 2020W1 MT/final)
 #               examtype (string): see constants FINAL MIDTERM and FLASH
 #               examdate (date object): the date that the exam is written (if all students are writing at the same time;
@@ -1081,7 +1081,7 @@ def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate):
 questionspath, signupspath, hasschedule, examtype, examdate, studentgroups, onefileperstudent = getconfig()
 # collect questions from file
 allqs = examio.readquestionsfromfile(questionspath)
-# collect info from file re which exams have been made for which students already
+# collect info from file re which exams_old have been made for which students already
 existingexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH)
 
 
@@ -1095,18 +1095,18 @@ if len(signupdates) > 0:
 # create an ExamSession instance based on info read from config etc
 thisexamsession = ExamSession(examtype, allqs, signups, studentgroups, existingexams, startdate, onefileperstudent)
 
-# create folder in which to store the generated exams + question bank for this session
+# create folder in which to store the generated exams_old + question bank for this session
 timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
 foldername = examtype+"-exams_generated_"+timestamp
 if not os.path.exists(foldername):
     os.makedirs(foldername)
 
 
-# generate all exams for this session (one file for each day, containing all students' exams for that day)
+# generate all exams_old for this session (one file for each day, containing all students' exams_old for that day)
 thisexamsession.generatelatexexams(foldername)
 
 # generate a question bank of all (non-omitted) questions in the .tsv
 thisexamsession.generatelatexquestionbankbytopic(foldername)
 
-# save a record of which students have seen which questions (on which exams)
+# save a record of which students have seen which questions (on which exams_old)
 examio.recordexistingexamstofile(thisexamsession.existingexams, EXISTINGEXAMSPICKLEPATH)

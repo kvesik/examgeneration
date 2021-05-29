@@ -2,7 +2,7 @@ examgeneration/src/__pycache__/examio_beta20210527.cpython-38.pyc
 examgeneration/src/__pycache__/Exam.cpython-38.pyc
 
 
-# keep only the pdfs and tsvs from subdirectories with generated exams
+# keep only the pdfs and tsvs from subdirectories with generated exams_old
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.tex
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.aux
 examgeneration/exams/final-exams_generated_[0-9]*-[0-9]*/*.synctex.gz
@@ -17,19 +17,21 @@ examgeneration/exams/flash-exams_generated_[0-9]*-[0-9]*/*.synctex.gz
 examgeneration/exams/flash-exams_generated_[0-9]*-[0-9]*/*.log
 
 
-examgeneration/exams/Eexistingexams_donotedit_20200930gavetoKathleen.dict
-examgeneration/exams/Eexistingexams_donotedit_20200930gavetoKathleen_UPDATED.dict
-examgeneration/exams/Eexistingexams_donotedit_20201005gavetoKathleen.dict
-examgeneration/exams/Eexistingexams_donotedit_previousto20201005update.dict
-examgeneration/exams/existingexams_donotedit.dict20200930000000
-examgeneration/exams/existingexams_donotedit.dict20201005000000
-examgeneration/exams/existingexams_donotedit.dict20201012211058
-examgeneration/exams/existingexams_donotedit.dict20201015141116
-examgeneration/exams/existingexams_donotedit.dict20201015141154
-examgeneration/exams/existingexams_donotedit.dict20201020210602
-examgeneration/exams/existingexams_donotedit.dict20201118010550
-examgeneration/exams/existingexams_donotedit.dict20201118011519
-examgeneration/exams/SAMPLESexistingexams_donotedit.dict20201022163250
+examgeneration/exams_old/Eexistingexams_donotedit_20200930gavetoKathleen.dict
+examgeneration/exams_old/Eexistingexams_donotedit_20200930gavetoKathleen_UPDATED.dict
+examgeneration/exams_old/Eexistingexams_donotedit_20201005gavetoKathleen.dict
+examgeneration/exams_old/Eexistingexams_donotedit_previousto20201005update.dict
+examgeneration/exams_old/existingexams_donotedit.dict20200930000000
+examgeneration/exams_old/existingexams_donotedit.dict20201005000000
+examgeneration/exams_old/existingexams_donotedit.dict20201012211058
+examgeneration/exams_old/existingexams_donotedit.dict20201015141116
+examgeneration/exams_old/existingexams_donotedit.dict20201015141154
+examgeneration/exams_old/existingexams_donotedit.dict20201020210602
+examgeneration/exams_old/existingexams_donotedit.dict20201118010550
+examgeneration/exams_old/existingexams_donotedit.dict20201118011519
+examgeneration/exams_old/SAMPLESexistingexams_donotedit.dict20201022163250
 
 
 examgeneration/data/SIDS_first_five_digits_and_names.txt
+examgeneration/data/allquestions.tsv
+examgeneration/exams/flash-exams_generated_20210529-145634/LING200flash-20210610Thursday.synctex(busy)
