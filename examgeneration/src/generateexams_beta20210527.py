@@ -41,7 +41,7 @@ EXISTINGEXAMSPICKLEPATH = "existingexams_donotedit.dict"
 
 # exam types, topics, difficulty distributions
 MIDTERM = "midterm"
-midtermtopics = [TRANSCR, ARTPHON, PHONFT, SKEWED, PHRELAN]
+midtermtopics = [TRANSCR, ARTPHON, WILD, SKEWED, PHRELAN]
 # note: next line - midterm wildcard not used in 2020W1 (these were the options for 2020S1)
 wildcardmidtermtopics = [TRANSCR, ARTPHON, SKEWED, PHRELAN, OTHERPRE]
 midtermdifficulties = {
@@ -249,7 +249,7 @@ class ExamSession:
     #               tsvfilepath (string): path to the .tsv file that will be used to pipe questions into Canvas quizzes
     #               examdate (date): the date whose exam source to generate
     def generatelatexexams_oneday(self, texfilepath, tsvfilepath, examdate):
-        print("generating one day's exams / date",examdate) # TODO
+        print("generating one day's exams / date", examdate)  # TODO
 
         sched = self.signups[examdate]
 
@@ -270,10 +270,12 @@ class ExamSession:
                 )
 
                 if not self.onefileperstudent:  # entire day's exams batched into one file
+                    print("batching")  # TODO
                     with open(texfilepath, "w", encoding="utf-8") as texf:
                         writedochead(texf, examdate.strftime("%Y%m%d %A"), "ALL EXAMS")
 
                         for (time, sid) in sched:
+                            print("one time/sid")  # TODO
                             if sid == "":
                                 writeexamstart(texf, "empty", time)
                                 writeexamstart(inf, "empty", time)
@@ -551,7 +553,6 @@ class ExamSession:
 
         questionsforthisexam = []
 
-        print(examdate) # TODO
         questionspool = self.getquestionsbeforestartdate(examdate)
         if len(questionspool.keys()) <= 0:
             print("There are no questions in the database whose date is early enough to include in an exam dated "+examdate.strftime("%Y-%m-%d"))
@@ -609,6 +610,7 @@ class ExamSession:
         numqs = len(diffsneeded)
         topicsneeded = [t for t in examcomposition[extype][TOPICS]]
         wildcardtopics = [wt for wt in examcomposition[extype][WILDTOPICS]]
+        # TODO make sure selected topics even have questions in the correct date range (otherwise topicdiffcombo loops forever)
 
         questionsforthisexam = []
 
