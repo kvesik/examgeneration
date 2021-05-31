@@ -2,7 +2,6 @@
 """
 written May-July 2020 by Kaili Vesik: kvesik@gmail.com
 updated Sep-Oct 2020 by Kaili Vesik, for use in 2020W1
-updated May 2021 by Kaili Vesik, for use in 2021S1
 """
 
 import subprocess
@@ -13,7 +12,7 @@ import io
 import pandas as pd
 from datetime import date, datetime, timedelta
 from src.Exam import Question, Exam
-from src import examio as examio
+from src import examio_before20210527
 
 # exam topics
 TRANSCR = "Transcription"
@@ -35,18 +34,14 @@ NUMQS = "number of questions"
 TOPICS = "topics"
 WILDTOPICS = "wildcard topics"
 DIFFS = "difficulty distribution"
-EXISTINGEXAMSPICKLEFILE = "existingexams_donotedit.dict"
 T = "\t"
 N = "\n"
-ORDER_SPECIFIED = 1
-ORDER_RANDOM = 2
-ORDER_EASYMEDFIRST = 3
-ORDER_VHARDLAST = 4
+EXISTINGEXAMSPICKLEPATH = "existingexams_donotedit.dict"
 
 # exam types, topics, difficulty distributions
 MIDTERM = "midterm"
-midtermtopics = [TRANSCR, ARTPHON, SKEWED, PHRELAN, WILD] # summer
-midtermtopics = [TRANSCR, ARTPHON, PHONFT, PHRELAN] # winter
+midtermtopics = [TRANSCR, ARTPHON, PHONFT, SKEWED, PHRELAN]
+# note: next line - midterm wildcard not used in 2020W1 (these were the options for 2020S1)
 wildcardmidtermtopics = [TRANSCR, ARTPHON, SKEWED, PHRELAN, OTHERPRE]
 midtermdifficulties = {
     Question.EASY: 1,
@@ -57,8 +52,17 @@ midtermdifficulties = {
 FINAL = "final"
 finaltopics = [ACOUS, ALTER, SYLS, TONE, DATASET, WILD]
 wildcardfinaltopics = [
-    TRANSCR, ARTPHON, PHONFT, SKEWED, PHRELAN, ACOUS, ALTER, SYLS, TONE, OTHERPRE,
-    # OTHERPOST,  # TODO - update when there are questions of this topic
+    TRANSCR,
+    ARTPHON,
+    PHONFT,
+    SKEWED,
+    PHRELAN,
+    ACOUS,
+    ALTER,
+    SYLS,
+    TONE,
+    OTHERPRE,
+    # OTHERPOST, # TODO update when there are questions of this topic
 ]
 finaldifficulties = {
     Question.EASY: 1,
@@ -96,8 +100,8 @@ examcomposition = {
 }
 
 # to be included on instructor copies
-instrnotesprefix = N + "~\\\\" + N + "INSTRUCTOR NOTES: "
-RUBRIC = "\\vfill" + N+"Excellent (3) ~~~ Good (2.2) ~~~ Fair (1.7) ~~~ Poor (0)" + N
+instrnotesprefix = N+"~\\\\"+N+"INSTRUCTOR NOTES: "
+RUBRIC = "\\vfill"+N+"Excellent (3) ~~~ Good (2.2) ~~~ Fair (1.7) ~~~ Poor (0)"+N
 
 
 # Returns the date object which is the most recent Friday strictly before (not equal to) the input date
@@ -175,7 +179,7 @@ def isqtypeduplicate(potentialqtypes, existingqtypes):
     return questiontypeisduplicate
 
 
-# this class represents one session of exams
+# this class represents one session of exams_old
 # (for example, a midterm exam for n students taking place over m days)
 class ExamSession:
 
@@ -183,17 +187,15 @@ class ExamSession:
     #               allquestions ([list of Questions]): the set of Questions to be drawn from for this exam session
     #               signups (dictionary of date --> [list of (time,studentid)]): timeslots and corresponding
     #                   student ids, grouped by date
-    #               studentgroups ([list of [lists of strings]]): groups of students whose exams should not overlap
+    #               studentgroups ([list of [lists of strings]]): groups of students whose exams_old should not overlap
     #               existingexams (dictionary of studentif --> examtype --> [list of Questions]):
-    #                   questions already seen by various students on previous exams
+    #                   questions already seen by various students on previous exams_old
     #               startdate (date object): date that this ExamSession begins (if not provided, defaults to today)
     #               onefileperstudent (boolean): whether we want one pdf per sid
-    #                   (as opposed to the default, each day's exams getting batched together into one tex/pdf file)
-    #               ordering (integer): type of ordering in which to arrange questions (see ORDER_* constants)
-    #                   if not provided, defaults to order in which topics are listed
+    #                   (as opposed to the default, each day's exams_old getting batched together into one tex/pdf file)
     # Each of these parameters is likely supplied by getconfig(), readquestionsfromfile(), and/or readsignupsfromfile()
     def __init__(self, examtype=FINAL, allquestions={}, signups={}, studentgroups=[], existingexams={},
-                 startdate=date.today(), onefileperstudent=False, ordering=ORDER_SPECIFIED):
+                 startdate=date.today(), onefileperstudent=False):
 
         self.examtype = examtype
         self.allquestions = allquestions
@@ -203,7 +205,6 @@ class ExamSession:
         self.existingexams = existingexams
         self.startdate = startdate
         self.onefileperstudent = onefileperstudent
-        self.ordering = ordering
 
     # Returns True iff we've already generated an exam of the given type for the given sid
     # Parameters:   sid (string): the student ID to check for
@@ -214,7 +215,7 @@ class ExamSession:
                 return True
         return False
 
-    # Returns a list of Questions that this student has seen before on previous exams
+    # Returns a list of Questions that this student has seen before on previous exams_old
     # Parameters:   sid (string): student id whose exam questions to collect
     #                   (default "": return questions for all students)
     #               examptype (string): examtype whose questions to collect
@@ -233,12 +234,12 @@ class ExamSession:
                     if extype in examtypes:
                         qsseen.extend(self.existingexams[stdt][extype])
         elif sid in self.existingexams.keys():
-            # if this student has had some exams generated so far, collect this student's questions seen so far,
+            # if this student has had some exams_old generated so far, collect this student's questions seen so far,
             #   for specified examtype(s)
             for extype in self.existingexams[sid].keys():
                 if extype in examtypes:
                     qsseen.extend(self.existingexams[sid][extype])
-        # else we are looking for a specific student but they haven't had any exams generated yet; leave the list empty
+        # else we are looking for a specific student but they haven't had any exams_old generated yet; leave the list empty
         return qsseen
 
     # Generate LaTeX source for one entire exam day's document; write to file
@@ -247,7 +248,6 @@ class ExamSession:
     #               tsvfilepath (string): path to the .tsv file that will be used to pipe questions into Canvas quizzes
     #               examdate (date): the date whose exam source to generate
     def generatelatexexams_oneday(self, texfilepath, tsvfilepath, examdate):
-        print("generating one day's exams / date", examdate)
 
         sched = self.signups[examdate]
 
@@ -267,7 +267,7 @@ class ExamSession:
                     "Image2Caption" + N
                 )
 
-                if not self.onefileperstudent:  # entire day's exams batched into one file
+                if not self.onefileperstudent:  # entire day's exams_old batched into one file
                     with open(texfilepath, "w", encoding="utf-8") as texf:
                         writedochead(texf, examdate.strftime("%Y%m%d %A"), "ALL EXAMS")
 
@@ -317,24 +317,19 @@ class ExamSession:
 
     # Generate LaTeX source for this entire exam session (could be multiple days); write to file
     # Also generate a tsv for this entire exam session (for piping into Canvas); write to file
-    # Parameters:   foldername (string): the directory to which exam materials should be generated
-    #               generateuptodate (datetime.date): the date up to which exams should be generated
-    #                   if empty, defaults to today
-    def generatelatexexams(self, foldername, generateuptodate=date.today()):
+    def generatelatexexams(self, foldername):
 
         # filename info for exam TeX & tsv sources to be generated
         texfileprefix = "LING200" + self.examtype + "-"
         texfilesuffix = ".tex"
         tsvfilesuffix = ".tsv"
 
-        print("generating latex exams up to date", generateuptodate)
-
         # generate an exam for each day, named after days in schedule
         for thedate in self.signups.keys():  # should be a date object
-
-            # if (self.examtype == FLASH and thedate <= getfriofthisweek(thedate)) or self.examtype != FLASH:
-            if (self.examtype == FLASH and (thedate <= getfriofthisweek(thedate) or thedate <= generateuptodate)) \
-                    or self.examtype != FLASH:
+            # thedate = makedate(day)
+            # if makedate(day) is None:
+            #     thedate = date.today()
+            if (self.examtype == FLASH and thedate <= getfriofthisweek(thedate)) or self.examtype != FLASH:
                 examtex = texfileprefix + thedate.strftime("%Y%m%d%A") + texfilesuffix
                 fullpathtotex = foldername + "/" + examtex
                 fullpathtotsv = fullpathtotex.replace(texfilesuffix, tsvfilesuffix)
@@ -380,7 +375,7 @@ class ExamSession:
     #               difficulty (string): the difficulty from which to collect questions;
     #                   if empty, the question could be from any difficulty level
     #               otherstudents (list of student ids): the selected question must not already be
-    #                   in any of these students' exams
+    #                   in any of these students' exams_old
     #               alreadyused (list of Questions): the selected question must not be in this list
     #                   (of questions this student has already seen on a previous exam)
     #               qspool (dictionary of topic --> difficulty --> [list of Questions]): questions to draw from -
@@ -395,7 +390,7 @@ class ExamSession:
         eligibleqs = self.getquestions(topic, difficulty, qspool)
         question = random.sample(eligibleqs, 1)[0]
 
-        # gather a list of questions that are on exams of students who this student works with
+        # gather a list of questions that are on exams_old of students who this student works with
         otherstudentquestions = []
         for sid in otherstudents:
             if sid in self.exams.keys():
@@ -420,10 +415,9 @@ class ExamSession:
                 # this has to do with too many specific subtypes & too few questions of some topic/difficulty combos
                 if isqsourceinquestions(question.source, alreadyused):
                     print("couldn't find a unique source for " + question.topic + " / " + question.difficulty+" - going to give up and allow overlap with group members")
-                    print("group members: ", otherstudents)
                 elif isuniqueidinquestions(question.uniqueid, otherstudentquestions):
                     print("couldn't find a question not in a group member's exam for " + question.topic + " / " + question.difficulty+" - going to give up and allow overlap with group members")
-                    print("group members: ", otherstudents)
+                print("group members: ", otherstudents)
                 break
             question = random.sample(eligibleqs, 1)[0]
             numtries += 1
@@ -484,12 +478,11 @@ class ExamSession:
 
     # Returns a list of Questions that will comprise one exam
     # Parameters:   sid (string): student id for this exam
-    #               examdate (datetime.date): date of exam
     def collectquestionsforoneexam(self, sid="", examdate=None):
         if self.examtype == FLASH:
             return self.collectflashquestions(sid, examdate)
         else:  # midterm or final
-            return self.collectmidtermorfinalquestions(sid, examdate)
+            return self.collectmidtermorfinalquestions(self.examtype, sid, examdate)
 
     # Returns a list of student ids who are fellow group members of the given student
     #   (could involve multiple distinct groups)
@@ -526,88 +519,6 @@ class ExamSession:
                     qsbeforecutoff[t][d].extend(thistopicdiffqs)
         return qsbeforecutoff
 
-    # Returns two lists of strings (ordered topics and difficulties)
-    # Parameters:   ordering (integer): type of ordering in which to arrange questions (see ORDER_* constants)
-    #               topicslist (list of strings): question topics for this exam;
-    #                   WILD not permitted (must have already been assigned a specific wildcard topic)
-    #               diffslist (list of strings): corresponding difficulty levels for topics
-    def ordertopicsdiffs(self, ordering, topicslist, diffslist):
-        topicsorder = []
-        diffsorder = []
-
-        if ordering == ORDER_SPECIFIED:
-            specifiedorder = examcomposition[self.examtype][TOPICS]
-            topicscountdown = [t for t in topicslist]
-            diffscountdown = [d for d in diffslist]
-
-            for t in specifiedorder:
-                if t == WILD:
-                    # make a place marker and add in the leftover questions once the specific topics have been populated
-                    topicsorder.append(WILD)
-                    diffsorder.append(WILD)
-                else:
-                    idx = topicscountdown.index(t)
-                    topicsorder.append(topicscountdown.pop(idx))
-                    diffsorder.append(diffscountdown.pop(idx))
-
-            # the following only does something if there are some wildcard questions to deal with
-            randomwildorder = random.sample(range(len(topicscountdown)), len(topicscountdown))
-            for rw in randomwildorder:
-                if WILD in topicsorder:
-                    idx = topicsorder.index(WILD)
-                    topicsorder[idx] = topicscountdown[rw]
-                    diffsorder[idx] = diffscountdown[rw]
-
-        elif ordering == ORDER_RANDOM:
-            randomwildorder = random.sample(range(len(topicslist)), len(topicslist))
-            for rw in randomwildorder:
-                topicsorder.append(topicslist[rw])
-                diffsorder.append(diffslist[rw])
-
-        elif ordering == ORDER_EASYMEDFIRST:
-            # make sure the exam starts with an easy or medium question, if it exists
-            #   (check for both in case diffs don't include one or the other)
-
-            topicscountdown = [t for t in topicslist]
-            diffscountdown = [d for d in diffslist]
-            easyormedfound = False
-            idx = 0
-            while easyormedfound is False and idx < len(topicslist):
-                if diffslist[idx] == Question.MED or diffslist[idx] == Question.EASY:
-                    topicsorder = [topicscountdown.pop(idx)]
-                    diffsorder = [diffscountdown.pop(idx)]
-                    easyormedfound = True
-                idx += 1
-
-            # recursively randomize the rest of the questions
-            topicscountdown, diffscountdown = self.ordertopicsdiffs(ORDER_RANDOM, topicscountdown, diffscountdown)
-            topicsorder.extend(topicscountdown)
-            diffsorder.extend(diffscountdown)
-
-        elif ordering == ORDER_VHARDLAST:
-            # make sure the exam ends with a very hard question, if it exists
-
-            topicscountdown = [t for t in topicslist]
-            diffscountdown = [d for d in diffslist]
-            vhardfound = False
-            idx = 0
-            # identify the very hard question, if it exists
-            while vhardfound is False and idx < len(topicslist):
-                if diffslist[idx] == Question.VHARD:
-                    topicsorder = [topicscountdown.pop(idx)]
-                    diffsorder = [diffscountdown.pop(idx)]
-                    vhardfound = True
-                idx += 1
-
-            # recursively randomize the rest of the questions
-            topicscountdown, diffscountdown = self.ordertopicsdiffs(ORDER_RANDOM, topicscountdown, diffscountdown)
-            topicsorder.extend(topicscountdown)
-            topicsorder.reverse()
-            diffsorder.extend(diffscountdown)
-            diffsorder.reverse()
-
-        return topicsorder, diffsorder
-
     # Returns a list of Questions that will comprise one student's flash exam
     # Parameters:   sid (string): student id whose exam this is
     def collectflashquestions(self, sid="", examdate=None):
@@ -638,26 +549,18 @@ class ExamSession:
         wildcardtopics = [t for t in questionspool.keys() if t != DATASET]
         wildcardtopics = list(set(wildcardtopics))
 
-        # sanity check - otherwise we may end up in an infinite loop looking for questions that don't exist
-        if len(questionspool.keys()) <= 0:
-            print("There are no questions within date range to include in an exam dated "
-                  + examdate.strftime("%Y-%m-%d"))
-            print("----- Exiting -----")
-            sys.exit(1)
-
         # randomly combine topics (including assigning a wildcard topic if necessary) with difficulties
         # and make sure that these combinations exist in the eligible questions
         topicslist, diffslist = maketopicdiffcombo(topicsneeded, diffsneeded, wildcardtopics)
         while not docombosexist(questionspool, topicslist, diffslist):
             topicslist, diffslist = maketopicdiffcombo(topicsneeded, diffsneeded, wildcardtopics)
 
-        topicsorder, diffsorder = self.ordertopicsdiffs(self.ordering, topicslist, diffslist)
 
         for i in range(numqs):
             thequestion = self.getuniquequestion(
                 questionsforthisexam,
-                topic=topicsorder[i],
-                difficulty=diffsorder[i],
+                topic=topicslist[i],
+                difficulty=diffslist[i],
                 otherstudents=otherstudentsingroup,
                 alreadyused=alreadyseen,
                 qspool=questionspool
@@ -666,28 +569,27 @@ class ExamSession:
                 questionsforthisexam.append(thequestion)
             else:
                 print("question with index " + str(i) + " is None")
-                # TODO - then what?
+                # TODO what?
 
         # record that this student now has had an exam of this type generated, using these questions
         self.addquestionstoexisting(sid, FLASH, questionsforthisexam)
 
         return questionsforthisexam
 
-
     # Returns a list of Questions that will comprise one student's midterm or final exam
     # Parameters:   sid (string): student id whose exam this is
     #               examdate (date object): date of this exam
-    def collectmidtermorfinalquestions(self, sid="", examdate=None):
+    def collectmidtermorfinalquestions(self, extype, sid="", examdate=None):
 
         # if this student has already had an exam of this type generated, just return those questions
-        if self.thisstudentexamexists(sid, self.examtype):
-            return self.getthisstudentquestionsseen(sid, self.examtype)
+        if self.thisstudentexamexists(sid, extype):
+            return self.getthisstudentquestionsseen(sid, extype)
         # get questions that this student has seen on a (potential) previous exam; ie flash exam
         alreadyseen = self.getthisstudentquestionsseen(sid, "")
         # get list of other students who have worked with this student (could be empty)
         otherstudentsingroup = self.getgroupmembers(sid)
 
-        diffsdict = examcomposition[self.examtype][DIFFS]
+        diffsdict = examcomposition[extype][DIFFS]
         # transform difficulties from dictionary of (difficulty --> number) to
         #   list of question difficulties needed (could be duplicates)
         diffsneeded = []
@@ -695,29 +597,14 @@ class ExamSession:
             for i in range(diffsdict[diff]):
                 diffsneeded.append(diff)
         numqs = len(diffsneeded)
-        topicsneeded = [t for t in examcomposition[self.examtype][TOPICS]]
-        wildcardtopics = [wt for wt in examcomposition[self.examtype][WILDTOPICS]]
+        topicsneeded = [t for t in examcomposition[extype][TOPICS]]
+        wildcardtopics = [wt for wt in examcomposition[extype][WILDTOPICS]]
 
         questionsforthisexam = []
 
+        # TODO - comment first line below / uncomment second to test midterm/final exam generation
+        #  with all questions (not restricted by date)
         questionspool = self.getquestionsbeforestartdate(examdate)
-        topicsavailable = [t for t in questionspool.keys()]
-
-        # two sanity checks - otherwise we may end up in an infinite loop looking for questions that don't exist
-        if len(questionspool.keys()) <= 0:
-            print("There are no questions within date range to include in an exam dated "
-                  + examdate.strftime("%Y-%m-%d"))
-            print("----- Exiting -----")
-            sys.exit(1)
-        topicsnotavailable = []
-        for t in topicsneeded + wildcardtopics:
-            if t != WILD and t not in topicsavailable:
-                topicsnotavailable.append(t)
-        if len(topicsnotavailable) > 0:
-            print("Topics requested for this exam but not existing (or not within date range) in question bank:")
-            print(list(set(topicsnotavailable)))
-            print("----- Exiting -----")
-            sys.exit(1)
 
         # since Phonological Relationships questions and Dataset questions are always Very Hard,
         #   remove those for the time being while we randomize the other combinations
@@ -743,13 +630,48 @@ class ExamSession:
             topicslist.append(vhardtopic)
             diffslist.append(vharddiff)
 
-        topicsorder, diffsorder = self.ordertopicsdiffs(self.ordering, topicslist, diffslist)
+        # 20201025 - changed from order by easy/med first, then everything else, to...
+        # order in which topics were taught
+        topicsorder = []
+        if extype == MIDTERM:
+            topicsorder = midtermtopics
+        else:
+            topicsorder = finaltopics
+        temptopics = []
+        tempdiffs = []
+        for topic in topicsorder:
+            if topic in topicslist:
+                idx = topicslist.index(topic)
+                tempdiffs.append(diffslist.pop(idx))
+                temptopics.append(topicslist.pop(idx))
+        if len(topicslist) > 0:
+            temptopics.extend(topicslist)
+            tempdiffs.extend(diffslist)
+        topicslist = temptopics
+        diffslist = tempdiffs
+
+        # 20201025 - changed from order by easy/med first, then everything else, to...
+        # order in which topics were taught
+        # # make sure the exam starts with an easy or medium question
+        # #   (check for both in case diffs don't include one or the other)
+        # easyormedfound = False
+        # idx = 0
+        # while easyormedfound is False and idx < numqs:
+        #     if diffslist[idx] == Question.MED or diffslist[idx] == Question.EASY:
+        #         reordereddiffs = diffslist
+        #         diffslist = [reordereddiffs.pop(idx)]
+        #         diffslist.extend(reordereddiffs)
+        #         reorderedtopics = topicslist
+        #         topicslist = [reorderedtopics.pop(idx)]
+        #         topicslist.extend(reorderedtopics)
+        #         easyormedfound = True
+        #     idx += 1
 
         for i in range(numqs):
             thequestion = self.getuniquequestion(
                 questionsforthisexam,
-                topic=topicsorder[i],
-                difficulty=diffsorder[i],
+                topic=topicslist[i],
+                difficulty=diffslist[i],
                 otherstudents=otherstudentsingroup,
                 alreadyused=alreadyseen,
                 qspool=questionspool
@@ -758,14 +680,14 @@ class ExamSession:
                 questionsforthisexam.append(thequestion)
             else:
                 print("question with index "+str(i)+" is None")
-                # TODO - then what?
+                # TODO what?
 
         # record that this student now has had an exam of this type generated, using these questions
-        self.addquestionstoexisting(sid, self.examtype, questionsforthisexam)
+        self.addquestionstoexisting(sid, extype, questionsforthisexam)
 
         return questionsforthisexam
 
-    # Adds this sid, exam type, and questions list combination to the collection of existing exams/questions
+    # Adds this sid, exam type, and questions list combination to the collection of existing exams_old/questions
     # Parameters:   sid (string): the student number whose exam questions we're recording
     #               extype (string): the exam type that the questions are associated with
     #               questions ([list of Questions]): the questions on this student's exam
@@ -805,6 +727,7 @@ class ExamSession:
 #               diffsneeded (list of strings): difficulties to arrange
 #               wildtopicslist (list of strings): possible wildcard topics to use
 def maketopicdiffcombo(topicsneeded, diffsneeded, wildtopicslist):
+
     wildcardtopicsused = []
     # randomly combine topics (including assigning a wildcard topic if necessary) with difficulties
     # and make sure that these combinations exist in the eligible questions
@@ -847,7 +770,7 @@ def writequestionbank(texfile, topic, difficulty, questionslist):
 #               title1 (string): first line of title page text
 #               title2 (string): second line of title page text
 #               onefileperstudent (boolean): whether to write a separate tex/pdf for each student
-#                   (as opposed to the default, which is to batch all of one day's exams into one file)
+#                   (as opposed to the default, which is to batch all of one day's exams_old into one file)
 def writedochead(texfile, title1, title2, onefileperstudent=False):
     texfile.write("% Ensure that you compile using XeLaTeX !!! PDFTex has problems with some of the packages used" + N)
     texfile.write("\\documentclass[12pt]{article}" + N)
@@ -1023,65 +946,41 @@ def dealwithescapes(datatext):
 # Sets random seed
 # Returns:  questionspath (string): path to .tsv file containing exam questions
 #           signupspath (string): path to .tsv file containing timeslot signup info
-#           hasschedule (boolean): True iff students are scheduled for various days/times (as per signupspath)
 #           examtype (string): final or midterm
-#           examdate (datetime.date): date of exam session (eg midterm or final);
-#               None if exam is distributed across signup days/times (as per signupspath)
 #           studentgroups (list of list of strings): each sublist indicates students
-#               who typically work together and whose exams therefore should not overlap
-#           onefileperstudent (boolean): True iff we want one tex/pdf file per student, vs exams batched by day
-#           generateexamsuptodate (datetime.date): generate exams scheduled up to and including this date  # TODO - only for flash?
-#           ordering (integer): type of ordering in which to arrange questions (see ORDER_* constants)
-#           TODO - following two features (custom topic/difficulty choices) not implemented yet
-#           topics (list of strings): topics to include in exam (could have duplicates - one entry per question)
-#           difficulties (list of strings): difficulties to include in exam (could have duplicates - one entry per question)
+#               who typically work together and whose exams_old therefore should not overlap
+#               (currently not in use)
 def getconfig():
     configpath = ""
     if len(sys.argv) > 1:
         if os.path.isfile(sys.argv[1]):
             configpath = sys.argv[1]
     while configpath == "":
-        userinput = input("Enter the name of the config file for this exam (see README for help): "+N)
-        if os.path.isfile("../config/"+userinput):
-            configpath = "../config/"+userinput
+        userinput = input("Enter the path to the config file for this exam (see README for help): "+N)
+        if os.path.isfile(userinput):
+            configpath = userinput
         else:
-            print(N+"File not found in config directory. Please try again.")
+            print(N+"Not a valid file path. Please try again.")
 
-    # default values, in case any info is missing from the config file (some are functional / some not)
     randomseed = "wugz"
-    questionsfile = ""
-    signupsfile = ""
+    questionspath = ""
+    signupspath = ""
     hasschedule = True
     examtype = ""
     examdate = None
     studentgroups = []
-    generateexamsuptodate = getfriofthisweek(examio.date.today())
-    # ordering can be:
-    #   1 (in the order in which question topics are specified - currently hardcorded)
-    #   2 (completely random)
-    #   3 (one easy or medium question first if applicable, and the rest in random order)
-    #   4 (one very hard question last if applicable, and the rest in random order
-    ordering = 1
-    # topics = [] # TODO - implement custom topic choices in config
-    # diffs = [] # TODO - implement custom difficulty choices in config
 
-    # info tags that identify each line in the config file
     questionstag = "questions:"
     signupstag = "signups:"
     examtypetag = "exam type:"
     studentgroupstag = "student groups:"
     randomseedtag = "random seed:"
-    # topictag = "topics:"  # TODO - implement custom topic choices in config
-    # difftag = "difficulties:"  # TODO - implement custom difficulty choices in config
-    genuptodatetag = "generate up to:"
-    orderingtag = "ordering:"
-
     with io.open(configpath, "r", encoding="utf-8") as cfile:
         cline = cfile.readline()
 
         while cline != "":
             if cline.startswith(questionstag):
-                questionsfile = cline[len(questionstag):].strip()
+                questionspath = cline[len(questionstag):].strip()
             elif cline.startswith(signupstag):
                 txt = cline[len(signupstag):].strip()
                 items = [item.strip() for item in txt.split(" ")]
@@ -1089,17 +988,16 @@ def getconfig():
                     # if there are no signups for this exam, we assume that everyone writes on the same day
                     # and that we're just looking for a list of student IDs
                     hasschedule = False
-                    signupsfile = items[1]
+                    signupspath = items[1]
                 else:
                     # otherwise we should have detailed signups with student ID, day, time
-                    signupsfile = items[0]
+                    signupspath = items[0]
             elif cline.startswith(examtypetag):
                 txt = cline[len(examtypetag):].strip()
                 items = [item.strip() for item in txt.split(" ")]
                 examtype = items[0]
                 if len(items) > 1:
-                    # if there's another entry after the exam type, that's the exam date
-                    examdate = examio.makedate(items[1])
+                    examdate = examio_before20210527.makedate(items[1])
             elif cline.startswith(studentgroupstag):
                 txt = cline[len(studentgroupstag):].strip()
                 grps = [grp.strip() for grp in txt.split(";")]
@@ -1107,38 +1005,18 @@ def getconfig():
                     stdts = [stdt.strip() for stdt in grp.split(",")]
                     studentgroups.append(stdts)
             elif cline.startswith(randomseedtag):
-                txt = cline[len(randomseedtag):].strip()
-                if len(txt) > 0:
-                    randomseed = txt
-            elif cline.startswith(genuptodatetag):
-                txt = cline[len(genuptodatetag):].strip()
-                if len(txt) > 0:
-                    generateexamsuptodate = examio.makedate(txt)
-            elif cline.startswith(orderingtag):
-                txt = cline[len(orderingtag):].strip()
-                if len(txt) > 0:
-                    ordering = int(txt)
-            # TODO - implement custom topic choices in config
-            # elif cline.startswith(topictag):
-            #     txt = cline[len(topictag):].strip()
-            #     if len(txt) > 0:
-            #         topics = [item.strip() for item in txt.split(", ")]
-            # TODO - implement custom difficulty choices in config
-            # elif cline.startswith(difftag):
-            #     txt = cline[len(difftag):].strip()
-            #     if len(txt) > 0:
-            #         difficulties = [item.strip() for item in txt.split(", ")]
+                randomseed = cline[len(randomseedtag):].strip()
 
             cline = cfile.readline()
 
-    # for repeatable results - currently not using because randomization is helping avoid repeated errors
+    # for repeatable results (I think)
+    # currently not using because actual (pseudo)randomization is helping avoid repeated errors
     # random.seed(randomseed)
 
-    # TODO - should this choice be moved to the config file?
     filestructure = ""
     while filestructure == "":
         userinput = input(
-            "Do you want all of one day's exams in a single pdf (enter 'b' for batch) " + N +
+            "Do you want all of one day's exams_old in a single pdf (enter 'b' for batch) " + N +
             "or would you prefer each student's exam in its own file (enter 's' for separate)?" + N
         )
         if userinput == "b" or userinput == "s":
@@ -1149,21 +1027,20 @@ def getconfig():
     if filestructure == "s":
         onefileperstudent = True
 
-    return questionsfile, signupsfile, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate, ordering  # , topics, difficulties
+    return questionspath, signupspath, hasschedule, examtype, examdate, studentgroups, onefileperstudent
 
 
 # Returns all day/time/student info in file as a dictionary of date --> list of (time,studentid)
 #   *** note that if this is for a flash exam, this will only collect the info for students who've
 #   (a) not yet had an exam generated and
-#   (b) are signed up for up to and including the value of generateuptodate
+#   (b) are signed up for up to and including the current week
 # Parameters:   signupsfilepath (string): path to the .tsv file containing exam scheduling data
-#               hasschedule (boolean): True if this exam has scheduled signups (eg for oral exams),
-#                   False if not (eg for written exams all in one sitting)
+#               hasschedule (boolean): True if this exam has scheduled signups (eg 2020W1 flash exams_old),
+#                   False if not (eg 2020W1 MT/final)
 #               examtype (string): see constants FINAL MIDTERM and FLASH
-#               examdate (datetime.date): the date that the exam is written (if all students are writing at the same time;
+#               examdate (date object): the date that the exam is written (if all students are writing at the same time;
 #                   ie, it's not an oral exam, with signup slots)
-#               generateuptodate (datetime.date): the date up to which exams should be generated
-def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate, generateuptodate):
+def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate):
     signups = {}  # dictionary of date --> list of (time,studentid)
 
     with io.open(signupsfilepath, "r", encoding="utf-8") as sfile:
@@ -1172,15 +1049,14 @@ def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate, genera
             df = pd.read_csv(sfile, sep=T, header=0, usecols=["Day", "Time", "SID-5"], keep_default_na=False)
             for index, row in df.iterrows():
                 daystring = str(row["Day"])
-                day = examio.makedate(daystring)
+                day = examio_before20210527.makedate(daystring)
                 if day is None:
-                    print("signup dates must contain strings of form yyyy-mm-dd")
-                    print("----- Exiting -----")
+                    print("failing: signup dates must contain strings of form yyyy-mm-dd")
                     sys.exit(1)
                 time = str(row["Time"])
                 stid = str(row["SID-5"])
 
-                dontuse = examtype == FLASH and examio.makedate(day) > generateuptodate
+                dontuse = examtype == FLASH and examio_before20210527.makedate(day) > getfriofthisweek(date.today())
                 if not dontuse:
                     if day not in signups.keys():
                         signups[day] = []
@@ -1200,39 +1076,37 @@ def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate, genera
 ###########################################
 # Here it is! The main event!
 ###########################################
-def main():
-    # read metadata from config file
-    questionsfile, signupsfile, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate, ordering = getconfig()
-    # collect questions from file
-    allqs = examio.readquestionsfromfile("../data/" + questionsfile)
-    # collect info from file re which exams have been made for which students already
-    existingexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEFILE, "../exams")
 
-    # collect scheduling info from file
-    signups = readsignupsfromfile("../data/" + signupsfile, hasschedule, examtype, examdate, generateexamsuptodate)
-    signupdates = [examio.makedate(d) for d in signups.keys()]
-    signupdates = [d for d in signupdates if d is not None]
-    startdate = date.today()
-    if len(signupdates) > 0:
-        startdate = min(signupdates)
-    # create an ExamSession instance based on info read from config etc
-    thisexamsession = ExamSession(examtype, allqs, signups, studentgroups, existingexams, startdate, onefileperstudent, ordering)
-
-    # create folder in which to store the generated exams + question bank for this session
-    timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
-    foldername = "../exams/" + examtype + "-exams_generated_" + timestamp
-    if not os.path.exists(foldername):
-        os.makedirs(foldername)
-
-    # generate all exams for this session (one file for each day, containing all students' exams for that day)
-    thisexamsession.generatelatexexams(foldername, generateexamsuptodate)
-
-    # generate a question bank of all (non-omitted) questions in the .tsv
-    thisexamsession.generatelatexquestionbankbytopic(foldername)
-
-    # save a record of which students have seen which questions (on which exams)
-    examio.recordexistingexamstofile(thisexamsession.existingexams, EXISTINGEXAMSPICKLEFILE, "../exams")
+# read metadata from config file
+questionspath, signupspath, hasschedule, examtype, examdate, studentgroups, onefileperstudent = getconfig()
+# collect questions from file
+allqs = examio_before20210527.readquestionsfromfile(questionspath)
+# collect info from file re which exams_old have been made for which students already
+existingexams = examio_before20210527.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH)
 
 
-if __name__ == "__main__":
-    main()
+# collect scheduling info from file
+signups = readsignupsfromfile(signupspath, hasschedule, examtype, examdate)
+signupdates = [examio_before20210527.makedate(d) for d in signups.keys()]
+signupdates = [d for d in signupdates if d is not None]
+startdate = date.today()
+if len(signupdates) > 0:
+    startdate = min(signupdates)
+# create an ExamSession instance based on info read from config etc
+thisexamsession = ExamSession(examtype, allqs, signups, studentgroups, existingexams, startdate, onefileperstudent)
+
+# create folder in which to store the generated exams_old + question bank for this session
+timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+foldername = examtype+"-exams_generated_"+timestamp
+if not os.path.exists(foldername):
+    os.makedirs(foldername)
+
+
+# generate all exams_old for this session (one file for each day, containing all students' exams_old for that day)
+thisexamsession.generatelatexexams(foldername)
+
+# generate a question bank of all (non-omitted) questions in the .tsv
+thisexamsession.generatelatexquestionbankbytopic(foldername)
+
+# save a record of which students have seen which questions (on which exams_old)
+examio_before20210527.recordexistingexamstofile(thisexamsession.existingexams, EXISTINGEXAMSPICKLEPATH)

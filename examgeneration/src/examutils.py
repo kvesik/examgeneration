@@ -1,29 +1,27 @@
-import os, sys
+import os
+import sys
 import re
-from src import examio
+from src import examio as examio # TODO update
+from src import generateexams as generateexams # TODO update
 
-FLASH = "flash"
-MIDTERM = "midterm"
-FINAL = "final"
-extypes = [FLASH, MIDTERM, FINAL]
 
-EXISTINGEXAMSPICKLEPATH = "existingexams_donotedit.dict"
+extypes = generateexams.examcomposition.keys()
 
 
 # asks user for the path to a certain type ("filetype" string) and checks its validity
 def getfilepath(filetype):
     filepath = ""
     while filepath == "":
-        userinput = input("Enter the path to the "+filetype+" file: ")
-        if os.path.isfile(userinput):
-            filepath = userinput
+        userinput = input("Enter the name of the "+filetype+" file (I will look in the 'data' folder): ")
+        if os.path.isfile("../data/" + userinput):
+            filepath = "../data/" + userinput
         else:
             print("\n"+" ----------Not a valid file path. Please try again. ----------")
     return filepath
 
 
 # returns a dictionary of examtype --> [list of Questions] for this given stid,
-# or None if the stid doesn't have any exams_old yet
+# or None if the stid doesn't have any exams yet
 def getexamsforonestudent(exams, stid):
     if stid in exams.keys():
         return exams[stid]
@@ -51,62 +49,18 @@ def getquestion(qslist, qid):
     return None
 
 
-# DEPRECATED
-# this functin was custom built and used to deal with some question replacements on Oct 4 2020,
-# before the generic utilities menu was available
-def questionreplacements20201004():
-    allqs = examio.readquestionsfromfile("allquestions.tsv")
-    qslist = []
-    for topic in allqs.keys():
-        for diff in allqs[topic].keys():
-            qslist.extend(allqs[topic][diff])
-    allqs = qslist
-    allexams = examio.readexistingexamsfromfile("existingexams_donotedit_20200930gavetoKathleen.dict")
-    print("allexams", allexams)
-
-    for stid in ("38415", "54125"):
-        studentexams = getexamsforonestudent(allexams, stid)
-        print("-- "+stid+" --")
-        for extype in ['flash']:
-            print(extype)
-            qslist = studentexams[extype]
-            print("original questions")
-            for q in qslist:
-                q.print()
-            print("new questions")
-            newlist = replacequestion(qslist, getquestion(allqs, "QU1601510604151"), getquestion(allqs, "QU1601510733572"))
-            for q in newlist:
-                q.print()
-        allexams[stid][extype] = newlist
-
-    print(allexams)
-    examio.recordexistingexamstofile(allexams, "existingexams_donotedit_20200930gavetoKathleen_UPDATED.dict")
-    allexams_new = examio.readexistingexamsfromfile("existingexams_donotedit_20200930gavetoKathleen_UPDATED.dict")
-    print("new exam collection, just to double check...")
-    print(allexams_new)
-
-    for stid in ("38415", "54125"):
-        studentexams = getexamsforonestudent(allexams_new, stid)
-        print("-- "+stid+" --")
-        for extype in ['flash']:
-            print(extype)
-            qslist = studentexams[extype]
-            print("questions from updated file")
-            for q in qslist:
-                q.print()
-
 # reads most recent dict file
-# removes the exam of type examtype for student sid from all existing exams_old
+# removes the exam of type examtype for student sid from all existing exams
 # writes the updated dict file
 def removeexamfromexisting(sid, examtype):
-    allexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH)
+    allexams = examio.readexistingexamsfromfile(generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
     studentexams = getexamsforonestudent(allexams, sid)
     if studentexams is None:
         return False
     reducedexams = {extype:questions for extype,questions in studentexams.items() if extype != examtype}
     if len(studentexams.keys()) > len(reducedexams.keys()):
         allexams[sid] = reducedexams
-        examio.recordexistingexamstofile(allexams, EXISTINGEXAMSPICKLEPATH)
+        examio.recordexistingexamstofile(allexams, generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
         return True
     else:
         return False
@@ -152,7 +106,7 @@ def getqidfromuser(prompt):
 
 # for sid's exam of type examtype, replace the Question ID'd by qidold with the Question ID'd by qidnew
 # gathering Question info from questionsfilepath
-def replacequestioninexam(examtype,sid,qidold,qidnew,questionsfilepath):
+def replacequestioninexam(examtype, sid, qidold, qidnew, questionsfilepath):
     allqs = examio.readquestionsfromfile(questionsfilepath)
     qslist = []
     for topic in allqs.keys():
@@ -160,7 +114,7 @@ def replacequestioninexam(examtype,sid,qidold,qidnew,questionsfilepath):
             qslist.extend(allqs[topic][diff])
     allqs = qslist
 
-    allexams = examio.readexistingexamsfromfile(EXISTINGEXAMSPICKLEPATH)
+    allexams = examio.readexistingexamsfromfile(generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
     studentexams = getexamsforonestudent(allexams, sid)
     if studentexams is None or examtype not in studentexams.keys():
         return False
@@ -172,7 +126,7 @@ def replacequestioninexam(examtype,sid,qidold,qidnew,questionsfilepath):
     if qtoremove is not None and qtoinsert is not None:
         studentqs_new = replacequestion(studentqs, qtoremove, qtoinsert)
         allexams[sid][examtype] = studentqs_new
-        examio.recordexistingexamstofile(allexams, EXISTINGEXAMSPICKLEPATH)
+        examio.recordexistingexamstofile(allexams, generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
         return True
     else:
         return False
@@ -213,7 +167,7 @@ def removeexam_gatherinfo():
 
 # haven't implemented this yet because I think it's reasonably efficient just to manually delete the dict
 # generated folder for the (most recent) batch you don't want
-# TODO however if we want to remove a batch of exams_old that's *not* the most recent then this might come in handy...
+# TODO however if we want to remove a batch of exams that's *not* the most recent then this might come in handy...
 # def removebatch_gatherinfo():
 
 
