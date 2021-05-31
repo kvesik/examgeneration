@@ -10,3 +10,6 @@ examgeneration/exams/images/*
 !examgeneration/exams/images/sample.jpg
 examgeneration/config/*exam.cfg
 examgeneration/samples
+
+# no old source code
+examgeneration/src/*_before20210527.py
