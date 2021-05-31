@@ -83,7 +83,21 @@ Please be careful about how you edit these (it was pretty easy in google drive, 
   * I hope I got them all...
 * On the bright side: you get to copy/paste IPA symbols instead of having to code them. Yay!
 
-
+### TODO notes from 20210530 email to KCH
+for organizational (eg sharing with the public) purposes, I've adjusted the directory structure of the project
+all data files (questions tsv, signups, student id lists, etc) go in data/
+all config files go in config/
+all images go in exams/images
+all exams will be generated into exams/
+all source code is in src/
+new additions (note additions to sample config files):
+for flash exams, you can enter any date up to which to generate exams. the script will go with the later of this coming friday (as before) or the specified date. if you leave out the "generate up to" line from the config, default is this coming friday (as before).
+for any kind of exam, you have 4 choices of question ordering (more flexible options coming later!). 
+1 (in the order in which question topics are specified - currently hardcorded)
+2 (completely random)
+3 (one easy or medium question first if applicable, and the rest in random order)
+4 (one very hard question last if applicable, and the rest in random order
+note that for option 1, if there is more than one "wild" question (eg in flash exams), the order is not guaranteed
 
 
 
