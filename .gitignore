@@ -7,3 +7,4 @@ examgeneration/exams/*-exams_generated_*
 examgeneration/exams/existingexams_donotedit*
 examgeneration/exams/images/*
 examgeneration/config/*exam.cfg
+examgeneration/samples
