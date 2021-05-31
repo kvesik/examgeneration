@@ -46,7 +46,7 @@ ORDER_VHARDLAST = 4
 # exam types, topics, difficulty distributions
 MIDTERM = "midterm"
 midtermtopics = [TRANSCR, ARTPHON, SKEWED, PHRELAN, WILD] # summer
-midtermtopics = [TRANSCR, ARTPHON, PHONFT, PHRELAN] # winter
+# midtermtopics = [TRANSCR, ARTPHON, PHONFT, SKEWED, PHRELAN] # winter
 wildcardmidtermtopics = [TRANSCR, ARTPHON, SKEWED, PHRELAN, OTHERPRE]
 midtermdifficulties = {
     Question.EASY: 1,
