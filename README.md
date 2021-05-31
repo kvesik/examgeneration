@@ -1,4 +1,4 @@
-# LING 200 exam generation
+# LING 200 exam generation [20210530 - TODO - needs updating!]
 
 ## Quick Start - how to run
 *** As of Sep 20 2020, all four tsvs in "examgeneration" directory are correctly formatted and functional.
