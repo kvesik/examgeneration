@@ -1,8 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+written Sep-Oct 2020 by Kaili Vesik: kvesik@gmail.com
+updated May 2021 by Kaili Vesik
+"""
+
 import os
 import sys
 import re
-from src import examio as examio # TODO update
-from src import generateexams as generateexams # TODO update
+from src import examio
+from src import generateexams
 
 
 extypes = generateexams.examcomposition.keys()

@@ -1,4 +1,12 @@
-import os, io
+# -*- coding: utf-8 -*-
+"""
+written May-July 2020 by Kaili Vesik: kvesik@gmail.com
+updated Sep-Oct 2020 by Kaili Vesik
+updated May 2021 by Kaili Vesik
+"""
+
+import os
+import io
 import pickle
 import pandas as pd
 import re
