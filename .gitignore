@@ -3,6 +3,7 @@ examgeneration/src/__pycache__/*.pyc
 
 # do not upload any student-specific or course-specific data
 examgeneration/data/*
+!examgeneration/data/test_SIDS.txt
 examgeneration/exams/*-exams_generated_*
 examgeneration/exams/existingexams_donotedit*
 examgeneration/exams/images/*
