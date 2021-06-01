@@ -1,16 +1,18 @@
-examgeneration/src/__pycache__/*.pyc
+src/__pycache__/*.pyc
 
 
 # do not upload any student-specific or course-specific data
-examgeneration/data/*
-!examgeneration/data/test_SIDS.txt
-examgeneration/exams/*-exams_generated_*
-examgeneration/exams/existingexams_donotedit*
-examgeneration/exams/images/*
-!examgeneration/exams/images/sample.jpg
-examgeneration/config/*exam.cfg
-examgeneration/samples
+data/*
+!data/test_SIDS.txt
+exams/*-exams_generated_*
+exams/existingexams_donotedit*
+exams/images/*
+exams/samples/*
+!exams/images/sample.jpg
+config/*exam.cfg
 
 # no old source code
-examgeneration/src/*_before20210527.py
+src/*_before20210527.py
+
+
 20210604 CLA presentation/*
