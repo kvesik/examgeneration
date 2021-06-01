@@ -327,8 +327,6 @@ class ExamSession:
         texfilesuffix = ".tex"
         tsvfilesuffix = ".tsv"
 
-        print("generating latex exams up to date", generateuptodate)
-
         # generate an exam for each day, named after days in schedule
         for thedate in self.signups.keys():  # should be a date object
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/LING-200-exam-gen.iml" filepath="$PROJECT_DIR$/.idea/LING-200-exam-gen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/examgeneration.iml" filepath="$PROJECT_DIR$/.idea/examgeneration.iml" />
     </modules>
   </component>
 </project>
