@@ -12,8 +12,8 @@ import random
 import io
 import pandas as pd
 from datetime import date, datetime, timedelta
-from src.Exam import Question, Exam
-from src import examio as examio
+from Exam import Question, Exam
+import examio
 
 # exam topics
 TRANSCR = "Transcription"

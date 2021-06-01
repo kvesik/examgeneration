@@ -11,7 +11,7 @@ import pickle
 import pandas as pd
 import re
 from datetime import date, datetime
-from src.Exam import Question
+from Exam import Question
 
 
 # Returns all exam questions in file as a dictionary of topic-->difficulty-->[list of Questions]

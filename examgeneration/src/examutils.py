@@ -7,8 +7,8 @@ updated May 2021 by Kaili Vesik
 import os
 import sys
 import re
-from src import examio
-from src import generateexams
+import examio
+import generateexams
 
 
 extypes = generateexams.examcomposition.keys()
