@@ -420,10 +420,10 @@ class ExamSession:
                 # this has to do with too many specific subtypes & too few questions of some topic/difficulty combos
                 if isqsourceinquestions(question.source, alreadyused):
                     print("couldn't find a unique source for " + question.topic + " / " + question.difficulty+" - going to give up and allow overlap with group members")
-                    print("group members: ", otherstudents)
+                    # print("group members: ", otherstudents)
                 elif isuniqueidinquestions(question.uniqueid, otherstudentquestions):
                     print("couldn't find a question not in a group member's exam for " + question.topic + " / " + question.difficulty+" - going to give up and allow overlap with group members")
-                    print("group members: ", otherstudents)
+                    # print("group members: ", otherstudents)
                 break
             question = random.sample(eligibleqs, 1)[0]
             numtries += 1
