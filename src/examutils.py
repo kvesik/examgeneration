@@ -71,10 +71,12 @@ def removeexamfromexisting(sid, examtype):
     else:
         return False
 
+
 # get & validate an exam type string from user
 def getexamtypefromuser():
     selectedtype = ""
     while selectedtype not in extypes:
+        # TODO base the options below on what's actually in the existing exams
         selectedtype = input("What type of exam? Enter 'flash', 'midterm', or 'final' (or 'r' to return to main menu): ")
         if selectedtype in extypes:
             return selectedtype

@@ -10,6 +10,7 @@ import os
 import sys
 import random
 import io
+import re
 import pandas as pd
 from datetime import date, datetime, timedelta
 from Exam import Question, Exam
@@ -192,9 +193,10 @@ class ExamSession:
     #               ordering (integer): type of ordering in which to arrange questions (see ORDER_* constants)
     #                   if not provided, defaults to order in which topics are listed
     # Each of these parameters is likely supplied by getconfig(), readquestionsfromfile(), and/or readsignupsfromfile()
-    def __init__(self, examtype=FINAL, allquestions={}, signups={}, studentgroups=[], existingexams={},
+    def __init__(self, course="", examtype=FINAL, allquestions={}, signups={}, studentgroups=[], existingexams={},
                  startdate=date.today(), onefileperstudent=False, ordering=ORDER_SPECIFIED):
 
+        self.course = course
         self.examtype = examtype
         self.allquestions = allquestions
         self.signups = signups
@@ -323,7 +325,7 @@ class ExamSession:
     def generatelatexexams(self, foldername, generateuptodate=date.today()):
 
         # filename info for exam TeX & tsv sources to be generated
-        texfileprefix = "LING200" + self.examtype + "-"
+        texfileprefix = self.course.replace(" ", "_") + self.examtype.replace(" ", "_") + "-"
         texfilesuffix = ".tex"
         tsvfilesuffix = ".tsv"
 
@@ -778,7 +780,7 @@ class ExamSession:
     #   write to file
     def generatelatexquestionbankbytopic(self, foldername):
 
-        questionbanktex = "LING200-questionbank.tex"
+        questionbanktex = self.course.replace(" ", "_")+"-questionbank.tex"
         fullpathtofile = foldername + "/" + questionbanktex
 
         with open(fullpathtofile, "w", encoding="utf-8") as tf:
@@ -1030,9 +1032,10 @@ def dealwithescapes(datatext):
 #           onefileperstudent (boolean): True iff we want one tex/pdf file per student, vs exams batched by day
 #           generateexamsuptodate (datetime.date): generate exams scheduled up to and including this date  # TODO - only for flash?
 #           ordering (integer): type of ordering in which to arrange questions (see ORDER_* constants)
-#           TODO - following two features (custom topic/difficulty choices) not implemented yet
 #           topics (list of strings): topics to include in exam (could have duplicates - one entry per question)
 #           difficulties (list of strings): difficulties to include in exam (could have duplicates - one entry per question)
+#           specifictopicdiffpairs (list of 2-tuples of strings): which topics *must* go with certain difficulties
+#           wildcardtopics (list of strings): topics from which to draw wildcard question(s), if applicable
 def getconfig():
     configpath = ""
     if len(sys.argv) > 1:
@@ -1050,6 +1053,7 @@ def getconfig():
     questionsfile = ""
     signupsfile = ""
     hasschedule = True
+    course = ""
     examtype = ""
     examdate = None
     studentgroups = []
@@ -1060,19 +1064,23 @@ def getconfig():
     #   3 (one easy or medium question first if applicable, and the rest in random order)
     #   4 (one very hard question last if applicable, and the rest in random order
     ordering = 1
-    # topics = [] # TODO - implement custom topic choices in config
-    # diffs = [] # TODO - implement custom difficulty choices in config
+    topics = []
+    diffs = []
+    topicdiffpairs = []
+    wildtopics = []
 
     # info tags that identify each line in the config file
     questionstag = "questions:"
     signupstag = "signups:"
+    coursetag = "course:"
     examtypetag = "exam type:"
     studentgroupstag = "student groups:"
     randomseedtag = "random seed:"
-    # topictag = "topics:"  # TODO - implement custom topic choices in config
-    # difftag = "difficulties:"  # TODO - implement custom difficulty choices in config
     genuptodatetag = "generate up to:"
     orderingtag = "ordering:"
+    topictag = "topics:"
+    difftag = "difficulties:"
+    wildtag = "wildcard topics:"
 
     with io.open(configpath, "r", encoding="utf-8") as cfile:
         cline = cfile.readline()
@@ -1091,6 +1099,8 @@ def getconfig():
                 else:
                     # otherwise we should have detailed signups with student ID, day, time
                     signupsfile = items[0]
+            elif cline.startswith(coursetag):
+                course = cline[len(coursetag):].strip()
             elif cline.startswith(examtypetag):
                 txt = cline[len(examtypetag):].strip()
                 items = [item.strip() for item in txt.split(" ")]
@@ -1116,16 +1126,32 @@ def getconfig():
                 txt = cline[len(orderingtag):].strip()
                 if len(txt) > 0:
                     ordering = int(txt)
-            # TODO - implement custom topic choices in config
-            # elif cline.startswith(topictag):
-            #     txt = cline[len(topictag):].strip()
-            #     if len(txt) > 0:
-            #         topics = [item.strip() for item in txt.split(", ")]
-            # TODO - implement custom difficulty choices in config
-            # elif cline.startswith(difftag):
-            #     txt = cline[len(difftag):].strip()
-            #     if len(txt) > 0:
-            #         difficulties = [item.strip() for item in txt.split(", ")]
+            elif cline.startswith(topictag):
+                txt = cline[len(topictag):].strip()
+                if len(txt) > 0:
+                    topics = [item.strip() for item in txt.split(";")]
+            elif cline.startswith(difftag):
+                txt = cline[len(difftag):].strip()
+                if len(txt) > 0:
+                    diffswithbrackets = [item.strip() for item in txt.split(";")]
+                    for idx, diff in enumerate(diffswithbrackets):
+                        # brackets indicate a specific topic/difficulty pair
+                        if "[" in diff:
+                            d = diff[:diff.index("[")].strip()
+                            diffs.append(d)
+                            inbrackets = re.findall("\[(.*?)\]", diff)
+                            if len(inbrackets) > 0:
+                                t = inbrackets[0]
+                                if t in topics:
+                                    topicdiffpairs.append((t, d))
+                                # else:
+                                #     print("Topic '" + t + "' specified for difficulty '"+ d + "' not found in topics list")
+                        else:
+                            diffs.append(diff)
+            elif cline.startswith(wildtag):
+                txt = cline[len(wildtag):].strip()
+                if len(txt) > 0:
+                    wildtopics = [item.strip() for item in txt.split(";")]
 
             cline = cfile.readline()
 
@@ -1147,7 +1173,7 @@ def getconfig():
     if filestructure == "s":
         onefileperstudent = True
 
-    return questionsfile, signupsfile, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate, ordering  # , topics, difficulties
+    return questionsfile, signupsfile, hasschedule, course, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate, ordering, topics, diffs, topicdiffpairs, wildtopics
 
 
 # Returns all day/time/student info in file as a dictionary of date --> list of (time,studentid)
@@ -1200,7 +1226,7 @@ def readsignupsfromfile(signupsfilepath, hasschedule, examtype, examdate, genera
 ###########################################
 def main():
     # read metadata from config file
-    questionsfile, signupsfile, hasschedule, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate, ordering = getconfig()
+    questionsfile, signupsfile, hasschedule, course, examtype, examdate, studentgroups, onefileperstudent, generateexamsuptodate, ordering, topics, diffs, topicdiffpairs, wildtopics = getconfig()
     # collect questions from file
     allqs = examio.readquestionsfromfile("../data/" + questionsfile)
     # collect info from file re which exams have been made for which students already
@@ -1214,7 +1240,7 @@ def main():
     if len(signupdates) > 0:
         startdate = min(signupdates)
     # create an ExamSession instance based on info read from config etc
-    thisexamsession = ExamSession(examtype, allqs, signups, studentgroups, existingexams, startdate, onefileperstudent, ordering)
+    thisexamsession = ExamSession(course, examtype, allqs, signups, studentgroups, existingexams, startdate, onefileperstudent, ordering)
 
     # create folder in which to store the generated exams + question bank for this session
     timestamp = datetime.now().strftime("%Y%m%d-%H%M%S")
