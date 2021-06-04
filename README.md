@@ -30,7 +30,7 @@ Files named `existingexams_donotedit.dict` (plus a timestamp). One of these bina
 * If you delete or move these files, all existing data about who has what questions on which exams so far will disappear with it, and you will get *new* random questions for each student upon your next run. This is not a good idea halfway through a term (unles you want to just start over fresh for whatever reason), but it *is* a good idea at the start of a new term!
 
 ### Config file
-The config file(s) can be named whatever you like. I suggest having one for each exam type (eg a midterm config, a final config, and an oral quiz config). Properties can go in any order (ie, entire lines can switch spots). You can use a # to comment lines, but only at the very beginning of a line (no inline comments). Some properties are required and some are optional...
+The config file(s) can be named whatever you like. I suggest having one for each exam type (eg a midterm config, a final config, and an oral quiz config). Properties can go in any order (ie, entire lines can switch spots). You can use a # to comment lines, but only at the very beginning of a line (no inline comments). Some properties are required and some are optional (descriptions follow). Sample config files for two different scenarios are located in the [config/](https://github.com/kvesik/examgeneration/tree/master/config) directory.
 
 Required properties: 
 * `questions` - The name of the .tsv containing the question bank (assumed to be in `data/`). See [Question bank](#Question-bank) for details.
@@ -60,12 +60,9 @@ Optional properties - you can omit these lines completely, comment them with a #
    * 2 = completely random
    * 3 = one easy or medium question first if available, and the rest in random order
    * 4 = one very hard question last if available, and the rest in random order
-   * 
 * `generate up to` (default = the closest upcoming Friday not including today) - If you want to generate individually-signed-up exams more than a week ahead of time, specify the yyyy-mm-dd to generate to. The script will run through the signups schedule you specifed above, and only create exams for those students whose timeslots are on or before the specified date. Beware of doing this too early if you haven't yet labeled all of your question bank entries with dates!
 * `rubric` (default = "") - One line of text to include at bottom of each question page.
 * `random seed` (default = "wugz") - The random seed to be used for reproducibly randomized exams. Note that this feature is actually not implemented at the moment, because it also has potential to cause repeated problems in exam generation, not just repeated success!
-
-See sample config files for various scenarios in the [config/](https://github.com/kvesik/examgeneration/tree/master/config) directory.
 
 ### LaTeX compiling
 In order to make it easy to use verbatim input of ipa characters, I am using font packages that require compilation with xelatex. **pdflatex will not work**.
