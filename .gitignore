@@ -11,8 +11,10 @@ exams/samples/*
 !exams/images/sample.jpg
 config/*exam.cfg
 
-# no old source code
-src/*_before20210527.py
+# no old source code or beta versions
+src/*_before*.py
+src/*_beta*.py
+README*before*
 
 
 20210604 CLA presentation/*

@@ -6,12 +6,8 @@ updated May 2021 by Kaili Vesik
 
 import os
 import sys
-import re
 import examio
-import generateexams
-
-
-extypes = generateexams.examcomposition.keys()
+import generateexams_beta20210603 as generateexams  # TODO
 
 
 # asks user for the path to a certain type ("filetype" string) and checks its validity
@@ -26,8 +22,8 @@ def getfilepath(filetype):
     return filepath
 
 
-# returns a dictionary of examtype --> [list of Questions] for this given stid,
-# or None if the stid doesn't have any exams yet
+# returns a dictionary of examtype --> [list of Questions] for this given student id,
+# or None if this student id doesn't have any exams yet
 def getexamsforonestudent(exams, stid):
     if stid in exams.keys():
         return exams[stid]
@@ -56,14 +52,13 @@ def getquestion(qslist, qid):
 
 
 # reads most recent dict file
-# removes the exam of type examtype for student sid from all existing exams
+# removes the exam of type examtype for student sid from the set of existing exams
 # writes the updated dict file
-def removeexamfromexisting(sid, examtype):
-    allexams = examio.readexistingexamsfromfile(generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
+def removeexamfromexisting(sid, examtype, allexams):
     studentexams = getexamsforonestudent(allexams, sid)
     if studentexams is None:
         return False
-    reducedexams = {extype:questions for extype,questions in studentexams.items() if extype != examtype}
+    reducedexams = {extype: questions for extype, questions in studentexams.items() if extype != examtype}
     if len(studentexams.keys()) > len(reducedexams.keys()):
         allexams[sid] = reducedexams
         examio.recordexistingexamstofile(allexams, generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
@@ -73,48 +68,54 @@ def removeexamfromexisting(sid, examtype):
 
 
 # get & validate an exam type string from user
-def getexamtypefromuser():
+def getexamtypefromuser(allexams):
+    examtypes = []
+    for sid in allexams.keys():
+        examtypes.extend(list(allexams[sid].keys()))
+    examtypes = list(set(examtypes))
+    examtypesstring = ", ".join(["'" + xt + "'" for xt in examtypes])
+
     selectedtype = ""
-    while selectedtype not in extypes:
-        # TODO base the options below on what's actually in the existing exams
-        selectedtype = input("What type of exam? Enter 'flash', 'midterm', or 'final' (or 'r' to return to main menu): ")
-        if selectedtype in extypes:
-            return selectedtype
-        elif selectedtype == "r":
-            main_menu()
-        else:
-            print(" ----------Hmmm; that wasn't one of the options; let's try again. ----------")
+    while selectedtype not in examtypes + ["r"]:
+        selectedtype = input(
+            "What type of exam? Eg " + examtypesstring + " (or 'r' to return to main menu): ")
+        if selectedtype not in examtypes + ["r"]:
+            print(" ---------- There are no existing exams of that type. ----------")
+    if selectedtype == "r":
+        main_menu()
+    else:
+        return selectedtype
 
 
 # get & validate a student id (5-digit) from user
-def getsidfromuser():
+def getsidfromuser(allexams):
+    sids = list(allexams.keys())
+
     selectedsid = ""
-    while re.match("[0-9]{5}", selectedsid) is None:
-        selectedsid = input("Enter the 5-digit student ID (or 'r' to return to main menu): ")
-        if re.match("[0-9]{5}", selectedsid) is not None:
-            return selectedsid
-        elif selectedsid == "r":
-            main_menu()
-        else:
-            print(" ----------Hmmm; that wasn't one of the options; let's try again. ----------")
+    while selectedsid not in sids + ["r"]:
+        selectedsid = input("Enter the student ID (or 'r' to return to main menu): ")
+        if selectedsid not in sids + ["r"]:
+            print(" ---------- There are no existing exams with that student ID. ----------")
+    if selectedsid == "r":
+        main_menu()
+    else:
+        return selectedsid
 
 
-# get & (somewhat) validate a question ID from user
+# get a question ID from user
 def getqidfromuser(prompt):
     selectedqid = ""
-    while re.match("QU[0-9]+", selectedqid) is None:
+    while selectedqid == "":
         selectedqid = input(prompt+" (or 'r' to return to main menu): ")
-        if re.match("QU[0-9]+", selectedqid) is not None:
-            return selectedqid
-        elif selectedqid == "r":
-            main_menu()
-        else:
-            print(" ----------Hmmm; that wasn't one of the options; let's try again. ----------")
+    if selectedqid != "":
+        return selectedqid
+    else:
+        main_menu()
 
 
 # for sid's exam of type examtype, replace the Question ID'd by qidold with the Question ID'd by qidnew
 # gathering Question info from questionsfilepath
-def replacequestioninexam(examtype, sid, qidold, qidnew, questionsfilepath):
+def replacequestioninexam(examtype, sid, qidold, qidnew, questionsfilepath, allexams):
     allqs = examio.readquestionsfromfile(questionsfilepath)
     qslist = []
     for topic in allqs.keys():
@@ -122,10 +123,11 @@ def replacequestioninexam(examtype, sid, qidold, qidnew, questionsfilepath):
             qslist.extend(allqs[topic][diff])
     allqs = qslist
 
-    allexams = examio.readexistingexamsfromfile(generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
     studentexams = getexamsforonestudent(allexams, sid)
-    if studentexams is None or examtype not in studentexams.keys():
-        return False
+    if studentexams is None:
+        return "Student not found."
+    elif examtype not in studentexams.keys():
+        return "Exam type not found."
 
     studentqs = studentexams[examtype]
 
@@ -135,37 +137,35 @@ def replacequestioninexam(examtype, sid, qidold, qidnew, questionsfilepath):
         studentqs_new = replacequestion(studentqs, qtoremove, qtoinsert)
         allexams[sid][examtype] = studentqs_new
         examio.recordexistingexamstofile(allexams, generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
-        return True
+        return "Done!"
     else:
-        return False
+        return "Question(s) not found."
 
 
 # get required info from user in order to replace a question in a particular student's particular exam
-def replacequestion_gatherinfo():
+def replacequestion_gatherinfo(allexams):
     print("OK, let's replace a question.")
-    selectedtype = getexamtypefromuser()
-    selectedsid = getsidfromuser()
+    selectedtype = getexamtypefromuser(allexams)
+    selectedsid = getsidfromuser(allexams)
     oldqid = getqidfromuser("Enter the unique ID (QU###...) of the question you want to replace")
     newqid = getqidfromuser("Enter the unique ID (QU###...) of the question you would like to use instead")
-    questionsfilepath = getfilepath("questions (tsv)")  # input("Enter the path to the questions file (.tsv): ")
-    confirmation = input("Confirm (y or n): replace "+oldqid+" with "+newqid+" in student #"+selectedsid+"'s "+selectedtype+" exam? ")
+    questionsfilepath = getfilepath("questions (tsv)")
+    confirmation = input("Confirm (y or n): replace " + oldqid+" with "+newqid +
+                         " in student #" + selectedsid + "'s " + selectedtype+" exam? ")
     if confirmation == "y" or confirmation == "Y":
-        success = replacequestioninexam(selectedtype,selectedsid,oldqid,newqid,questionsfilepath)
-        if success is True:
-            print("\n---------- Done! ----------\n")
-        else:
-            print("\n---------- Didn't find such a question(s). ----------\n")
+        result = replacequestioninexam(selectedtype, selectedsid, oldqid, newqid, questionsfilepath, allexams)
+        print("\n---------- " + result + " ----------\n")
     main_menu()
 
 
 # get required info from user to remove a particular student's particular exam
-def removeexam_gatherinfo():
+def removeexam_gatherinfo(allexams):
     print("OK, we'll remove an exam.")
-    selectedtype = getexamtypefromuser()
-    selectedsid = getsidfromuser()
+    selectedtype = getexamtypefromuser(allexams)
+    selectedsid = getsidfromuser(allexams)
     confirmation = input("Confirm (y or n): removing "+selectedtype+" exam for student #"+selectedsid+"? ")
     if confirmation == "y" or confirmation == "Y":
-        success = removeexamfromexisting(selectedsid,selectedtype)
+        success = removeexamfromexisting(selectedsid, selectedtype, allexams)
         if success is True:
             print("\n---------- Done! ----------\n")
         else:
@@ -183,20 +183,23 @@ def removeexam_gatherinfo():
 def main_menu():
 
     while True:
+        allexams = examio.readexistingexamsfromfile(generateexams.EXISTINGEXAMSPICKLEFILE, "../exams")
         print("What would you like to do?")
-        print("1. Replace a particular question for a particular student on a particular exam\n\t(eg if you realized that a question was not appropriate for the date it was originally labeled as).")
-        print("2. Remove an entire particular exam for a particular student\n\t(eg if they cancelled after their flash exam was generated).")
+        print("1. Replace a particular question for a particular student on a particular exam\n" +
+              "\t(eg if you realized that a question was not appropriate for the date it was originally labeled as).")
+        print("2. Remove an entire particular exam for a particular student\n\t" +
+              "(eg if they cancelled after their individually-scheduled exam was generated).")
         # print("u. Undo the last batch of exam generation.")
         print("x. Nothing; never mind; I'm just going to go (aka 'exit'). :)")
 
         userinput = input("Enter your choice: ")
 
         if userinput == "1":
-            replacequestion_gatherinfo()
+            replacequestion_gatherinfo(allexams)
         elif userinput == "2":
-            removeexam_gatherinfo()
+            removeexam_gatherinfo(allexams)
         # elif userinput == "u":
-        #     removebatch_gatherinfo()
+        #     removebatch_gatherinfo(allexams)
         elif userinput == "x":
             print("OK; bye!")
             sys.exit(0)
@@ -205,7 +208,6 @@ def main_menu():
 
 
 #####################
-### do the thing! ###
+#   do the thing!   #
 #####################
 main_menu()
-
