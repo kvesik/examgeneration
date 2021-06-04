@@ -1,0 +1,120 @@
+UniqueID	Topic	Difficulty	Source	DateCompleted	QuestionType(s)	Instructions_latex	Data1_latex	Data2_latex	Image1	Image1Caption	Image2	Image2Caption	ImageArrangement	Notes	Omit?	Instructor_comments
+QU1601510656451	Topic1	easy	Day 1 Discussion	2021-01-08	one	Here are some instructions for this question.								some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510606615	Topic1	medium	Day 1 Discussion	2021-01-08		Here are some instructions for this question.			sample1.png	Here is image 1.	sample2.jpg	Here is image 2.		some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510690141	Topic1	hard	Handout 1 Question 1	2021-01-08		Explain in what sense the difference between the sounds in the words <but> and <cut> is SIMILAR to and also DIFFERENT from the difference between the sounds in the words <bit> and <kit>.								some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510722050	Topic1	easy	Handout 1 Question 1	2021-01-08		Here are some instructions for this question.	[æ]							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510722779	Topic1	medium	Handout 1 Question 1	2021-01-08		Here are some instructions for this question.	[ɑ]							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510723466	Topic1	hard	Handout 1 Question 2	2021-01-08		Here are some instructions for this question.	[i]							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510724223	Topic1	easy	Handout 1 Question 2	2021-01-08		Here are some instructions for this question.	[u]							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510724907	Topic1	medium	Handout 1 Question 2	2021-01-08		Here are some instructions for this question.	[ɛ]							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510725600	Topic1	hard	Handout 1 Question 2	2021-01-08	one,two	Here are some instructions for this question.	[ɔ]							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510726243	Topic1	easy	Handout 1 Question 3	2021-01-10		Describe what the tongue would do / where it would move during each of the vowels in this word.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510726987	Topic1	medium	Handout 1 Question 3	2021-01-10		Here are some instructions for this question.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510727715	Topic1	hard	Handout 1 Question 3	2021-01-10		Here are some instructions for this question.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510728341	Topic1	easy	Handout 1 Question 3	2021-01-10		Here are some instructions for this question.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510728955	Topic1	medium	Handout 1 Question 3	2021-01-10		Here are some instructions for this question.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510729574	Topic1	hard	Quiz 1 Question 1	2021-01-11		Here are some instructions for this question.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510730488	Topic1	easy	Quiz 1 Question 1	2021-01-11		Here are some instructions for this question.	<data1>							some notes. not included in exams		instructor comments (must be latex-y!)
+QU1601510730969	Topic1	medium	Quiz 1 Question 1	2021-01-11		Here are some instructions for this question.	<data1>									instructor comments (must be latex-y!)
+QU1601510731748	Topic1	hard	Quiz 1 Question 1	2021-01-11		Here are some instructions for this question.	<data1>							only has one kind of sound and was the original answer	omit	instructor comments (must be latex-y!)
+QU1601510732255	Topic1	easy	Quiz 1 Question 2	2021-01-11		Here are some instructions for this question.	<data1>									instructor comments (must be latex-y!)
+QU1601510732851	Topic2	medium	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<data1>									instructor comments (must be latex-y!)
+QU1601510733572	Topic2	hard	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<a\underline{w}ay>	\begin{itemize} \item prevocalic obstruent \item prevocalic sonorant \item postvocalic obstruent \item postvocalic sonorant \item intervocalic obstruent \item intervocalic sonorant \end{itemize}								instructor comments (must be latex-y!)
+QU1601510734278	Topic2	easy	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<o\underline{p}en>	\begin{itemize} \item prevocalic obstruent \item prevocalic sonorant \item postvocalic obstruent \item postvocalic sonorant \item intervocalic obstruent \item intervocalic sonorant \end{itemize}								instructor comments (must be latex-y!)
+QU1601510739887	Topic2	medium	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	Original set: [æ], [ɑ]	Addition: [ɑʊ]						in sample summer 2021	omit	instructor comments (must be latex-y!)
+QU1601510740567	Topic2	hard	Day 2 Discussion	2021-01-12		Explain why the additional vowel below either does or does not belong in the phonetic natural class defined by the original set of SNAE vowels.	Original set: [u], [ʊ], [oʊ], [ɔ]	Addition: [ɔɪ]								instructor comments (must be latex-y!)
+QU1601510741283	Topic2	easy	Handout 2 Question 1	2021-01-12		Here are some instructions for this question.										instructor comments (must be latex-y!)
+QU1601510741825	Topic2	medium	Handout 2 Question 2	2021-01-12		Here are some instructions for this question.										instructor comments (must be latex-y!)
+QU1601510742511	Topic2	hard	Handout 2 Question 3	2021-01-12		Here are some instructions for this question.										instructor comments (must be latex-y!)
+QU1601510743431	Topic2	easy	Handout 2 Question 3	2021-01-12		Here are some instructions for this question.										instructor comments (must be latex-y!)
+QU1601510744232	Topic2	medium	Handout 2 Question 3	2021-01-12		Here are some instructions for this question.	[n]		sample1.png	Here is image 1.	sample3.png	Here is image 3.				instructor comments (must be latex-y!)
+QU1601510744696	Topic2	hard	Handout 2 Question 3	2021-01-12	two	Here are some instructions for this question.										instructor comments (must be latex-y!)
+QU1601510745337	Topic2	easy	Handout 2 Question 3	2021-01-12	two	Is the symbol given a reasonable way to transcribe any of the sounds described below? If so, which one? If not, why not? Explain your answer.										instructor comments (must be latex-y!)
+QU1601510745697	Topic2	medium	Quiz 2 Question 4	2021-01-12		Here are some instructions for this question.										no (voiceless interdental fricative)
+QU1601510746268	Topic2	hard	Quiz 2 Question 6	2021-01-12		Here are some instructions for this question.										no (voiceless palatal fricative)
+QU1601510746968	Topic2	easy	Quiz 2 Question 6	2021-01-12		Here are some instructions for this question.										yes (voiced palatal fricative)
+QU1601510747460	Topic2	medium	Quiz 2 Question 6	2021-01-12		Here are some instructions for this question.										yes (voiceless palatal affricate)
+QU1601510748214	Topic2	hard	Quiz 2 Question 6	2021-01-12		Here are some instructions for this question.			sample3.png							[k] (check voicing, place, manner, and velum)
+QU1601510748765	Topic2	easy	Quiz 2 Question 1	2021-01-12		Here are some instructions for this question.			sample3.png							
+QU1601510749365	Topic2	medium	Quiz 2 Question 1	2021-01-20		Explain how to figure out what the sound being produced is in this diagram.			sample3.png							
+QU1601510750507	Topic2	hard	Quiz 2 Question 1	2021-01-20	one	Here are some instructions for this question.			sample3.png							
+QU1601510750679	Topic3	easy	Day 3 Handout Question 10	2021-01-20	one	Here are some instructions for this question.										
+QU1601510751084	Topic3	medium	Day 3 Handout Question 10	2021-01-20		Here are some instructions for this question.										
+QU1601510752199	Topic3	hard	Day 3 Handout Question 10	2021-01-20		Here are some instructions for this question.	\begin{itemize} \item asdf \item asdf \end{itemize}									
+QU1601510752739	Topic3	easy	Day 3 Handout Question 17	2021-01-20		Here are some instructions for this question.										
+QU1601511598713	Topic3	medium	Day 3 Handout Question 17	2021-01-20		Here are some instructions for this question.										
+QU1601510753560	Topic3	hard	Day 3 Handout Question 17	2021-01-21		Here are some instructions for this question.										
+QU1601510754142	Topic3	easy	Day 3 Handout Question 17	2021-01-22		Here are some instructions for this question.										no; location, movement, and handshape are all wrong
+QU1601510754700	Topic3	medium	Day 3 Handout Question 17	2021-01-23		Here are some instructions for this question.	[d]									no; space
+QU1601510755742	Topic3	hard	Day 3 Handout Question 17	2021-01-24		Could this image be the result of producing the sound represented by the given IPA symbol? Why or why not?	[z]									yes
+QU1601510756413	Topic3	easy	Quiz 3 Question 2	2021-01-24	two,one	Here are some instructions for this question.	[n]									yes
+QU1601511584705	Topic3	medium	Quiz 3 Question 3	2021-01-24		Here are some instructions for this question.	[t͡ʃ]									yes
+QU1601510757137	Topic3	hard	Quiz 3 Question 3	2021-01-24		Here are some instructions for this question.	[t͡ʃ]									no
+QU1601510757713	Topic3	easy	Quiz 3 Question 4	2021-01-24		Here are some instructions for this question.	[ɾ]		sample3.png							yes
+QU1601510758361	Topic3	medium	Quiz 3 Question 4	2021-01-24	one,three	Here are some instructions for this question.	[p], [t], [k]							used as example	omit	no; voiceless stops include glottal stop
+QU1601510759034	Topic3	hard	Quiz 3 Question 4	2021-01-24	one,three	Here are some instructions for this question.	[p], [b]									yes for bilabial plosives; (no) for bilabial stops (nasal?)
+QU1601510759576	Topic3	easy	Quiz 3 Question 4	2021-01-24	one,three	Here's a question with an underscore \_ and some curly braces \{[b], [n], [ɡ], [ʒ], [v]\} with IPA inside	[f], [s], [ʃ]							in sample summer 2021	omit	
+QU1601510760275	Topic3	medium	Assignment 1 Question 2	2021-01-24	one,three	Here's a question with a list: \begin{itemize} \item one \item two \end{itemize}	[b], [n], [ɡ], [ʒ], [v]									
+QU1601510760800	Topic3	hard	Assignment 1 Question 2	2021-01-24		What about a subscript? V$_1$	[f], [θ], [z], [h]									
+QU1601510761570	Topic3	easy	Assignment 1 Question 2	2021-01-24		Here are some instructions for this question.	[j], [w]									
+QU1601510762084	Topic3	medium	Assignment 1 Question 3b	2021-01-24		Here are some instructions for this question.	[ɑ], [u]									
+QU1601510762686	Topic4	hard	Assignment 1 Question 8	2021-01-25		Here are some instructions for this question.	[ɔ], [ʊ], [u], [oʊ]									
+QU1601510763310	Topic4	easy	Assignment 1 Question 8	2021-01-26		Here are some instructions for this question.	[i], [u], [eɪ]									no; [oʊ] missing for tense vowels
+QU1601510577830	Topic4	medium	Assignment 1 Question 8	2021-01-27		Here are some instructions for this question.	Here is some data for the question.									
+QU1601510596453	Topic4	hard	Day 4 Discussion	2021-01-28		Here are some instructions for this question.	Here is some data for the question.									
+QU1601510627533	Topic4	easy	Day 4 Discussion	2021-01-29		Here are some instructions for this question.	Here is some data for the question.									
+QU1601510596966	Topic4	medium	Day 4 Discussion	2021-01-30		Here are some instructions for this question.	Here is some data for the question.	Here is some more data.								
+QU1601510628874	Topic4	hard	Day 4 Discussion	2021-01-31		Here are some instructions for this question.	Here is some data for the question.	Here is some more data.								
+QU1601510597364	Topic4	easy	Day 4 Handout Question 5	2021-02-01		Here are some instructions for this question.	Here is some data for the question.	Here is some more data.							omit	
+QU1601510630219	Topic4	medium	Day 4 Handout Question 5	2021-02-02		Here are some instructions for this question.									omit	
+QU1601510597535	Topic4	hard	Day 4 Handout Question 5	2021-02-03		Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.			sample3.png		sample2.jpg		horizontal		omit	
+QU1601510631193	Topic4	easy	Day 4 Handout Question 5	2021-02-04		Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										phonetics
+QU1601510598189	Topic4	medium	Day 4 Handout Question 5	2021-02-04		Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										phonetics
+QU1601510602976	Topic4	hard	Day 4 Handout Question 7	2021-02-04		Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										phonetics
+QU1601510632199	Topic4	easy	Day 4 Handout Question 7	2021-02-04		Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										phonetics
+QU1601510603662	Topic4	medium	Day 4 Handout Question 7	2021-02-04		Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										phonetics
+QU1601510633116	Topic4	hard	Day 4 Handout Question 7	2021-02-05		Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										phonology
+QU1601510604151	Topic4	easy	Day 4 Handout Question 7	2021-02-06	three	Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.									omit	
+QU1601510634408	Topic4	medium	Quiz 4 Question 8	2021-02-07	three	Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										both
+QU1601510604615	Topic4	hard	Quiz 4 Question 8	2021-02-08	two	Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.									omit	
+QU1601510734921	Topic4	easy	Quiz 4 Question 8	2021-02-09	two	Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.										
+QU1601510735665	Topic5	medium	Day 5 Discussion	2021-02-10	one	Here are some instructions for this question. Here are some instructions for this question. \\ Line break! Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question. Here are some instructions for this question.	<disobeyed>									
+QU1601510736301	Topic5	hard	Day 5 Discussion	2021-02-11	one,three	Here are some instructions for this question.	<eyeglasses>									
+QU1601510736909	Topic5	easy	Day 5 Discussion	2021-02-12	two,three	Here are some instructions for this question.	<island>									
+QU1601510737859	Topic5	medium	Day 5 Discussion	2021-02-13		Here are some instructions for this question.	<eyes>									
+QU1601510738585	Topic5	hard	Day 5 Discussion	2021-02-14		Here are some instructions for this question.	<eyeful>									
+QU1601510739049	Topic5	easy	Quiz 5 Question 18	2021-02-15		Here are some instructions for this question.	<spyglass>									
+QU1601510764191	Topic5	medium	Quiz 5 Question 18	2021-02-16		Here are some instructions for this question.	[baba]		sample2.jpg							(he/she annoyed you (sg.))
+QU1601510765108	Topic5	hard	Quiz 5 Question 3	2021-02-16		Here are some instructions for this question.	[baba]		sample2.jpg							(we like him/her)
+QU1601510765572	Topic5	easy	Quiz 5 Question 3	2021-02-16		Here are some instructions for this question.	[baba]		sample2.jpg							
+QU1601510766302	Topic5	medium	Quiz 5 Question 3	2021-02-16		Here are some instructions for this question.	[baba]		sample2.jpg							
+QU1601510766964	Topic5	hard	Day 5 Handout Question 10b	2021-02-16		Here are some instructions for this question.	data1		sample2.jpg							
+QU1601510767808	Topic5	easy	Day 5 Handout Question 10b	2021-02-16		Here are some instructions for this question.	data1									
+QU1601510768482	Topic5	medium	Day 5 Handout Question 10b	2021-02-16		Here are some instructions for this question.	‘She will beat us.’									
+QU1601510769045	Topic5	hard	Day 5 Handout Question 10b	2021-02-16		Here are some instructions for this question.	‘You (sg.) are annoying me.’									
+QU1601510769558	Topic5	easy	Day 5 Handout Question 12	2021-02-16		Here are some instructions for this question.	‘They will pay him.’									
+QU1601510770196	Topic5	medium	Day 5 Handout Question 12	2021-02-16		Here are some instructions for this question.	‘I wanted them.’									
+QU1601510772842	Topic5	hard	Day 5 Handout Question 12	2021-02-16		Here are some instructions for this question.										
+QU1601510773627	Topic5	easy	Day 5 Handout Question 12	2021-02-16		Here are some instructions for this question.										
+QU1601510774107	Topic5	medium	Assignment 2 Question 2	2021-02-16		Here are some instructions for this question.										
+QU1601510774620	Topic5	hard	Assignment 2 Question 2	2021-02-16		Here are some instructions for this question.										
+QU1601510775442	Topic6	easy	Assignment 2 Question 5	2021-02-17		Here are some instructions for this question.										
+QU1601510776143	Topic6	medium	Assignment 2 Question 5	2021-02-18		Here are some instructions for this question.										
+QU1601510776873	Topic6	hard	Assignment 2 Question 5	2021-02-19		Here are some instructions for this question.										
+QU1601510777551	Topic6	easy	Assignment 2 Question 6	2021-02-20		Here are some instructions for this question.										
+QU1601510778398	Topic6	medium	Assignment 2 Question 6	2021-02-20		Here are some instructions for this question.	data1									
+QU1601510779053	Topic6	hard	Day 6 Discussion	2021-02-20		Here are some instructions for this question.	data1									
+QU1601669690516	Topic6	easy	Day 6 Discussion	2021-02-20		Here are some instructions for this question.										
+QU1601510779701	Topic6	medium	Day 6 Discussion	2021-02-20		Here's some emphasized \underline{text}.										
+QU1601510786246	Topic6	hard	Day 7 Discussion	2021-02-20		Explain why the following statement is false.	Trees are green.		sample2.jpg							
+QU1601510789462	Topic6	easy	Day 7 Discussion	2021-02-20		Here are some instructions for this question.	Trees are green.		sample2.jpg							‘in/on (the) room’
+QU1601510790164	Topic6	medium	Day 7 Discussion	2021-02-20		Here are some instructions for this question.	Trees are green.		sample2.jpg							
+QU1601510790980	Topic6	hard	Day 6 Handout Question 4	2021-02-20		Here are some instructions for this question.	Trees are green.		sample2.jpg							
+QU1602831629136	Topic6	easy	Day 6 Handout Question 4	2021-02-20		Here are some instructions for this question.										
+QU1601510788768	Topic6	medium	Day 6 Handout Question 4	2021-02-20		What phonological relationship(s) does this example show among the sounds [m], [n], and [ŋ], and why?										contrast (with a few neutralizations)
+QU1601510791550	Topic6	hard	Day 6 Handout Question 4	2021-02-20		Here are some instructions for this question.										
+QU1601510792191	Topic6	easy	Day 7 Handout Question 8	2021-02-20		Here are some instructions for this question.	[pʰ] and [f]									contrastive; minimal pair
+QU1601510792819	Topic6	medium	Day 7 Handout Question 8	2021-02-27		Here are some instructions for this question.	[pʰ] and [p̚]									free variation; pronunciation variants
+QU1601510793495	Topic6	hard	Day 7 Handout Question 8	2021-02-27		Explain how you would determine the phonological relationship between these two sounds (given below) in this dataset.	[l] and [ɾ]									allophonic; complementary distribution
+QU1601510794887	Topic6	easy	Day 7 Handout Question 8	2021-02-27		Here are some instructions for this question.	[m] and [n]									contrastive; [mu] ‘soft’ vs. [nu] ‘we’
+QU1601510795177	Topic6	medium	Quiz 6 Question 3	2021-02-27		Here are some instructions for this question.	[f] and [v]									contrastive; [fo] ‘false’ vs. [vo] ‘calf’
