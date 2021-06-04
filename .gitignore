@@ -1,4 +1,5 @@
 src/__pycache__/*.pyc
+.idea/*
 
 
 # do not upload any student-specific or course-specific data
