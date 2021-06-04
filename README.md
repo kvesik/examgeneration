@@ -75,7 +75,7 @@ In order to make it easy to use verbatim input of ipa characters, I am using fon
 * No individual student's exam will have more than one question with the same question type (eg morphology, signlanguage, etc), based on optional entries in the "QuestionType" column of the questions spreadsheet.
 * No individual student will have the same exact exam question on two of their exams (assuming you have enough questions to facilitate this), but depending on the way the random assignment happens and the number of available questions, they could have overlap in their question *sources* (as above for group members).
 
-And just a side note that the script can only do so much-- if there isn't a good population of topic/difficulty combinations then many bets are off. However, you will always get a warning if any of these compromises have to be made.
+And just a side note that the script can only do so much-- if there isn't a good population of topic/difficulty combinations, with varied question sourced, then many bets are off. However, you will always get a warning if any of these compromises have to be made.
   
 ### Question bank
 Our question bank is updated and maintained in Google Sheets, and downloaded/saved as .tsv whenever we want to run the exam generator. You are welcome to do the same, or try a different method. In order for the script to succeed, you *must* have column headers matching the following case-insensitive names (but they can be arranged in any order)...
@@ -107,7 +107,7 @@ See sample question bank tsv in the [data/](https://github.com/kvesik/examgenera
 
 A few words of caution:
 * Don't leave empty lines anywhere (including the end) in the tsv.
-* If you don't have a full crossing of topics and difficulties, or you specify topic/difficulty pairs in the [Config file](#Config-file) that don't exist in your question bank, you may not get quite the behaviour you're looking for. Eg, the script might have to give up on its most stringent uniqueness restrictions in terms of non-overlapping exams (see [Avoiding overlap](#Avoiding-overlap)). Easiest way to avoid this? Lots of questions in the database! And a full range of difficulty/topic combos, unless you know for sure that you're always going to specify a particular topic/difficulty pair.
+* If you don't have a full crossing of topics and difficulties with a variety of question sources, you may not get quite the behaviour you're looking for. Eg, the script might have to give up on its most stringent uniqueness restrictions in terms of non-overlapping exams (see [Avoiding overlap](#Avoiding-overlap)). Easiest way to avoid this? Lots of questions in the database! And a full range of difficulty/topic combos from many different sources, unless you know for sure that you're always going to specify a particular topic/difficulty pair.
 
 ### Images
 Images to be used for specific questions are identified in the [Question bank](#Question-bank), and should be stored in `exams/images/`.
