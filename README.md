@@ -1,6 +1,6 @@
 # Linguistics random-sampled exam generator
 
-Take a look at [our slides](https://github.com/kvesik/examgeneration/blob/master/CLA%202021%20slides%20-%20Vesik%20and%20Hall%20-%20Random-Sampled%20Exams%20for%20Better%20Learning.pdf) from June 4 2021 at [ACL|CLA 2021](https://cla-acl.ca/programmes/congres-de-2021-meeting.html), introducing this project and the pedagogical concepts in which it's grounded.
+Take a look at [our slides](https://github.com/kvesik/examgeneration/blob/master/CLA2021slides_Vesik_Hall_RandomSampledExamsForBetterLearning.pdf) from June 4 2021 at [ACL|CLA 2021](https://cla-acl.ca/programmes/congres-de-2021-meeting.html), introducing this project and the pedagogical concepts in which it's grounded.
 
 ## Quick Start - how to run samples
 1.	Clone/download repository (entire directory structure).
