@@ -9,7 +9,8 @@ exams/existingexams_donotedit*
 exams/images/*
 exams/samples/*
 !exams/images/sample.jpg
-config/*exam.cfg
+config/*
+!config/sample*signups.cfg
 
 # no old source code or beta versions
 src/*_before*.py
