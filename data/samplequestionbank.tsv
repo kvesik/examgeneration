@@ -19,8 +19,8 @@ QU1601510730969	Topic1	medium	Quiz 1 Question 1	2021-01-11		Here are some instru
 QU1601510731748	Topic1	hard	Quiz 1 Question 1	2021-01-11		Here are some instructions for this question.	<data1>							only has one kind of sound and was the original answer	omit	instructor comments (must be latex-y!)
 QU1601510732255	Topic1	easy	Quiz 1 Question 2	2021-01-11		Here are some instructions for this question.	<data1>									instructor comments (must be latex-y!)
 QU1601510732851	Topic2	medium	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<data1>									instructor comments (must be latex-y!)
-QU1601510733572	Topic2	hard	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<a\underline{w}ay>	\begin{itemize} \item prevocalic obstruent \item prevocalic sonorant \item postvocalic obstruent \item postvocalic sonorant \item intervocalic obstruent \item intervocalic sonorant \end{itemize}								instructor comments (must be latex-y!)
-QU1601510734278	Topic2	easy	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<o\underline{p}en>	\begin{itemize} \item prevocalic obstruent \item prevocalic sonorant \item postvocalic obstruent \item postvocalic sonorant \item intervocalic obstruent \item intervocalic sonorant \end{itemize}								instructor comments (must be latex-y!)
+QU1601510733572	Topic2	hard	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<a\underline{w}ay>	\begin{itemize} \item prevocalic obstruent \item prevocalic sonorant \item postvocalic obstruent \item postvocalic sonorant \item intervocalic obstruent \item intervocalic sonorant \end{itemize} and then some more text								instructor comments (must be latex-y!)
+QU1601510734278	Topic2	easy	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	<o\underline{p}en>	\begin{itemize} \item prevocalic obstruent \item prevocalic sonorant \item postvocalic obstruent \item postvocalic sonorant \item intervocalic obstruent \item intervocalic sonorant \end{itemize} and then some more text								instructor comments (must be latex-y!)
 QU1601510739887	Topic2	medium	Day 2 Discussion	2021-01-12		Here are some instructions for this question.	Original set: [æ], [ɑ]	Addition: [ɑʊ]						in sample summer 2021	omit	instructor comments (must be latex-y!)
 QU1601510740567	Topic2	hard	Day 2 Discussion	2021-01-12		Explain why the additional vowel below either does or does not belong in the phonetic natural class defined by the original set of SNAE vowels.	Original set: [u], [ʊ], [oʊ], [ɔ]	Addition: [ɔɪ]								instructor comments (must be latex-y!)
 QU1601510741283	Topic2	easy	Handout 2 Question 1	2021-01-12		Here are some instructions for this question.										instructor comments (must be latex-y!)
@@ -40,7 +40,7 @@ QU1601510749365	Topic2	medium	Quiz 2 Question 1	2021-01-20		Explain how to figur
 QU1601510750507	Topic2	hard	Quiz 2 Question 1	2021-01-20	one	Here are some instructions for this question.			sample3.png							
 QU1601510750679	Topic3	easy	Day 3 Handout Question 10	2021-01-20	one	Here are some instructions for this question.										
 QU1601510751084	Topic3	medium	Day 3 Handout Question 10	2021-01-20		Here are some instructions for this question.										
-QU1601510752199	Topic3	hard	Day 3 Handout Question 10	2021-01-20		Here are some instructions for this question.	\begin{itemize} \item asdf \item asdf \end{itemize}									
+QU1601510752199	Topic3	hard	Day 3 Handout Question 10	2021-01-20		Here are some instructions for this question.	\begin{itemize} \item asdf \item asdf \end{itemize} and then some more text									
 QU1601510752739	Topic3	easy	Day 3 Handout Question 17	2021-01-20		Here are some instructions for this question.										
 QU1601511598713	Topic3	medium	Day 3 Handout Question 17	2021-01-20		Here are some instructions for this question.										
 QU1601510753560	Topic3	hard	Day 3 Handout Question 17	2021-01-21		Here are some instructions for this question.										
@@ -54,7 +54,7 @@ QU1601510757713	Topic3	easy	Quiz 3 Question 4	2021-01-24		Here are some instruct
 QU1601510758361	Topic3	medium	Quiz 3 Question 4	2021-01-24	one,three	Here are some instructions for this question.	[p], [t], [k]							used as example	omit	no; voiceless stops include glottal stop
 QU1601510759034	Topic3	hard	Quiz 3 Question 4	2021-01-24	one,three	Here are some instructions for this question.	[p], [b]									yes for bilabial plosives; (no) for bilabial stops (nasal?)
 QU1601510759576	Topic3	easy	Quiz 3 Question 4	2021-01-24	one,three	Here's a question with an underscore \_ and some curly braces \{[b], [n], [ɡ], [ʒ], [v]\} with IPA inside	[f], [s], [ʃ]							in sample summer 2021	omit	
-QU1601510760275	Topic3	medium	Assignment 1 Question 2	2021-01-24	one,three	Here's a question with a list: \begin{itemize} \item one \item two \end{itemize}	[b], [n], [ɡ], [ʒ], [v]									
+QU1601510760275	Topic3	medium	Assignment 1 Question 2	2021-01-24	one,three	Here's a question with a list: \begin{itemize} \item one \item two \end{itemize} and then some more text	[b], [n], [ɡ], [ʒ], [v]									
 QU1601510760800	Topic3	hard	Assignment 1 Question 2	2021-01-24		What about a subscript? V$_1$	[f], [θ], [z], [h]									
 QU1601510761570	Topic3	easy	Assignment 1 Question 2	2021-01-24		Here are some instructions for this question.	[j], [w]									
 QU1601510762084	Topic3	medium	Assignment 1 Question 3b	2021-01-24		Here are some instructions for this question.	[ɑ], [u]									
