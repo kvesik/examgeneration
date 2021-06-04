@@ -1,6 +1,6 @@
 # Linguistics random-sampled exam generator
 
-Take a look at [our slides](TODO) from June 4 2021 at ACL|CLA 2021, introducing this project and the pedagogical concepts it's based on.
+Take a look at [our slides](TODO) from June 4 2021 at [ACL|CLA 2021](https://cla-acl.ca/programmes/congres-de-2021-meeting.html), introducing this project and the pedagogical concepts it's based on.
 
 ## Quick Start - how to run samples
 1.	Branch or download repo.
@@ -18,40 +18,44 @@ Take a look at [our slides](TODO) from June 4 2021 at ACL|CLA 2021, introducing 
 
 TODO
 *** As of Sep 20 2020, all four tsvs in "examgeneration" directory are correctly formatted and functional.
-5.	Update/save questions spreadsheet as tsv (see comments below in [Updating question bank tsvs](#Updating-question-bank-tsvs))
-6.	Save signups spreadsheet as tsv - TODO update this after talking to Kathleen 20200921
-7.	Customize config file as per instructions in next section
-8.	Run generateexams.py (it looks for a command-line argument with the name of the config file, but if it doesn't find one will ask you for input). This creates .tex files.
-9.	Open generated .tex sources (generated in a timestamped subdirectory) and compile into 
 
-### Config file formatting TODO
-* Can be named whatever you like.
-* Properties can go in any order (ie, entire lines can switch spots).
-* Required properties: 
-  * questions
-  * signups
-* Optional properties: 
-  * exam type (default = final)
-  * student groups (default = none / separate ids with comma / separate groups with semicolon / spaces are ok)
-  * random seed (default = wugz)
-* Property keys and values must be typed as shown in this example:
-```
-questions: pathtoquestionsfile_dontusespaces.
-signups: pathtosignupsfile/couldbenested.tsv
-exam type: midterm
-student groups: 1234,3456;8846,2345,1220
-random seed: whateveryoulike could have spaces
-```
+TODO navigating generated files.
 
-### Current midterm exam characteristics TODO
-* 5 questions total: one each from topics transcription, articulatory phonetics, skewed distributions, phonological relationships, and "wild" (wildcard question randomly selected from transcription, articulatory phonetics, phonological relationships, or other).
-* Difficulty distribution is either (1x very hard, 5x medium), or (1x very hard, 1x hard, 2x medium, 1x easy).
-* Because of the fact that there is a not a full crossing of difficulty & topic, the choosing of questions for midterms is done in an annoyingly hard-coded way. If the question coverage were to improve, we could use the more elegant (and more random) algorithm that's used for the final exams.
+### Config file
+The config file(s) can be named whatever you like. I suggest having one for each exam type (eg a midterm config, a final config, and an oral quiz config). Properties can go in any order (ie, entire lines can switch spots). You can use a # to comment lines, but only at the very beginning of a line (no inline comments). Some properties are required and some are optional...
 
-### Current final exam characteristics TODO
-* 6 questions total: one each from topics acoustics, alternations,  phonological features, syllables, tone, and dataset.
-* Difficulty distribution is (2, easy, 2x medium, 1x hard, and 1x very hard). Very hard always comes from the dataset questions.
-* The non-dataset topics fully cross the difficulty levels easy/medium/hard, so there's lots of opportunity for randomness in terms of which topics get which difficulties, etc.
+Required properties: 
+* `questions` - The name of the .tsv containing the question bank (assumed to be in `data/`). See [Question bank](#Question-bank) for details.
+* `exam type` - The type of exam this is. We've used types such as "midterm", "final", and "flash" (our 2-question oral quizzes). Following this, separated by a space, could be a date in yyyy-mm-dd format if this exam is going to be done by everyone on one day / in one sitting (ie, *not* an individually scheduled exam).
+* `signups` - Where to find the file with student information and (possibly) days/times for individually scheduled exams. Input can take one of two forms:
+   * "none" and "listofids(callthiswhateveryouwant).tsv" separated by a space. "none" means that there are no individual timeslots scheduled, and one exam of the type specified above will be generated for each student in the tsv. See [Student IDs list](#TODO) for details on the structure of this file.
+   * "examtimeslotschedule(callthiswhateveryouwant).tsv" only. This indicates that there *are* individual timeslots scheduled, and one exam of the type specified above will be generated for each student in the tsv, within a certain time range (see `generate up to` below). See [Signups schedule](#TODO) for details on the structure of this file.
+* `topics` - A semicolon-separated list of question topics to include on the exam, one per question. This means that if you want two Acoustics questions on the exam, you list *Acoustics* twice. 
+   * Spaces can be included for readability but will be ignored.
+   * Topics must be equal to the ones listed in the [Question bank](#Question-bank).
+   * If you would like one or more wildcard questions on the exam (eg, randomly-selected topic) use WILD for each of those questions.
+* `difficulties` - A semicolon-separated list of question difficulties to include on the exam, one per question. This means that if you want two hard questions on the exam, you list *hard* twice.
+   * Spaces can be included for readability but will be ignored.
+   * Difficulties must be equal to the ones listed in the [Question bank](#Question-bank).
+   * If you want to specify that a particular topic and difficulty level should be paired, include the topic name in square brackets after its corresponding difficulty (in addition to listing it on the `topics` line).
+* `wildcard topics` - The topics from which to select wildcard question topics, if applicable.
+   * Spaces can be included for readability but will be ignored.
+
+Optional properties - you can omit these lines completely, comment them with a #, or include the label but leave the rest of the line empty:
+* `course` (default = "") - The name of the course. Will be included in generated .tex/.tsv filenames.
+* `student groups` (default = none) - Any groups of students who have (eg) submitted assignments or otherwise worked together, on whose exams you would liketo avoid overlap. This isn't always feasible, depending on how many students, groups, and questions you have, but it will be attempted!
+   * Separate IDs of group members with commas.
+   * Separate groups with semicolons.
+   * Spaces can be included for readability but will be ignored.
+* `ordering` (default = 1) - The order in which the topics should be presented on each student's exam.
+   * 1 = in the order in which question topics are specified above
+   * 2 = completely random
+   * 3 = one easy or medium question first if available, and the rest in random order
+   * 4 = one very hard question last if available, and the rest in random order
+* `generate up to` (default = the closest upcoming Friday not including today) - If you want to generate individually-signed-up exams more than a week ahead of time, specify the yyyy-mm-dd to generate to. The script will run through the signups schedule you specifed above, and only create exams for those students whose timeslots are on or before the specified date. Beware of doing this too early if you haven't yet labeled all of your question bank entries with dates!
+* `random seed` (default = "wugz") - The random seed to be used for reproducibly randomized exams. Note that this feature is actually not implemented at the moment, because it also has potential to cause repeated problems in exam generation, not just repeated success!
+
+See sample config files for various scenarios in the [config\](https://github.com/kvesik/examgeneration/tree/master/config) directory.
 
 ### Shared characteristics TODO
 * Any students who are grouped together in the config file (eg, who worked together on assignments) will not have any overlap in exam questions (TODO though could have overlap in sources, just with different actual data).
@@ -61,7 +65,7 @@ random seed: whateveryoulike could have spaces
 In order to make it easy to use verbatim input of ipa characters, I am using font packages that require compilation with xelatex. **pdflatex will not work**.
 
 ### Student groups TODO
-* Any students listed in a group together (see config) will *not* have overlap in their exam questions, but could have overlap in their question sources. For example, the following is currently possible within a group:
+* Any students listed in a group together (see [Config file](#Config-file)) will *not* have overlap in their exact exam questions, but could have overlap in their question sources. For example, the following is currently possible within a group:
   * From source "Day 2 Handout, Question 6" student A gets "Provide the IPA transcription for the word 'grilled'."
   * From source "Day 2 Handout, Question 6" student B gets "Provide the IPA transcription for the word 'cheese'."
   
