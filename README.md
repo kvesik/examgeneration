@@ -133,7 +133,7 @@ On the bright side: you get to copy/paste IPA symbols instead of having to code 
 ### Signups schedule
 For exams that are individually scheduled, we need the student ID, date, and time for each exam. Required columns in tsv:
 * `sid` - student ID
-* `day` - date of exam in yyyy-mm-dd format (or yyyy-mm-dd ddd)
+* `day` - date of exam in yyyy-mm-dd format (or yyyy-mm-dd dddd)
 * `time` - time of exam (this will be sorted as a string, so I suggest using 24h format OR putting AM/PM *before* the digits rather than after
 
 See sample signups tsv in the [data/](https://github.com/kvesik/examgeneration/tree/master/data) directory.
