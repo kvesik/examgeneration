@@ -11,8 +11,8 @@ import sys
 import random
 from datetime import date, datetime
 from Exam import Question
-import examio_beta20210603 as examio  # TODO return to just examio
-from examio_beta20210603 import WILD
+import examio
+from examio import WILD
 
 EXISTINGEXAMSPICKLEFILE = "existingexams_donotedit.dict"
 ORDER_SPECIFIED = 1

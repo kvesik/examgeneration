@@ -14,7 +14,6 @@ import pandas as pd
 import re
 from datetime import date, datetime, timedelta
 from Exam import Question
-# from generateexams_beta20210603 import WILD  # TODO
 
 
 WILD = "WILD"
@@ -345,6 +344,11 @@ def getconfig():
     onefileperstudent = False
     if filestructure == "s":
         onefileperstudent = True
+
+    if len(topics) != len(diffs):
+        print("Failed reading config file: unequal numbers of topics vs difficulties.")
+        print("Exiting...")
+        sys.exit(1)
 
     return questionsfile, signupsfile, hassignupslots, course, examtype, examdate, \
         studentgroups, onefileperstudent, generateexamsuptodate, ordering, \

@@ -7,7 +7,7 @@ updated May 2021 by Kaili Vesik
 import os
 import sys
 import examio
-import generateexams_beta20210603 as generateexams  # TODO
+import generateexams
 
 
 # asks user for the path to a certain type ("filetype" string) and checks its validity
