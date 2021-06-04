@@ -3,7 +3,7 @@
 Take a look at [our slides - to be posted!](#TODO) from June 4 2021 at [ACL|CLA 2021](https://cla-acl.ca/programmes/congres-de-2021-meeting.html), introducing this project and the pedagogical concepts it's based on.
 
 ## Quick Start - how to run samples
-1.	Download repo.
+1.	Clone/download repository (entire directory structure).
 2.	Run `src/generateexams.py`; this creates .tex files and .tsv files.
    a) It will ask you for the name of the [Config file](#Config-file), which it will assume is in the `data/` directory.
    b) It will also ask you whether you want to create your exams as one file per *student* or one per *day*.
