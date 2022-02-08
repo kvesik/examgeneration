@@ -120,12 +120,12 @@ Any of the spreadsheet values that will be displayed as text in the exam documen
 What do I mean by "LaTeX-aware"? ...
 * Lists should be created using \begin{itemize} \item text 1 \item text 2 \end{itemize}   (or enumerate instead of itemize)
 * If you want to see curly braces { } appear in the doc, they need to be escaped \\\{ \\\}
-* Ampersands and underscores must be escaped: \& \_
+* Ampersands and underscores must be escaped: \\\& \\\_
 * Exception: square brackets are assumed to be around transcriptions; they will be auto-escaped by the python script. This means you *cannot* use them to pass any arguments to commands (eg \item[a.] )
 * The font packages I'm using don't permit italics, so use \ul{text to underline} to emphasize text.
 * If you want to use quotes, make sure to use `` '' or ` '
 * Non-IPA subscripts must be entered using $_{text}$; superscripts get $^{text}$
-* Use \\ for line breaks.
+* Use \\\\ for line breaks.
 * I hope I got them all... :)
 
 On the bright side: you get to copy/paste IPA symbols instead of having to code them. Hooray!
