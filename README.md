@@ -83,7 +83,7 @@ Columns whose titles must be included AND whose cells must not be empty:
 * `uniqueid` - This is used to identify specific questions so we don't have to worry about small edits to question text resulting in an earlier and a later copy of a question being identified as unequal. I use a Google Sheets add-on to auto-generate these (adapted from [this blog post](https://yagisanatode.com/2019/02/09/google-apps-script-create-custom-unique-ids-in-google-sheets/) by Yagisanatode). 
 * `topic` - Broad topic for this question (could correspond to the idea of a chapter; eg "Articulatory Phonetics").
 * `difficulty` - Difficulty level for this question (you get to choose your own scale; eg "easy", "medium", "hard", "very hard").
-* Starts with `source` (eg "source2020term1") - source of this question (eg "Handout 4 Question 8" or "Day 12 Discussion"). There can be more than one source column, but the furthest right one is the onlyone that will be used.
+* Starts with `source` (eg "source2020term1") - source of this question (eg "Handout 4 Question 8" or "Day 12 Discussion"). There can be more than one source column, but the furthest right one is the only one that will be used.
 * `datecompleted` - The date this question was addressed in class, in yyyy-mm-dd format. This is handy if you have a full database of questions for the course (eg from last year), but you want to make sure that only the questions covered up to the Friday before any given exam are actually eligible for inclusion.
 
 Columns whose titles must be included BUT whose cells can be left empty:
@@ -119,7 +119,7 @@ Any of the spreadsheet values that will be displayed as text in the exam documen
 
 What do I mean by "LaTeX-aware"? ...
 * Lists should be created using \begin{itemize} \item text 1 \item text 2 \end{itemize}   (or enumerate instead of itemize)
-* If you want to see curly braces { } appear in the doc, they need to be escaped \{ \}
+* If you want to see curly braces { } appear in the doc, they need to be escaped \\\{ \\\}
 * Ampersands and underscores must be escaped: \& \_
 * Exception: square brackets are assumed to be around transcriptions; they will be auto-escaped by the python script. This means you *cannot* use them to pass any arguments to commands (eg \item[a.] )
 * The font packages I'm using don't permit italics, so use \ul{text to underline} to emphasize text.
