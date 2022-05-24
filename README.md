@@ -63,7 +63,7 @@ Optional properties - you can omit these lines completely, comment them with a #
    * 3 = one easy or medium question first if available, and the rest in random order
    * 4 = one very hard question last if available, and the rest in random order
 * `generate up to` (default = the closest upcoming Friday not including today) - If you want to generate individually-signed-up exams more than a week ahead of time, specify the yyyy-mm-dd to generate to. The script will run through the signups schedule you specifed above, and only create exams for those students whose timeslots are on or before the specified date. Beware of doing this too early if you haven't yet labeled all of your question bank entries with dates!
-* `rubric` (default = "") - One line of text to include at bottom of each question page.
+* `rubric` (default = "") - One line of text to include at bottom of each question page. Ours looked like this: ![Execllent (3) Good (2.2) Fair (1.7) Poor (0)](images/rubric.png)
 * `random seed` (default = "wugz") - The random seed to be used for reproducibly randomized exams. Note that this feature is actually not implemented at the moment, because it also has potential to cause repeated problems in exam generation, not just repeated success!
 
 ### LaTeX compiling
