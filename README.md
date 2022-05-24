@@ -2,6 +2,8 @@
 
 Take a look at [our slides](https://github.com/kvesik/examgeneration/blob/master/CLA2021slides_Vesik_Hall_RandomSampledExamsForBetterLearning.pdf) from June 4 2021 at [ACL|CLA 2021](https://cla-acl.ca/programmes/congres-de-2021-meeting.html), introducing this project and the pedagogical concepts in which it's grounded.
 
+This project is licensed under the [GNU General Public License v3.0](LICENSE.md) (GPLv3).
+
 ## Quick Start - how to run samples
 1.	Clone/download repository (entire directory structure).
 2.	Run `src/generateexams.py`; this creates .tex files and .tsv files.
