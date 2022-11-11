@@ -856,13 +856,13 @@ def makequestiontex(question, instructorversion=False, texortsv="tex"):
             qtext += "\\begin{figure}[H]" + "\n"
             qtext += "\\begin{subfigure}{.5\\textwidth}" + "\n"
             qtext += "\\centering" + "\n"
-            qtext += "\\includegraphics[width=.9\\linewidth]{images/" + question.image1 + "}" + "\n"
+            qtext += "\\includegraphics[width=.9\\linewidth]{../images/" + question.image1 + "}" + "\n"
             if question.image1caption != "":
                 qtext += "\\caption{" + question.image1caption + "}" + "\n"
             qtext += "\\end{subfigure}" + "\n"
             qtext += "\\begin{subfigure}{.5\\textwidth}" + "\n"
             qtext += "\\centering" + "\n"
-            qtext += "\\includegraphics[width=.9\\linewidth]{images/" + question.image2 + "}" + "\n"
+            qtext += "\\includegraphics[width=.9\\linewidth]{../images/" + question.image2 + "}" + "\n"
             if question.image1caption != "":
                 qtext += "\\caption{" + question.image2caption + "}" + "\n"
             qtext += "\\end{subfigure}" + "\n"
