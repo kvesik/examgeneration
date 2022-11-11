@@ -230,7 +230,7 @@ def getconfig():
     #   1 (in the order in which question topics are specified)
     #   2 (completely random)
     #   3 (one easy or medium question first if applicable, and the rest in random order)
-    #   4 (one very hard question last if applicable, and the rest in random order
+    #   4 (one very hard question last if applicable, and the rest in random order)
     ordering = 1
     topics = []
     diffs = []
