@@ -6,12 +6,15 @@ This pedagogically-informed software is part of a project I work on with Kathlee
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE.md) (GPLv3).
 
-## Quick Start - how to run samples
+## Quick Start - how to run samples (for users with both Python and $\LaTeX$ installed)
 1.	Clone/download repository (entire directory structure).
 2.	Run `src/generateexams.py`; this creates .tex files and .tsv files.
    a) It will ask you for the name of the [Config file](#Config-file), which it will assume is in the `data/` directory.
    b) It will also ask you whether you want to create your exams as one file per *student* or one per *day*.
 3.	Open generated .tex sources (generated in a timestamped subdirectory under `exams/`) and compile into pdfs using your favourite LaTeX editor (or you could uncomment the pdf generation lines in the python script, but be aware that these don't handle compilation errors at all gracefully and you could end up with both latex and python processes hanging). Note that you have to use the XeLaTeX engine in order for IPA fonts to work correctly.
+
+## Slightly Less-Quick Start (for users without Python and/or $\LaTeX$ installed)
+See our page on [getting started with Python and LaTeX](SETUP.md) for instructions on how to download and install Python, and how to either download/install $\LaTeX$ or use it online.
 
 ## Which files can be copied/edited/customized for your purposes
 1. [Question bank](#Question-bank)
