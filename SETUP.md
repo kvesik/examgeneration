@@ -51,7 +51,9 @@ There are a few options when it comes to deciding how you will download/run the 
 
 ## Download repository from GitHub
 
-TODO
+ 1. Go to https://github.com/kvesik/examgeneration , click on the green "Code" button on the right, and select "Download ZIP" from the menu that opens.
+    ![Code / Download ZIP](images/download-code.png)
+ 2. TODO
 
 ## Download/install/configure Python
 
