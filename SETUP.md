@@ -5,8 +5,8 @@
 There are a few options when it comes to deciding how you will download/run the exam generator software, and subsequently typeset the generated $\LaTeX$ files to create PDFs. The list below describes these options and highlights which ones are recommended if you have not used any of these tools before.
 
  1. Download the Exam Generator source code and directory structure.
-    - Recommended approach (slightly more complex, but will allow you to receive future software updates more easily): [Download/install/configure GitHub Desktop](#downloadinstallconfigure-github-desktop).
-    - Alternative approach (less complex, but will be trickier to access future software updates): [Download repository from GitHub](#download-repository-from-github).
+    - Recommended approach (slightly more complex to set up, but will allow you to receive future software updates more easily): [Download/install/configure GitHub Desktop](#downloadinstallconfigure-github-desktop).
+    - Alternative approach (less complex to set up, but will be trickier to access future software updates): [Download repository from GitHub](#download-repository-from-github).
  3. [Download/install/configure Python](#downloadinstallconfigure-python).
  4. [Download/install Python dependencies](#downloadinstall-python-dependencies).
  5. TODO continued
