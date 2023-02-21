@@ -7,30 +7,30 @@ This pedagogically-informed software is part of a project I work on with Kathlee
 This project is licensed under the [GNU General Public License v3.0](LICENSE.md) (GPLv3).
 
 ## Quick Start - how to run samples (for users with both Python and $\LaTeX$ installed)
-1.	Clone/download repository (entire directory structure).
-2.	Run `src/generateexams.py`; this creates .tex files and .tsv files.
-   a) It will ask you for the name of the [Config file](#Config-file), which it will assume is in the `data/` directory.
-   b) It will also ask you whether you want to create your exams as one file per *student* or one per *day*.
-3.	Open generated .tex sources (generated in a timestamped subdirectory under `exams/`) and compile into pdfs using your favourite LaTeX editor (or you could uncomment the pdf generation lines in the python script, but be aware that these don't handle compilation errors at all gracefully and you could end up with both latex and python processes hanging). Note that you have to use the XeLaTeX engine in order for IPA fonts to work correctly.
+ 1.	Clone/download repository (entire directory structure).
+ 2.	Run `src/generateexams.py`; this creates .tex files and .tsv files.
+      - It will ask you for the name of the [Config file](#Config-file), which it will assume is in the `data/` directory.
+      - It will also ask you whether you want to create your exams as one file per *student* or one per *day*.
+ 3.	Open generated .tex sources (generated in a timestamped subdirectory under `exams/`) and compile into pdfs using your favourite LaTeX editor (or you could uncomment the pdf generation lines in the python script, but be aware that these don't handle compilation errors at all gracefully and you could end up with both latex and python processes hanging). Note that you have to use the XeLaTeX engine in order for IPA fonts to work correctly.
 
 ## Slightly Less-Quick Start (for users without Python and/or $\LaTeX$ installed)
 See our page on [getting started with Python and LaTeX](SETUP.md) for instructions on how to download and install Python, and how to either download/install $\LaTeX$ or use it online.
 
 ## Which files can be copied/edited/customized for your purposes
-1. [Question bank](#Question-bank)
-2. [Config file](#Config-file): info re course, exam type, date(s), topic/difficulty distribution, question order, etc
-3. [Signups schedule](#Signups-schedule): for exams where students sign up for individual time slots (eg for an oral exam)
-4. [Student IDs list](#Student-IDs-list): for typical exams (ie done by an entire course or section in one sitting)
-5. [Images](#Images): for incorporation into exam questions
+ 1. [Question bank](#Question-bank)
+ 2. [Config file](#Config-file): info re course, exam type, date(s), topic/difficulty distribution, question order, etc
+ 3. [Signups schedule](#Signups-schedule): for exams where students sign up for individual time slots (eg for an oral exam)
+ 4. [Student IDs list](#Student-IDs-list): for typical exams (ie done by an entire course or section in one sitting)
+ 5. [Images](#Images): for incorporation into exam questions
 
 ### Generated files
 In the `exams/` directory are two kinds of things:
 
 Folders labeled with the course, exam type, and timestamp of exam generation. Inside each one:
-* One or more .tex files (whether one per day or one per student) that you can compile into pdfs.
-* A corresponding .tsv for each of these, in case you want to use the generated LaTeX on some other platform.
-* A corresponding instructor copy .tex for each of these, containing the exact same content as the student copies but also with instructor notes (eg answer key if you like) for each question.
-* One single question bank .tex that includes all questions from your .tsv question bank, as long as they have a nonempty topic and difficulty, and aren't flagged as "omit".
+ * One or more .tex files (whether one per day or one per student) that you can compile into pdfs.
+ * A corresponding .tsv for each of these, in case you want to use the generated LaTeX on some other platform.
+ * A corresponding instructor copy .tex for each of these, containing the exact same content as the student copies but also with instructor notes (eg answer key if you like) for each question.
+ * One single question bank .tex that includes all questions from your .tsv question bank, as long as they have a nonempty topic and difficulty, and aren't flagged as "omit".
 
 Files named `existingexams_donotedit.dict` (plus a timestamp). One of these binary files is generated each time you (successfully) run `generateexams.py`. They are not human-readable, but are referenced by the script each time it runs. This is how the script checks to make sure that students don't get the same exam on multiple exams, etc. 
 * You will get new .tex files every single time you run the script, even if you've already built those exams once. Their data will simply be read from the biniary file, and the exact same exams will be regenerated. 
