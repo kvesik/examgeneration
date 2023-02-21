@@ -102,7 +102,7 @@ This task only needs to be done once, unless there is a big update to the softwa
 
 ### Python dependencies for Windows users
 
- 1. Navigate to the `examgeneration` folder (using Windows file explorer) where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
+ 1. Using Windows file explorer, navigate to the `examgeneration` folder where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
  2. Hold down the Shift key while you right-click on the `src` folder.
  3. Choose "Open PowerShell window here" from the menu that pops up.
     - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
@@ -114,7 +114,7 @@ TODO generate requirements.txt!
 
 ### Python dependencies for Mac users
 
- 1. Navigate to the `examgeneration` folder (using Windows file explorer) where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
+ 1. Using Finder, navigate to the `examgeneration` folder where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
  2. Right-click on the `src` folder.
  3. Choose "New Terminal at Folder" from the menu that pops up.
     - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
@@ -136,7 +136,25 @@ This task only needs to be done once.
 
 This task needs to be done each time you want to generate a new set of exams, followed by task [VII](#vii-generate-pdfs-using-latex).
 
-TODO
+### Running the Python script for Windows users
+
+ 1. Make sure you have set up your config files, question database, student list, etc according to the guidelines in the main [Readme](README.md) document.
+ 2. Using Windows file explorer, navigate to the `examgeneration` folder where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
+ 3. Hold down the Shift key while you right-click on the `src` folder.
+ 4. Choose "Open PowerShell window here" from the menu that pops up.
+    - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
+ 6. Type `python generateexams.py` and press Enter (or you might have to try `python3 generateexams.py` if the first attempt doesn’t work).
+ 7. The script does not have a GUI (Graphical User Interface); you will interact with in the PowerShell window, via the keyboard.
+
+### Running the Python script for Mac users
+
+ 1. Make sure you have set up your config files, question database, student list, etc according to the guidelines in the main [Readme](README.md) document.
+ 2. Using Finder, navigate to the `examgeneration` folder where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
+ 3. Right-click on the `src` folder.
+ 4. Choose "New Terminal at Folder" from the menu that pops up.
+    - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
+ 5. Type `python generateexams.py` and press Return (or you might have to try `python3 generateexams.py` if the first attempt doesn’t work).
+ 6. The script does not have a GUI (Graphical User Interface); you will interact with in the Terminal window, via the keyboard.
 
 ## VII. Generate .pdfs using $\LaTeX$
 
