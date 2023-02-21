@@ -15,7 +15,7 @@ There are a few options when it comes to deciding how you will download/run the 
 
 ## Download/install/configure GitHub Desktop
 
-### For Windows users
+### GitHub Desktop for Windows users
 
  1. Go to https://desktop.github.com/ and download the latest version via the big purple button:
  ![Download for Windows (64bit)](images/download-github-windows.png)
@@ -31,7 +31,7 @@ There are a few options when it comes to deciding how you will download/run the 
     - Copy and paste kvesik/examgeneration into the top field (“Repository URL or GitHub username and repository”), and in the bottom field (“Local path”) select a folder for the code to live in on your computer. Click “Clone.”
     - Clicking the “Fetch Origin” button at the top right is what refreshes your local copy of the code with any recent updates that have been made by the programmers. If it changes to “Pull Origin” after you click “Fetch Origin” you should click it again. “Fetch” checks to see if there are any updates, and “Pull” means there are in fact new updates that do need to be downloaded onto your computer. ![Fetch origin](images/fetch-github.png) You should open GitHub Desktop and fetch/pull every once in a while (monthly, maybe?). Other than that, though, you likely won’t need to use GitHub Desktop for much.
 
-### For Mac users
+### GitHub Desktop for Mac users
 
  1. Go to https://desktop.github.com/ and download the latest version via the big purple button:
  ![Download for macOS](images/download-github-mac.png)
@@ -55,7 +55,7 @@ TODO
 
 ## Download/install/configure Python
 
-### For Windows users
+### Python for Windows users
 
 1. Go to https://www.python.org/downloads/ and download the latest version as per the big yellow button (3.11.1 in this case):
 ![Download the latest version for Windows](images/download-python-windows.png)
@@ -64,7 +64,7 @@ TODO
 ![User admin privileges when installing py.exe / Add python.exe to PATH](images/install-python-windows.png)
 5. Python should install itself and then display a success message.
 
-### For Mac users
+### Python for Mac users
 
 1. Go to https://www.python.org/downloads/ and download the latest version as per the big yellow button (3.9.4 in this case): 
 ![Download the latest version for Mac OS X](images/download-python-mac.png)
@@ -74,11 +74,11 @@ TODO
 
 ## Download/install Python dependencies
 
-### For Windows users
+### Python dependences for Windows users
 
 TODO
 
-### For Mac users
+### Python dependences for Mac users
 
 TODO
 
