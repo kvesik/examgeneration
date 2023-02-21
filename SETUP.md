@@ -11,9 +11,9 @@ There are a few options when it comes to deciding how you will download/run the 
  3. [Download/install Python dependencies](#iv-downloadinstall-python-dependencies).
  4. Set up $\LaTeX$ either on your own computer or via an online account with Overleaf.
     - (a) If you already have a $\LaTeX$ editor installed on your computer, feel free to use it. If not,
-    - (b) Recommended approach: [Get started with $\LaTeX$ using Overleaf](#v-get-started-with-latex-using-overleaf).
+    - (b) Recommended approach: [Get started with LaTeX using Overleaf](#v-get-started-with-latex-using-overleaf).
  5. [Run the Python script](#vi-run-the-python-script).
- 6. [Generate .pdfs using $\LaTeX$](#vii-generate-pdfs-using-latex).
+ 6. [Generate .pdfs using LaTeX](#vii-generate-pdfs-using-latex).
 
 
 ## I. Download/install/configure GitHub Desktop
@@ -103,11 +103,25 @@ This task only needs to be done once, unless there is a big update to the softwa
 ### Python dependencies for Windows users
 
  1. Navigate to the `examgeneration` folder (using Windows file explorer) where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
- 2. TODO
+ 2. Hold down the Shift key while you right-click on the `src` folder.
+ 3. Choose "Open PowerShell window here" from the menu that pops up.
+    - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
+ 4. Type or copy & paste `pip install --upgrade pip` at the prompt and hit Enter.
+ 5. Once the upgrade is done, type or copy & paste `pip install -r ../requirements.txt` and hit Enter. The corresponding installs might take a couple of minutes but not too long. These are the other code packages that the ExamGeneration script depends on in order to run properly.
+ 6. Once these packages are installed, you can close the PowerShell window.
+
+TODO generate requirements.txt!
 
 ### Python dependencies for Mac users
 
-TODO
+ 1. Navigate to the `examgeneration` folder (using Windows file explorer) where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
+ 2. Right-click on the `src` folder.
+ 3. Choose "New Terminal at Folder" from the menu that pops up.
+    - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
+    - If you don't see the "New Terminal at Folder" option, see [this video](https://www.youtube.com/watch?v=KqtKD8z-NRc) on how to enable it.
+ 4. Type or copy & paste `pip install --upgrade pip` at the prompt and hit Return.
+ 5. Once the upgrade is done, type or copy & paste `pip install -r ../requirements.txt` and hit Return. The corresponding installs might take a couple of minutes but not too long. These are the other code packages that the ExamGeneration script depends on in order to run properly.
+ 6. Once these packages are installed, you can close the Terminal window. 
 
 ## V. Get started with $\LaTeX$ using Overleaf
 
