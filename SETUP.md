@@ -1,22 +1,22 @@
 # Getting started with Python, GitHub, and $\LaTeX$
 
-*Under construction -- check back soon!*
+*Under construction -- check back soon for updates!*
 
 There are a few options when it comes to deciding how you will download/run the exam generator software, and subsequently typeset the generated $\LaTeX$ files to create PDFs. The list below describes these options and highlights which ones are recommended if you have not used any of these tools before.
 
  1. Download the Exam Generator source code and directory structure.
-    - (a) Recommended approach (slightly more complex to set up than option b, but will allow you to receive future software updates more easily): [Download/install/configure GitHub Desktop](#downloadinstallconfigure-github-desktop).
-    - (b) Alternative approach (less complex to set up than option a, but will be trickier to access future software updates): [Download repository from GitHub](#download-repository-from-github).
- 2. [Download/install/configure Python](#downloadinstallconfigure-python).
- 3. [Download/install Python dependencies](#downloadinstall-python-dependencies).
+    - (a) Recommended approach (slightly more complex to set up than option b, but will allow you to receive future software updates more easily): [Download/install/configure GitHub Desktop](#i-downloadinstallconfigure-github-desktop).
+    - (b) Alternative approach (less complex to set up than option a, but will be trickier to access future software updates): [Download repository from GitHub](#ii-download-repository-from-github).
+ 2. [Download/install/configure Python](#iii-downloadinstallconfigure-python) if you don't already have Python installed.
+ 3. [Download/install Python dependencies](#iv-downloadinstall-python-dependencies).
  4. Set up $\LaTeX$ either on your own computer or via an online account with Overleaf.
     - (a) If you already have a $\LaTeX$ editor installed on your computer, feel free to use it. If not,
-    - (b) Recommended approach: [Get started with $\LaTeX$ using Overleaf](#get-started-with-latex-using-overleaf).
- 5. [Run the Python script](#run-the-python-script).
- 6. [Generate .pdfs using $\LaTeX$](#generate-pdfs-using-latex).
+    - (b) Recommended approach: [Get started with $\LaTeX$ using Overleaf](#v-get-started-with-latex-using-overleaf).
+ 5. [Run the Python script](#vi-run-the-python-script).
+ 6. [Generate .pdfs using $\LaTeX$](#vii-generate-pdfs-using-latex).
 
 
-## Download/install/configure GitHub Desktop
+## I. Download/install/configure GitHub Desktop
 
 ### GitHub Desktop for Windows users
 
@@ -61,7 +61,7 @@ There are a few options when it comes to deciding how you will download/run the 
     - (d) Clicking the "Fetch Origin" button at the top right is what refreshes your local copy of the code with any recent updates that have been made by the programmers. If it changes to "Pull Origin" after you click "Fetch Origin" you should click it again. "Fetch" checks to see if there are any updates, and "Pull" means there are in fact new updates that do need to be downloaded onto your computer.
 ![Fetch origin](images/fetch-github.png) You should open GitHub Desktop and fetch/pull every once in a while (monthly, maybe?). Other than that, though, you likely won’t need to use GitHub Desktop for much.
 
-## Download repository from GitHub
+## II. Download repository from GitHub
 
  1. Go to https://github.com/kvesik/examgeneration, click on the green "Code" button on the right, and select "Download ZIP" from the menu that opens.
  
@@ -71,9 +71,9 @@ There are a few options when it comes to deciding how you will download/run the 
  2. Save the .zip archive to the folder where you'd like the Exam Generation software to live on your computer.
  3. Extract the .zip archive.
 
-## Download/install/configure Python
+## III. Download/install/configure Python
 
-### Python for Windows users
+###  Python for Windows users
 
 1. Go to https://www.python.org/downloads/ and download the latest version as per the big yellow button (3.11.1 in this case):
 ![Download the latest version for Windows](images/download-python-windows.png)
@@ -90,25 +90,29 @@ There are a few options when it comes to deciding how you will download/run the 
 3. Proceed through the installation.
 4. Python should install itself and then display a success message.
 
-## Download/install Python dependencies
+## IV. Download/install Python dependencies
 
 ### Python dependencies for Windows users
 
-TODO
+ 1. Navigate to the `examgeneration` folder (using Windows file explorer) where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
+ 2. TODO
 
 ### Python dependencies for Mac users
 
 TODO
 
-## Get started with $\LaTeX$ using Overleaf
+## V. Get started with $\LaTeX$ using Overleaf
+
+ 1. Go to https://www.overleaf.com/ and click "Register" at the top right.
+ 2. Follow the steps to create an account.
+ 3. You'll be uploading the contents of your `examgeneration/exams/` folder (including the `images/` subfolder to an Overleaf project once you've run the Python script as per Section [VI](#vi-run-the-python-script) below.
+ 4. Once you've uploaded those files and opened the project, you'll select the .tex file you want to typeset from the menu on the left, and then click the green "Recompile" button near the top of the right-hand side of the screen.
+
+## VI. Run the Python script
 
 TODO
 
-## Run the Python script
-
-TODO
-
-## Generate .pdfs using $\LaTeX$
+## VII. Generate .pdfs using $\LaTeX$
 
 TODO
 
