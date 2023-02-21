@@ -2,7 +2,7 @@
 
 *Under construction -- check back soon for updates!*
 
-There are a few options when it comes to deciding how you will download/run the exam generator software, and subsequently typeset the generated $\LaTeX$ files to create PDFs. The list below describes these options and highlights which ones are recommended if you have not used any of these tools before.
+There are a few options when it comes to deciding how you will download/run the exam generator software, and subsequently typeset the generated $\LaTeX$ files to create PDFs. The list below describes these options (with links to detailed instructions) and highlights which ones are recommended if you have not used any of these tools before. Most of these tasks only need be done once, to set up your computer to be able to generate exams. However, the last two ("Run the Python script" and "Generate .pdfs using $\LaTeX$") will need to be done each time you want to generate a new set of exams.
 
  1. Download the Exam Generator source code and directory structure.
     - (a) Recommended approach (slightly more complex to set up than option b, but will allow you to receive future software updates more easily): [Download/install/configure GitHub Desktop](#i-downloadinstallconfigure-github-desktop).
@@ -17,6 +17,8 @@ There are a few options when it comes to deciding how you will download/run the 
 
 
 ## I. Download/install/configure GitHub Desktop
+
+This task only needs to be done once (but NB the very last step-- 5d for Windows users / 6d for Mac users).
 
 ### GitHub Desktop for Windows users
 
@@ -63,6 +65,8 @@ There are a few options when it comes to deciding how you will download/run the 
 
 ## II. Download repository from GitHub
 
+This task only needs to be done once.
+
  1. Go to https://github.com/kvesik/examgeneration, click on the green "Code" button on the right, and select "Download ZIP" from the menu that opens.
  
     ![Code / Download ZIP](images/download-code.png)
@@ -72,6 +76,8 @@ There are a few options when it comes to deciding how you will download/run the 
  3. Extract the .zip archive.
 
 ## III. Download/install/configure Python
+
+This task only needs to be done once.
 
 ###  Python for Windows users
 
@@ -92,6 +98,8 @@ There are a few options when it comes to deciding how you will download/run the 
 
 ## IV. Download/install Python dependencies
 
+This task only needs to be done once, unless there is a big update to the software that references new code packages.
+
 ### Python dependencies for Windows users
 
  1. Navigate to the `examgeneration` folder (using Windows file explorer) where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
@@ -103,6 +111,8 @@ TODO
 
 ## V. Get started with $\LaTeX$ using Overleaf
 
+This task only needs to be done once.
+
  1. Go to https://www.overleaf.com/ and click "Register" at the top right.
  2. Follow the steps to create an account.
  3. You'll be uploading the contents of your `examgeneration/exams/` folder (including the `images/` subfolder to an Overleaf project once you've run the Python script as per Section [VI](#vi-run-the-python-script) below.
@@ -110,9 +120,13 @@ TODO
 
 ## VI. Run the Python script
 
+This task needs to be done each time you want to generate a new set of exams, followed by task [VII](#vii-generate-pdfs-using-latex).
+
 TODO
 
 ## VII. Generate .pdfs using $\LaTeX$
+
+This task needs to be done each time you want to generate a new set of exams, following task [VI](#vi-run-the-python-script).
 
 TODO
 
