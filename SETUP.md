@@ -1,7 +1,5 @@
 # Getting started with Python, GitHub, and $\LaTeX$
 
-*Under construction -- check back soon for updates!*
-
 There are a few options when it comes to deciding how you will download/run the exam generator software, and subsequently typeset the generated $\LaTeX$ files to create PDFs. The list below describes these options (with links to detailed instructions) and highlights which ones are recommended if you have not used any of these tools before. Most of these tasks only need be done once, to set up your computer to be able to generate exams. However, the last two ("Run the Python script" and "Generate .pdfs using $\LaTeX$") will need to be done each time you want to generate a new set of exams.
 
  1. Download the Exam Generator source code and directory structure.
@@ -184,10 +182,7 @@ However, if you are new to $\LaTeX$ and have just opened an Overleaf account in 
     ![Download Overleaf PDF](images/overleaf-downloadpdf.png)
     <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-downloadpdf.png"  alt="Download Overleaf PDF" width="400"> -->
 
- 8. You may choose to do this only once ever, once per course/section, or once per set of exams-- it's up to you to decide how or whether you want to organize this portion of your exam resources.
- 
- 9. TODO
+Anytime you regenerate new exam .tex files using the python script on your computer, you can choose to either update this existing Overleaf project or simply create a new one again as per the instructions above. Your choise might depend on whether you want to keep the exam files organized in Overleaf as well, or use it solely for generating the .pdf files which you then store back on your local machine.
 
-TODO
 
 
