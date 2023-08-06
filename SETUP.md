@@ -125,7 +125,7 @@ This task only needs to be done once, unless there is a big update to the softwa
 
 This task only needs to be done once.
 
- 1. Go to https://www.overleaf.com/ and click "Register" at the top right.
+ 1. Go to [overleaf.com](https://www.overleaf.com/) and click "Register" at the top right.
  2. Follow the steps to create an account.
  3. You'll be uploading the contents of your `examgeneration/exams/` folder (including the `images/` subfolder to an Overleaf project once you've run the Python script as per Section [VI](#vi-run-the-python-script) below.
  4. Once you've uploaded those files and opened the project, you'll select the .tex file you want to typeset from the menu on the left, and then click the green "Recompile" button near the top of the right-hand side of the screen.
@@ -142,7 +142,7 @@ This task needs to be done each time you want to generate a new set of exams, fo
  4. Choose "Open PowerShell window here" from the menu that pops up.
     - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
  6. Type `python generateexams.py` and press Enter (or you might have to try `python3 generateexams.py` if the first attempt doesn’t work).
- 7. The script does not have a GUI (Graphical User Interface); you will interact with in the PowerShell window, via the keyboard.
+ 7. The script does not have a GUI (Graphical User Interface); you will interact with in the PowerShell window, via the keyboard. Follow the directions provided in PowerShell.
 
 ### Running the Python script for Mac users
 
@@ -152,11 +152,24 @@ This task needs to be done each time you want to generate a new set of exams, fo
  4. Choose "New Terminal at Folder" from the menu that pops up.
     - At this point the prompt in the PowerShell window should end with `\examgeneration\src>`. If it does not, you can either navigate *downward* by typing e.g. `cd src` or *upward* by typing `cd ..`
  5. Type `python generateexams.py` and press Return (or you might have to try `python3 generateexams.py` if the first attempt doesn’t work).
- 6. The script does not have a GUI (Graphical User Interface); you will interact with in the Terminal window, via the keyboard.
+ 6. The script does not have a GUI (Graphical User Interface); you will interact with in the Terminal window, via the keyboard. Follow the directions provided in Terminal.
 
 ## VII. Generate .pdfs using $\LaTeX$
 
-This task needs to be done each time you want to generate a new set of exams, following task [VI](#vi-run-the-python-script).
+This task needs to be done each time you want to generate a new set of exams, following task [VI](#vi-run-the-python-script). 
+
+If you already have $\LaTeX$ installed on your computer and are familiar with how to use it, feel free to open the .tex files generated in task [VI](#vi-run-the-python-script) and compile into .pdf files as usual (note that you will need to use XeTex because of the font packages used by this tool).
+
+However, if you are new to $\LaTeX$ and have just opened an Overleaf account in task V above, then follow the instructions below.
+
+ 1. Log into [Overleaf](https://www.overleaf.com/project).
+ 2. Click "New Project" at the top left, and .
+ 3. You may choose to do this only once ever, once per course/section, or once per set of exams-- it's up to you to decide how or whether you want to organize this portion of your exam resources.
+ 
+    ![New Overleaf project](images/overleaf-newproject.png)
+    <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-newproject.png"  alt="New Overleaf project" width="400"> -->
+    
+ 4. TODO
 
 TODO
 
