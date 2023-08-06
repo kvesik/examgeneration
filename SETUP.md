@@ -184,10 +184,7 @@ However, if you are new to $\LaTeX$ and have just opened an Overleaf account in 
     ![Download Overleaf PDF](images/overleaf-downloadpdf.png)
     <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-downloadpdf.png"  alt="Download Overleaf PDF" width="400"> -->
 
- 8. You may choose to do this only once ever, once per course/section, or once per set of exams-- it's up to you to decide how or whether you want to organize this portion of your exam resources.
- 
- 9. TODO
+Anytime you regenerate new exam .tex files using the python script on your computer, you can choose to either update this existing Overleaf project or simply create a new one again as per the instructions above. Your choise might depend on whether you want to keep the exam files organized in Overleaf as well, or use it solely for generating the .pdf files which you then store back on your local machine.
 
-TODO
 
 
