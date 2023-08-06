@@ -14,7 +14,7 @@ This project is licensed under the [GNU General Public License v3.0](LICENSE.md)
  3.	Open generated .tex sources (generated in a timestamped subdirectory under `exams/`) and compile into pdfs using your favourite LaTeX editor (or you could uncomment the pdf generation lines in the python script, but be aware that these don't handle compilation errors at all gracefully and you could end up with both latex and python processes hanging). Note that you have to use the XeLaTeX engine in order for IPA fonts to work correctly.
 
 ## Slightly Less-Quick Start (for users without Python and/or $\LaTeX$ installed)
-See our page on [getting started with Python and LaTeX](SETUP.md) for instructions on how to download and install Python, and how to either use $\LaTeX$ online.
+See our page on [getting started with Python and LaTeX](SETUP.md) for instructions on how to download and install Python, and how to use $\LaTeX$ online.
 
 ## Which files can be copied/edited/customized for your purposes
  1. [Question bank](#Question-bank)
