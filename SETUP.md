@@ -160,16 +160,33 @@ This task needs to be done each time you want to generate a new set of exams, fo
 
 If you already have $\LaTeX$ installed on your computer and are familiar with how to use it, feel free to open the .tex files generated in task [VI](#vi-run-the-python-script) and compile into .pdf files as usual (note that you will need to use XeTex because of the font packages used by this tool).
 
-However, if you are new to $\LaTeX$ and have just opened an Overleaf account in task V above, then follow the instructions below.
+However, if you are new to $\LaTeX$ and have just opened an Overleaf account in task [V](#v-get-started-with-latex-using-overleaf) above, then follow the instructions below.
 
- 1. Log into [Overleaf](https://www.overleaf.com/project).
- 2. Click "New Project" at the top left, and .
- 3. You may choose to do this only once ever, once per course/section, or once per set of exams-- it's up to you to decide how or whether you want to organize this portion of your exam resources.
- 
-    ![New Overleaf project](images/overleaf-newproject.png)
-    <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-newproject.png"  alt="New Overleaf project" width="400"> -->
+ 1. Select the exam folder and the `images` folder generated in task [VI](#vi-run-the-python-script) and compress them into a .zip file.
+
+    ![Zip exam files](images/zip-examfiles.png)
+    <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/zip-examfiles.png"  alt="Zip exam files" width="400"> -->
     
- 4. TODO
+ 2. Log into [Overleaf](https://www.overleaf.com/project).
+ 3. Click "New Project" at the top left, and select "Upload Project" from the menu that appears.
+
+    ![Upload new Overleaf project](images/overleaf-newproject-upload.png)
+    <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-newproject-upload.png"  alt="Upload new Overleaf project" width="400"> -->
+
+ 4. Select or drag into Overleaf the .zip file you just created.
+ 5. You will likely see some errors on the right-hand side of the page. In order to succesfully compile the .tex files into .pdf files, click the Menu button at the top left of the page and select "XeLaTex" in the Compiler menu under Settings.
+
+    ![Set Compiler to XeLaTex](images/overleaf-xelatex.png)
+    <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-xelatex.png"  alt="Set Compiler to XeLaTex" width="400"> -->
+
+ 6. Click back in the main part of the project window, select your desired .tex file (question bank? exam? instructor copy?) in the list on the left-hand side, and click "Recompile" at the top right of the page. You should now see a formatted document on the right-hand side of the screen. You can download this to your computer by clicking the "Download PDF" button above the document.
+
+    ![Download Overleaf PDF](images/overleaf-downloadpdf.png)
+    <!-- <img src="https://github.com/kvesik/examgeneration/blob/master/overleaf-downloadpdf.png"  alt="Download Overleaf PDF" width="400"> -->
+
+ 8. You may choose to do this only once ever, once per course/section, or once per set of exams-- it's up to you to decide how or whether you want to organize this portion of your exam resources.
+ 
+ 9. TODO
 
 TODO
 
