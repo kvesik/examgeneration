@@ -110,8 +110,6 @@ This task only needs to be done once, unless there is a big update to the softwa
  5. Once the upgrade is done, type or copy & paste `pip install -r ../requirements.txt` and hit Enter. The corresponding installs might take a couple of minutes but not too long. These are the other code packages that the ExamGeneration script depends on in order to run properly.
  6. Once these packages are installed, you can close the PowerShell window.
 
-TODO generate requirements.txt!
-
 ### Python dependencies for Mac users
 
  1. Using Finder, navigate to the `examgeneration` folder where you saved the GitHub repository in Section [I](#i-downloadinstallconfigure-github-desktop) or [II](#ii-download-repository-from-github) above.
