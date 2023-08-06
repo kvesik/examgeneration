@@ -1,7 +1,5 @@
 # Getting started with Python, GitHub, and $\LaTeX$
 
-*Under construction -- check back soon for updates!*
-
 There are a few options when it comes to deciding how you will download/run the exam generator software, and subsequently typeset the generated $\LaTeX$ files to create PDFs. The list below describes these options (with links to detailed instructions) and highlights which ones are recommended if you have not used any of these tools before. Most of these tasks only need be done once, to set up your computer to be able to generate exams. However, the last two ("Run the Python script" and "Generate .pdfs using $\LaTeX$") will need to be done each time you want to generate a new set of exams.
 
  1. Download the Exam Generator source code and directory structure.
