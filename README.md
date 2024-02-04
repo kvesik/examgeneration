@@ -2,7 +2,7 @@
 
 This pedagogically-informed software is part of a project I work on with Kathleen Currie Hall.
 * Take a look at [our slides](https://github.com/kvesik/examgeneration/blob/master/CLA2021slides_Vesik_Hall_RandomSampledExamsForBetterLearning.pdf) from June 4 2021 at [ACL|CLA 2021](https://cla-acl.ca/programmes/congres-de-2021-meeting.html), introducing this project and the pedagogical concepts in which it's grounded.
-* We've got a paper in the works (submitted May 31 2022 and currently under revision)... stay tuned!
+* We've got a paper in the works (submitted May 31 2022 and undergoing final revisions as of April 2024)... stay tuned!
 
 This project is licensed under the [GNU General Public License v3.0](LICENSE.md) (GPLv3).
 
