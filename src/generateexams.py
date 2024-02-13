@@ -543,7 +543,7 @@ class ExamSession:
             topicslist, diffslist = maketopicdiffcombo(topicsneeded, diffsneeded, wildcardtopics)
             numiterations += 1
         if numiterations >= 100:
-            print("Looks like we might be heading into an infite loop looking for topic/difficulty combinations;")
+            print("Looks like we might be heading into an infinite loop looking for topic/difficulty combinations;")
             print("please double-check that your distributions are feasible.")
             print("----- Exiting -----")
             sys.exit(1)
