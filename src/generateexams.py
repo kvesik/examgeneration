@@ -10,6 +10,7 @@ import os
 import sys
 import random
 from datetime import date, datetime
+from dateutil import parser
 from Exam import Question
 import examio
 from examio import WILD
@@ -118,6 +119,7 @@ class ExamSession:
         print("generating one day's exams / date", examdate)
 
         sched = self.signups[examdate]
+        sched.sort(key=lambda x: str_to_time(x[0]))
 
         instrfilepath = texfilepath.replace(".tex", "_instructorcopy.tex")
         with open(instrfilepath, "w", encoding="utf-8") as inf:
@@ -617,6 +619,17 @@ class ExamSession:
 #
 # vvv helper functions vvv
 #
+
+# Returns a datetime.time object corresponding to the time represented by s
+# Parameters:   s (string): a time of day in any format (e.g. "18:32", "4:30PM", "10:05 AM", "PM 5:34", etc)
+def str_to_time(s):
+    s = s.upper()
+    if s.startswith("AM") or s.startswith("PM"):
+        # parser doesn't know how to deal with prepended am/pm
+        s = s[2:].strip() + s[:2]
+    t = parser.parse(s).time()
+    return t
+
 
 # Returns True iff there is a Question in questions with the given uniqueid
 # Parameters:   uniqueid (string): the unique question ID to check for
